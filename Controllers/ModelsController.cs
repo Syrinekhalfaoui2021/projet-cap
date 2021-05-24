@@ -101,11 +101,11 @@ namespace CE.Controllers
 
         {
             _context.Add(ac);
-
+            _context.SaveChanges();
             return RedirectToAction(nameof(IndexModels));
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles ="Admin")]
 
         [HttpPost]
         [ValidateAntiForgeryToken]

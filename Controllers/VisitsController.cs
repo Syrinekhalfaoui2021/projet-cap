@@ -150,12 +150,12 @@ namespace CE.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddOrEdite(int id, [Bind("IdVisit,Date,Entrytime,Exittime,Remark,Article,Activity,Zone,NameOutlet")] Visits visits)
+        public async Task<IActionResult> AddOrEdite(int id, [Bind("IdVisit,Date,Entrytime,Exittime,Remark,IdOutlet")] Visits visits)
         {
             if (ModelState.IsValid)
             {
                 ViewBag.Outlets = await GetOutletsSelectList();
-                if (visits.IdVisit == 0)
+                if (id == 0)
                 {
 
                     var user = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -164,9 +164,23 @@ namespace CE.Controllers
                     _context.Add(visits);
                 }
                 else
-                    _context.Update(visits);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Indexe));
+                {
+                    visits.IdVisit = id;
+                        _context.Update(visits);
+
+
+                }
+            try
+            {
+                var x = _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+
+            return RedirectToAction(nameof(Indexe));
             }
             return View(visits);
         }
