@@ -1,0 +1,93 @@
+﻿@model IEnumerable<CE.Data.Visitsmonthly>
+
+@using Microsoft.AspNetCore.Identity
+ 
+@using CE.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="content-header">
+    <h1>
+        Visits
+        <small>Visit Monthly </small>
+        <small>Visit Monthly Models </small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Visits</a></li>
+        <li class="active">Visit Monthly</li>
+        <li class="active">Visit Monthly Models</li>
+    </ol>
+</section>
+<hr />
+
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+
+            <th>
+
+                Brand
+            </th>
+            <th>
+                Category
+            </th>
+
+            <th>
+                Model
+            </th>
+            <th>
+                Shelf share
+            </th>
+            <th>
+                W/S
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                <a asp-action="Indexmonthly" class="btn btn-block btn-primary">SAVE</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand.Namebrand)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Models.Category)
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Models.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Models.ShelfShare)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Models.Weeklysail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Models.Price)
+                </td>
+
+                <td>
+                    <a asp-action="DeleteModels" asp-route-id="@item.Models.Code" class="btn btn-block btn-danger" onclick="return confirm('Are you sure to delete this record?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

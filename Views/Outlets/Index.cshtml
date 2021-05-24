@@ -1,0 +1,121 @@
+﻿
+
+@model IEnumerable<CE.Data.Outlets>
+
+
+
+@using Microsoft.AspNetCore.Identity
+@using CE.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section class="content-header">
+    <h1>
+        <i class="fa fa-fw fa-qrcode"></i>
+        Outlets
+        <small>Outlet</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="/admin/Index.cshtml">Outlets</a></li>
+        <li class="active">Outlet</li>
+    </ol>
+</section>
+
+<hr />
+
+
+<div class="input-group">
+    <div class="input-group-btn">
+        <form asp-action="Search" method="post">
+            <input type="text" name="search" class="form-control" placeholder="Search...">
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</div>
+<div>
+    <form asp-action="DownloadExcelDocument" method="post">
+        <button name="export" class="btn btn-primary" type="submit">Export</button>
+    </form>
+
+    <form asp-action="ImportExcelDocument" method="post"
+          enctype="multipart/form-data">
+        <label for="file" class="btn">Select a file</label>
+        <input class="hide" id="file" type="file" name="file" />
+        <div id="file-name-container"></div>
+        <button disabled id="submit-file-btn" class="btn btn-primary" name="import" type="submit">Import</button>
+    </form>
+
+
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdOutlet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameOutlet)
+            </th>
+            <th>
+                SFO
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                <a asp-action="AddOrEdit" class="btn btn-block btn-primary">ADD</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdOutlet)
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.NameOutlet)
+
+                </td>
+                <td>
+                    @if (item.User != null)
+                    {
+                        @item.User.FirstName @item.User.LastName
+                    }
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Zone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+
+                <td>
+                    <a asp-action="AddOrEdit" asp-route-id="@item.IdOutlet" class="btn btn-block btn-success">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdOutlet" class="btn btn-block btn-danger" onclick="return confirm('Are you sure to delete this record?')">Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+

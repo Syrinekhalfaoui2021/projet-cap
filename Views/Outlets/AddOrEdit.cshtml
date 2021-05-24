@@ -1,0 +1,118 @@
+﻿@model CE.Data.Outlets
+@using Microsoft.AspNetCore.Identity
+@using CE.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Outlet Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdOutlet" />            
+            <div class="form-group">
+                <label asp-for="IdOutlet" class="control-label"></label>
+                <input asp-for="IdOutlet" class="form-control" />
+                <span asp-validation-for="IdOutlet" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="NameOutlet" class="control-label"></label>
+                <input asp-for="NameOutlet" class="form-control" />
+                <span asp-validation-for="NameOutlet" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Compte" class="control-label"></label>
+                    <input asp-for="Compte" class="form-control" />
+                    <span asp-validation-for="Compte" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Type" class="control-label"></label>
+                    <input asp-for="Type" class="form-control" />
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Class" class="control-label"></label>
+                <input asp-for="Class" class="form-control" />
+                <span asp-validation-for="Class" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Activity" class="control-label"></label>
+                <input asp-for="Activity" class="form-control" />
+                <span asp-validation-for="Activity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zone" class="control-label"></label>
+                <input asp-for="Zone" class="form-control" />
+                <span asp-validation-for="Zone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Longitude" class="control-label"></label>
+                <input asp-for="Longitude" class="form-control" />
+                <span asp-validation-for="Longitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Latitude" class="control-label"></label>
+                <input asp-for="Latitude" class="form-control" />
+                <span asp-validation-for="Latitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="District" class="control-label"></label>
+                <input asp-for="District" class="form-control" />
+                <span asp-validation-for="District" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Channel" class="control-label"></label>
+                <input asp-for="Channel" class="form-control" />
+                <span asp-validation-for="Channel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Keydealer" class="control-label"></label>
+                <input asp-for="Keydealer" class="form-control" />
+                <span asp-validation-for="Keydealer" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-action="Index" class="btn btn-secondary btn-block"><i class="fa fa-table"></i> Back to List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

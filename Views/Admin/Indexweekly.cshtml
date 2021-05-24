@@ -1,0 +1,131 @@
+﻿@model IEnumerable<CE.Data.Visitsweekly>
+
+
+
+@using Microsoft.AspNetCore.Identity
+@using CE.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section class="content-header">
+
+    <h1>
+        Visits
+        <small>Visits Weekly</small>
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Visits</a></li>
+        <li class="active">Visits Weekly</li>
+    </ol>
+</section>
+<hr />
+
+
+
+<div>
+    <div>
+        <form class="container" asp-action="Searchvisitweekly" method="post">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="date" name="startDate" class="form-control" placeholder="Start date">
+                </div>
+                <div class="col-md-6">
+                    <input type="date" name="endDate" class="form-control" placeholder="End date">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" name="Searchvisitweekly" class="form-control" placeholder="Search...">
+                </div>
+                <div class="col-md-6">
+                    @Html.DropDownList("Users", ViewBag.Users as IEnumerable<SelectListItem>, htmlAttributes: new { @class = "form-control", @placeholder = "Field Officer" })
+
+                </div>
+            </div>
+            <div class="col-md-push-4">
+                <button type="submit" name="Searchvisitweekly" id="search-btn" class="btn btn-primary">
+                    <i class="fa fa-search"></i> Search
+                </button>
+            </div>       
+   
+    </form>
+</div>
+
+    <form asp-action="DownloadExcelDocumentvisitweekly" method="post">
+        <button name="Exportvisitweekly" class="btn btn-primary" type="submit">Export</button>
+    </form>
+
+    <form asp-action="ImportExcelDocumentvisitweekly" method="post"
+          enctype="multipart/form-data">
+        <label for="file" class="btn">Select a file</label>
+        <input class="hide" id="file" type="file" name="file" />
+        <div id="file-name-container"></div>
+        <button disabled id="submit-file-btn" class="btn btn-primary" name="Importdatavisitweekly" type="submit">Import</button>
+    </form>
+
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+
+            <th>
+                Outlets
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+
+            <th>
+                Time
+            </th>
+
+            <th>
+
+                <a asp-action="AddOrEditweekly" class="btn btn-block btn-primary">ADD</a>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Outlets.NameOutlet)
+                </td>
+
+                <td>
+
+                    @item.User.FirstName @item.User.LastName
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @{
+                        var time = item.Date.ToString("H:mm");
+                    }
+                    @Html.DisplayFor(modelItem => time)
+                </td>
+
+
+                <td>
+                    <a asp-action="AddOrEditweekly" asp-route-id="@item.IdVisit" class="btn btn-block btn-success">Edit</a>
+                    <a asp-action="Deleteweekly" asp-route-id="@item.IdVisit" class="btn btn-block btn-danger" onclick="return confirm('Are you sure to delete this record?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

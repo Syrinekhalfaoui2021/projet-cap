@@ -1,0 +1,68 @@
+﻿@model CE.Data.Visitsweekly
+@using Microsoft.AspNetCore.Identity
+@using CE.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Create";
+}
+
+    <h4>Visits Form</h4>
+    <hr />
+    <br />
+  
+        <div class="col-md-6">
+            <form asp-action="AddOrEditweekly">
+
+                <div class="form-group">
+                  
+                    <select asp-for="Outlets.NameOutlet" asp-items="ViewBag.Outlets" class="form-control"></select>
+
+                    <span asp-validation-for="Outlets.NameOutlet" class="text-danger"></span>
+                 </div>
+
+                    <br />
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Date" class="control-label"></label>
+                            <label asp-for="Date" class="form-control">@Html.DisplayFor(Model => Model.Date)</label>
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Entrytime" class="control-label"></label>
+                            <label asp-for="Entrytime" class="form-control">@Html.DisplayFor(Model => Model.Entrytime)</label>
+                            <span asp-validation-for="Entrytime" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="Remark" class="control-label"></label>
+                        <input asp-for="Remark" class="form-control" />
+                        <span asp-validation-for="Remark" class="text-danger"></span>
+                    </div>
+
+                   
+
+                    <br />
+                    <center></center>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <a asp-action="Indexweekly" class="btn btn-secondary btn-block"><i class="fa fa-table"></i> Back to List</a>
+                        </div>
+                    </div>
+
+</form>
+        </div>
+ 
+
+
+   
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

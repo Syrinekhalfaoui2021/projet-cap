@@ -1,0 +1,148 @@
+﻿@model CE.Data.REF
+@using Microsoft.AspNetCore.Identity
+@using CE.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>REF Model Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddOrEditModels">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Code" />
+            <div class="form-group">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Brand.Namebrand" class="control-label"></label>
+                    <input asp-for="Brand.Namebrand" class="form-control" />
+                    <span asp-validation-for="Brand.Namebrand" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="TypeREF" class="control-label"></label>
+                    <select asp-for="TypeREF" asp-items="Html.GetEnumSelectList<TypeREF>()" class="form form-control">
+                    </select>
+                    <span asp-validation-for="TypeREF" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Type2" class="control-label"></label>
+                    <select asp-for="Type2" asp-items="Html.GetEnumSelectList<TypeREF2>()" class="form form-control">
+                    </select>
+                    <span asp-validation-for="Type2" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Color" class="control-label"></label>
+                    <input asp-for="Color" class="form-control" />
+                    <span asp-validation-for="Color" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Segment" class="control-label"></label>
+                    <select asp-for="Segment" asp-items="Html.GetEnumSelectList<Segment>()" class="form form-control">
+                    </select>
+                    <span asp-validation-for="Segment" class="text-danger"></span>
+                </div>
+            </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Segment2" class="control-label"></label>
+                        <select asp-for="Segment2" asp-items="Html.GetEnumSelectList<SegmentREF>()" class="form form-control">
+                        </select>
+                        <span asp-validation-for="Segment2" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Capacity" class="control-label"></label>
+                        <input asp-for="Capacity" class="form-control" />
+                        <span asp-validation-for="Capacity" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Energy" class="control-label"></label>
+                        <select asp-for="Energy" asp-items="Html.GetEnumSelectList<Energy>()" class="form form-control">
+                        </select>
+                        <span asp-validation-for="Energy" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Class" class="control-label"></label>
+                        <select asp-for="Class" asp-items="Html.GetEnumSelectList<Class>()" class="form form-control">
+                        </select>
+                        <span asp-validation-for="Class" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Technology" class="control-label"></label>
+                        <input asp-for="Technology" class="form-control" />
+                        <span asp-validation-for="Technology" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Frost" class="control-label"></label>
+                        <select asp-for="Frost" asp-items="Html.GetEnumSelectList<Frost>()" class="form form-control">
+                        </select>
+                        <span asp-validation-for="Frost" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Display" class="control-label"></label>
+                        <select asp-for="Display" asp-items="Html.GetEnumSelectList<Display>()" class="form form-control">
+                        </select>
+                        <span asp-validation-for="Display" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Waterdispenser" class="control-label"></label>
+                        <select asp-for="Waterdispenser" asp-items="Html.GetEnumSelectList<Waterdispenser>()" class="form form-control">
+                        </select>
+                        <span asp-validation-for="Waterdispenser" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Availibility" class="control-label"></label>
+                        <select asp-for="Availibility" asp-items="Html.GetEnumSelectList<AV>()" class="form form-control">
+                        </select>
+                        <span asp-validation-for="Availibility" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <input type="submit" value="Save" class="btn btn-primary btn-block" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <a asp-action="IndexModels" class="btn btn-block btn-danger"><i class="fa fa-table"></i>Cancel</a>
+                    </div>
+                </div>
+</form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

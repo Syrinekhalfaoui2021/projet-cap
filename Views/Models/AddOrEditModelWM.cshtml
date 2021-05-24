@@ -1,0 +1,145 @@
+﻿@model CE.Data.WM
+@using Microsoft.AspNetCore.Identity
+@using CE.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>WM Model Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddOrEditModels">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Code" />
+            <div class="form-group">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Brand.Namebrand" class="control-label"></label>
+                    <input asp-for="Brand.Namebrand" class="form-control" />
+                    <span asp-validation-for="Brand.Namebrand" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="TypeWM" class="control-label"></label>
+                    <input asp-for="TypeWM" class="form-control" />
+                    <span asp-validation-for="TypeWM" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="TypeWM2" class="control-label"></label>
+                    <input asp-for="TypeWM2" class="form-control" />
+                    <span asp-validation-for="TypeWM2" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Color" class="control-label"></label>
+                    <input asp-for="Color" class="form-control" />
+                    <span asp-validation-for="Color" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="segementWM" class="control-label"></label>
+                    <select asp-for="segementWM" asp-items="Html.GetEnumSelectList<SegementWM>()" class="form form-control">
+                      
+
+
+
+                    </select>
+                    <span asp-validation-for="segementWM" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Capacity" class="control-label"></label>
+                    <input asp-for="Capacity" class="form-control" />
+                    <span asp-validation-for="Capacity" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Drying" class="control-label"></label>
+                    <select asp-for="Drying" asp-items="Html.GetEnumSelectList<Drying>()" class="form form-control">
+                        <option value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Drying" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="DryerCapacity" class="control-label"></label>
+                    <input asp-for="DryerCapacity" class="form-control" />
+                    <span asp-validation-for="DryerCapacity" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Technology" class="control-label"></label>
+                    <input asp-for="Technology" class="form-control" />
+                    <span asp-validation-for="Technology" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="SizeCategory" class="control-label"></label>
+                    <input asp-for="SizeCategory" class="form-control" />
+                    <span asp-validation-for="SizeCategory" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Class" class="control-label"></label>
+                    <select asp-for="Class" asp-items="Html.GetEnumSelectList<ClassWM>()" class="form form-control">
+                     
+                    </select>
+                    <span asp-validation-for="Class" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Motor" class="control-label"></label>
+                    <select asp-for="Motor" asp-items="Html.GetEnumSelectList<Motor>()" class="form form-control">
+                        <option value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Motor" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Availibility" class="control-label"></label>
+                    <select asp-for="Availibility" asp-items="Html.GetEnumSelectList<AV>()" class="form form-control">
+                        <option value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Availibility" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Save" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-action="IndexModels" class="btn btn-block btn-danger">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,59 @@
+﻿
+@model IEnumerable<CE.Data.SammaryReportWeekly>
+
+@using Microsoft.AspNetCore.Identity
+@using CE.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section class="content-header">
+    <h1>
+        Sammary reports
+        <small>Sammary reports Weekly</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Sammary reports</a></li>
+        <li class="active">Sammary reports Weekly</li>
+    </ol>
+</section>
+<hr />
+<table class="table table-hover">
+    <thead>
+        <tr>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Idsammary)
+            </th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @item.User?.FirstName @item.User?.LastName
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Idsammary)
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

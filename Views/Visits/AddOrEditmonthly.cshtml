@@ -1,0 +1,59 @@
+﻿@model CE.Data.Visitsmonthly
+@using Microsoft.AspNetCore.Identity
+@using CE.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Visits Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddOrEditmonthly">
+
+
+
+            <div class="form-group">
+
+                <select asp-for="Outlet.NameOutlet" asp-items="ViewBag.Outlets" class="form-control"></select>
+
+                <span asp-validation-for="Outlet.NameOutlet" class="text-danger"></span>
+            </div>
+        
+            
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Date" class="control-label"></label>
+                    <label asp-for="Date" class="form-control">@Html.DisplayFor(Model => Model.Date)</label>
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Entrytime" class="control-label"></label>
+                    <label asp-for="Entrytime" class="form-control">@Html.DisplayFor(Model => Model.Entrytime)</label>
+                    <span asp-validation-for="Entrytime" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remark" class="control-label"></label>
+                <input asp-for="Remark" class="form-control" />
+                <span asp-validation-for="Remark" class="text-danger"></span>
+            </div>
+         
+
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-action="Indexmonthly" class="btn btn-secondary btn-block"><i class="fa fa-table"></i> Back to List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+﻿@model CE.Data.TV
+@using Microsoft.AspNetCore.Identity
+@using CE.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>TV Model Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+
+        <form asp-action="AddOrEditModels">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Code" />
+            <div class="form-group">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Brand.Namebrand" class="control-label"></label>
+                    <input asp-for="Brand.Namebrand" class="form-control" />
+                    <span asp-validation-for="Brand.Namebrand" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="TypeTV" class="control-label"></label>
+                    <select asp-for="TypeTV" asp-items="Html.GetEnumSelectList<TypeTV>()" class="form form-control">
+                        <option value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="TypeTV" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Size" class="control-label"></label>
+                    <input asp-for="Size" class="form-control" />
+                    <span asp-validation-for="Size" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Class" class="control-label"></label>
+                    <select asp-for="Class" asp-items="Html.GetEnumSelectList<ClassTV>()" class="form form-control">
+                    </select>
+                    <span asp-validation-for="Class" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="SizeCategory" class="control-label"></label>
+                    <input asp-for="SizeCategory" class="form-control" />
+
+                    <span asp-validation-for="SizeCategory" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Resolution" class="control-label"></label>
+                    <select asp-for="Resolution" asp-items="Html.GetEnumSelectList<Resolution>()" class="form form-control">
+                        <option value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Resolution" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Form" class="control-label"></label>
+                <select asp-for="Form" asp-items="Html.GetEnumSelectList<Form>()" class="form form-control">
+                    <option value="">Please select</option>
+                </select>
+                <span asp-validation-for="Form" class="text-danger"></span>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="SmartTV" class="control-label"></label>
+                    <select asp-for="SmartTV" asp-items="Html.GetEnumSelectList<SmartTV>()" class="form form-control">
+                        <option value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="SmartTV" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label asp-for="Availibility" class="control-label"></label>
+                    <select asp-for="Availibility" asp-items="Html.GetEnumSelectList<AV>()" class="form form-control">
+                        <option value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="Availibility" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Save" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-action="IndexModels" class="btn btn-block btn-danger">Cancel</a>
+                </div>
+            </div>
+
+        </form>
+
+        </div>
+    </div>
+
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }

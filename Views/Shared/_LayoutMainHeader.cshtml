@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<!-- Main Header -->
+<header class="main-header">
+    <!-- Logo -->
+    <a href="/home">
+        <div class="pull-left image">
+            <img  height="30" width="200" src="~/admin-lte/img/s.png" class="logo-mini">
+        </div>
+    </a>
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        
+        </a>
+        <!-- Top Menu items -->
+        <div>
+
+
+            <div class="pull-right">
+
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <div class="pull-right"></div>
+                    <button>
+                        <span type="submit" class="glyphicon glyphicon-off"></span>
+                    </button>
+                </form>
+            </div>
+
+          
+            
+        </div>
+
+        <!-- Navbar Right Menu -->
+
+
+        
+    </nav>
+</header>
