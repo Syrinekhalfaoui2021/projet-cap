@@ -7,7 +7,7 @@ namespace CE.Controllers
 {
     public interface IModelsController
     {
-        IActionResult AddOrEditBrands(int id = 0);
+        IActionResult AddOrEditBrandsAsync(int id = 0);
         Task<IActionResult> AddOrEditBrands(int id, [Bind(new[] { "codebrand,Namebrand,Color" })] brands brands);
         IActionResult AddOrEditModels();
         IActionResult AddOrEditModels(ModelEnum SelectedModel);

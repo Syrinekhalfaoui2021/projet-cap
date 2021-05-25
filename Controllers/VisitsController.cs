@@ -170,15 +170,9 @@ namespace CE.Controllers
 
 
                 }
-            try
-            {
+           
                 var x = _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-
-            }
-
+          
 
             return RedirectToAction(nameof(Indexe));
             }
@@ -228,7 +222,7 @@ namespace CE.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (visitsweekly.IdVisit == 0)
+                if (id == 0)
                 {
 
                     var user = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -236,7 +230,9 @@ namespace CE.Controllers
                     _context.Add(visitsweekly);
                 }
                 else
-                    _context.Update(visitsweekly);
+                    visitsweekly.IdVisit = id;
+
+                _context.Update(visitsweekly);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Indexweekly));
             }
@@ -290,14 +286,16 @@ namespace CE.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (visitsmonthly.IdVisit == 0)
+                if (id == 0)
                 {
                     var user = await _userManager.FindByNameAsync(User.Identity.Name);
                     visitsmonthly.User = user;
                     _context.Add(visitsmonthly);
                 }
                 else
-                    _context.Update(visitsmonthly);
+                    visitsmonthly.IdVisit = id;
+
+                _context.Update(visitsmonthly);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Indexmonthly));
             }

@@ -5,9 +5,7 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-@{
-    ViewData["Title"] = "Create";
-}
+@{ ViewData["Title"] = "Create"; }
 
 <h4>AC Model Form</h4>
 <hr />
@@ -30,16 +28,21 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label asp-for="Brand.Namebrand" class="control-label"></label>
-                    <input asp-for="Brand.Namebrand" class="form-control" />
+
+
+                    <select asp-for="Brand.codebrand" asp-items="ViewBag.Brands" class="form-control"></select>
+
                     <span asp-validation-for="Brand.Namebrand" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="TypeAC" class="control-label"></label>
-                    <input asp-for="TypeAC" class="form-control" />
-                    <span asp-validation-for="TypeAC" class="text-danger"></span>
+
                 </div>
             </div>
+
+            <div class="form-group col-md-6">
+                <label asp-for="TypeAC" class="control-label"></label>
+                <input asp-for="TypeAC" class="form-control" />
+                <span asp-validation-for="TypeAC" class="text-danger"></span>
+            </div>
+
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="Puissance" class="control-label"></label>
@@ -79,6 +82,7 @@
         </form>
     </div>
 </div>
+
 
 
 

@@ -26,7 +26,7 @@ using CE.ViewModels;
 
 namespace CE.Controllers
 {
-    public class ModelsController : Controller, IModelsController
+    public class ModelsController : Controller,IModelsController
     {
 
         private readonly ApplicationDbContext _context;
@@ -114,7 +114,7 @@ namespace CE.Controllers
 
         {
             _context.Add(rEF);
-
+            _context.SaveChanges();
             return RedirectToAction(nameof(IndexModels));
         }
         [Authorize(Roles = "Admin")]
@@ -126,7 +126,7 @@ namespace CE.Controllers
 
         {
             _context.Add(wM);
-
+            _context.SaveChanges();
             return RedirectToAction(nameof(IndexModels));
         }
         [Authorize(Roles = "Admin")]
@@ -138,7 +138,7 @@ namespace CE.Controllers
 
         {
             _context.Add(tV);
-
+            _context.SaveChanges();
             return RedirectToAction(nameof(IndexModels));
         }
 
@@ -316,8 +316,10 @@ namespace CE.Controllers
         [Authorize(Roles = "Admin")]
 
 
-        public IActionResult AddOrEditBrands(int id = 0)
+        public async Task<IActionResult> AddOrEditBrandsAsync(int id = 0)
         {
+            ViewBag.Brands = await GetBrandsSelectList();
+
             if (id == 0)
                 return View(new brands());
             else
@@ -331,10 +333,11 @@ namespace CE.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (brands.codebrand == 0)
+                if (id== 0)
                     _context.Add(brands);
                 else
-                    _context.Update(brands);
+                   
+                _context.Update(brands);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexBrands));
             }
@@ -420,7 +423,114 @@ namespace CE.Controllers
         {
             throw new NotImplementedException();
         }
-      
-       
+        private async Task<List<SelectListItem>> GetBrandsSelectList()
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (await _userManager.IsInRoleAsync(user, "Admin"))
+            {
+                return _context.Brands.ToList()
+                        .Select(x => new SelectListItem
+                        {
+                            Text = x.Namebrand,
+                            Value = x.codebrand.ToString(),
+                            Selected = false
+                        })
+                        .ToList();
+            }
+            return _context.Brands.ToList()
+                      
+                        .Select(x => new SelectListItem
+                        {
+                            Text = x.Namebrand,
+                            Value = x.codebrand.ToString(),
+                            Selected = false
+                        })
+                        .ToList();
+        }
+
+        IActionResult IModelsController.AddOrEditBrandsAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.AddOrEditBrands(int id, brands brands)
+        {
+            throw new NotImplementedException();
+        }
+
+        IActionResult IModelsController.AddOrEditModels()
+        {
+            throw new NotImplementedException();
+        }
+
+        IActionResult IModelsController.AddOrEditModels(ModelEnum SelectedModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        IActionResult IModelsController.AddOrEditsammary(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.AddOrEditsammary(int id, SammaryReport sammaryweekly)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.DeleteBrands(int? id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.DeleteModels(int? id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.Deletesammary(int? id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.DownloadExcelDocumentBrands()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.DownloadExcelDocumentModel()
+        {
+            throw new NotImplementedException();
+        }
+
+        IActionResult IModelsController.ImportExcelDocumentBrands(IFormFile input)
+        {
+            throw new NotImplementedException();
+        }
+
+        IActionResult IModelsController.ImportExcelDocumentmodel(IFormFile input)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.IndexBrands()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.IndexModels()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.Indexsammaryweekly()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.SearchmodelAsync(string search)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
