@@ -29,7 +29,6 @@ namespace CE.Data
         public string Article { get; set; }
         [Column(TypeName = "nvarchar(250)")]
         public string Activity { get; set; }
-
         [ForeignKey("Outlets")]
         public int? IdOutlet { get; set; }
         public Outlets Outlets { get; set; }
