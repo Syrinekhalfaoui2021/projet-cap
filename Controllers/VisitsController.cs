@@ -218,10 +218,12 @@ namespace CE.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddOrEditweekly(int id, [Bind("IdVisit,Date,Entrytime,Exittime,Remark,Article,Activity,Zone")] Visitsweekly visitsweekly)
+        public async Task<IActionResult> AddOrEditweekly(int id, [Bind("IdVisit,Date,Entrytime,Exittime,Remark,IdOutlet")] Visitsweekly visitsweekly)
         {
             if (ModelState.IsValid)
             {
+                ViewBag.Outlets = await GetOutletsSelectList();
+
                 if (id == 0)
                 {
 
@@ -230,7 +232,6 @@ namespace CE.Controllers
                     _context.Add(visitsweekly);
                 }
                 else
-                    visitsweekly.IdVisit = id;
 
                 _context.Update(visitsweekly);
                 await _context.SaveChangesAsync();

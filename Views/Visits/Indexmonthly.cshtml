@@ -124,9 +124,9 @@
                             </td>
 
                             <td>
-                                <a asp-action="AddOrEditmonthly" asp-route-id="@item.IdVisit" class="btn btn-success">Edit</a>
-                                <a asp-action="Deletemonthly" asp-route-id="@item.IdVisit" class="btn btn-danger" onclick="return confirm('Are you sure to delete this record?')">Delete</a>
-                                <a asp-action="MonthlyVisitsModel" class="btn btn-warning">Models</a>
+                                <a asp-action="AddOrEditmonthly" asp-route-id="@item.IdVisit" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a>
+                                <a asp-action="Deletemonthly" asp-route-id="@item.IdVisit" class="btn btn-danger" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash-o"></i>Delete</a>
+                                <a asp-action="MonthlyVisitsModel" class="btn btn-warning"><i class="fa fa-file-text-o"></i>Models</a>
 
                             </td>
                         </tr>
