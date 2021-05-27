@@ -1,31 +1,20 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using System;
+﻿using CE.Data;
+using CE.Services;
+using CE.Services.Interfaces;
+using ClosedXML.Excel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using CE.Data;
-using CE.Models;
-using CE.Services;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClosedXML.Excel;
-using static ClosedXML.Excel.XLPredefinedFormat;
-using System.IO;
-using OfficeOpenXml;
-using Microsoft.AspNetCore.Http;
 using System.Data;
-using DocumentFormat.OpenXml.Bibliography;
-using System.ComponentModel.DataAnnotations;
-using CE.Services.Interfaces;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using DateTime = System.DateTime;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using CE.ViewModels;
-using Microsoft.Data.SqlClient;
-using Microsoft.IdentityModel.Protocols;
-using System.Configuration;
 
 namespace CE.Controllers
 {
@@ -63,7 +52,7 @@ namespace CE.Controllers
         // GET: Visits
         public async Task<IActionResult> Indexe()
         {
-            
+
 
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             ViewBag.Users = GetUsersSelectList();
@@ -78,12 +67,12 @@ namespace CE.Controllers
                 .ToListAsync());
 
         }
-   
 
 
-      
 
-        
+
+
+
         private List<SelectListItem> GetUsersSelectList()
         {
             var user = _userManager.FindByNameAsync(User.Identity.Name).GetAwaiter().GetResult();
@@ -124,7 +113,7 @@ namespace CE.Controllers
                             Text = x.NameOutlet,
                             Value = x.IdOutlet.ToString(),
                             Selected = false
-                        }) 
+                        })
                         .ToList();
             }
             return _context.Outletss.ToList()
@@ -137,7 +126,7 @@ namespace CE.Controllers
                         })
                         .ToList();
         }
-        
+
         public async Task<IActionResult> AddOrEdite(int id = 0)
         {
             ViewBag.Outlets = await GetOutletsSelectList();
@@ -160,21 +149,21 @@ namespace CE.Controllers
 
                     var user = await _userManager.FindByNameAsync(User.Identity.Name);
                     visits.User = user;
-                    
+
                     _context.Add(visits);
                 }
                 else
                 {
                     visits.IdVisit = id;
-                        _context.Update(visits);
+                    _context.Update(visits);
 
 
                 }
-           
-                var x = _context.SaveChanges();
-          
 
-            return RedirectToAction(nameof(Indexe));
+                var x = _context.SaveChanges();
+
+
+                return RedirectToAction(nameof(Indexe));
             }
             return View(visits);
         }
@@ -191,7 +180,7 @@ namespace CE.Controllers
         // GET: Visitsweekly 
         public async Task<IActionResult> Indexweekly()
         {
-          
+
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             ViewBag.Users = GetUsersSelectList();
             var result = await _context.Visitssweekly
@@ -233,7 +222,7 @@ namespace CE.Controllers
                 }
                 else
 
-                _context.Update(visitsweekly);
+                    _context.Update(visitsweekly);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Indexweekly));
             }
@@ -253,7 +242,7 @@ namespace CE.Controllers
         // GET: VisitsMonthly
         public async Task<IActionResult> Indexmonthly()
         {
-           
+
 
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             ViewBag.Users = GetUsersSelectList();
@@ -405,7 +394,7 @@ namespace CE.Controllers
                     .ToList()
                     .Where(x =>
                         (x.User != null && x.User.UserName == searchvisitdaily) ||
-                      
+
                         (x.Date >= startDate && x.Date <= endDate) ||
                         (x.User != null && names.Length > 2 &&
                             String.Equals(x.User.FirstName, names[0], StringComparison.OrdinalIgnoreCase) &&
@@ -477,7 +466,7 @@ namespace CE.Controllers
                             newDatavisitweekly.Date = date;
                             newDatavisitweekly.Entrytime = date;
                         }
-                       // newDatavisitweekly.Zone = row.Cell(5).Value.ToString();
+                        // newDatavisitweekly.Zone = row.Cell(5).Value.ToString();
                         newDatavisitweekly.Outlets = _context.Outletss.ToList().FirstOrDefault(x =>
                             String.Equals(x.NameOutlet, row.Cell(1).Value.ToString(), StringComparison.OrdinalIgnoreCase)
                         );

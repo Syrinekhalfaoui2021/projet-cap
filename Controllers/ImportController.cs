@@ -1,12 +1,8 @@
-﻿using ClosedXML.Excel;
-using Microsoft.AspNetCore.Http;
+﻿using CE.Data;
+using ClosedXML.Excel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using CE.Data;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace CE.Controllers
@@ -35,7 +31,7 @@ namespace CE.Controllers
 
             var adminRole = await roleManager.FindByNameAsync("Admin");
             var employeeRole = await roleManager.FindByNameAsync("Employee");
-            var admins = new List<string> { "syrine@cap.tn", "wissal@capesolution.tn"};
+            var admins = new List<string> { "syrine@cap.tn", "wissal@capesolution.tn" };
             foreach (IXLRow row in ws1.Rows())
             {
                 var newUser = new ApplicationUser();

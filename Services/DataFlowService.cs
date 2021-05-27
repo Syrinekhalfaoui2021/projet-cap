@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ClosedXML.Excel;
-using CE.Data;
+﻿using CE.Data;
 using CE.Services.Interfaces;
+using ClosedXML.Excel;
+using System;
+using System.Collections.Generic;
 
 namespace CE.Services
 {
     public class DataFlowService : IDataFlowService
     {
-        
+
 
         //outlets
         public XLWorkbook Export(IList<Outlets> data)
@@ -49,7 +47,7 @@ namespace CE.Services
         {
             throw new NotImplementedException();
         }
-        
+
         //visits daily
         public XLWorkbook Exportvisitdaily(IList<Visits> datavisitdaily)
         {
@@ -84,7 +82,7 @@ namespace CE.Services
                 worksheet.Cell(1, 1).Value = "IdVisit";
                 worksheet.Cell(1, 2).Value = "SFO";
                 worksheet.Cell(1, 3).Value = "Date";
-                worksheet.Cell(1, 4).Value = "Zone"; 
+                worksheet.Cell(1, 4).Value = "Zone";
                 worksheet.Cell(1, 4).Value = "NameOutlet";
 
 
@@ -170,14 +168,14 @@ namespace CE.Services
                 worksheet.Cell(1, 1).Value = "codebrand";
                 worksheet.Cell(1, 2).Value = "Namebrand";
                 worksheet.Cell(1, 3).Value = "Color";
-         
+
 
                 for (int index = 1; index <= dataBrands.Count; index++)
                 {
                     worksheet.Cell(index + 1, 1).Value = dataBrands[index - 1].codebrand;
                     worksheet.Cell(index + 1, 2).Value = dataBrands[index - 1].Namebrand;
                     worksheet.Cell(index + 1, 3).Value = dataBrands[index - 1].Color;
-                 
+
 
                 }
                 return workbook;

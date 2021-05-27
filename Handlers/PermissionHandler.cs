@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CE.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Routing;
-using CE.Services;
 using System.Threading.Tasks;
 
 namespace CE.Handlers

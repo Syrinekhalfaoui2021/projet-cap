@@ -1,28 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using System;
+﻿using CE.Data;
+using CE.Services;
+using CE.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using CE.Data;
-using CE.Models;
-using CE.Services;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using ClosedXML.Excel;
-using static ClosedXML.Excel.XLPredefinedFormat;
-using System.IO;
-using OfficeOpenXml;
-using Microsoft.AspNetCore.Http;
-using System.Data;
-using DocumentFormat.OpenXml.Bibliography;
-using System.ComponentModel.DataAnnotations;
-using CE.Services.Interfaces;
-using DateTime = System.DateTime;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using CE.ViewModels;
 
 namespace CE.Controllers
 {
@@ -36,7 +20,7 @@ namespace CE.Controllers
         private readonly IDataFlowService dataFlowService;
         private readonly ILogger<ReportController> _logger;
 
-        public ReportController (
+        public ReportController(
             UserManager<ApplicationUser> userManager,
                 RoleManager<ApplicationRole> roleManager,
                 IDataAccessService dataAccessService,
@@ -53,11 +37,11 @@ namespace CE.Controllers
         }
         [Authorize(Roles = "Admin")]
         public IActionResult Reportweekly()
-         {
+        {
 
             return View("Views/Report/Reportweekly.cshtml");
 
-         }
+        }
 
         [Authorize(Roles = "Admin")]
 
@@ -80,7 +64,7 @@ namespace CE.Controllers
                               .ToListAsync());
         }
         [Authorize(Roles = "Admin")]
-        public async Task <IActionResult> REFModelW()
+        public async Task<IActionResult> REFModelW()
         {
 
             return View(await _context.sammaryReportWeeklies
@@ -91,7 +75,7 @@ namespace CE.Controllers
                                           .ToListAsync());
         }
         [Authorize(Roles = "Admin")]
-        public async Task <IActionResult> ACModelW()
+        public async Task<IActionResult> ACModelW()
         {
 
 
@@ -105,24 +89,24 @@ namespace CE.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> WMModelW()
         {
-                  return View(await _context.sammaryReportWeeklies
-                                          .Include(x => x.Models)
-                                          .Include(x => x.Outlets)
-                                          .Include(x => x.Wm)
-                                          .Include(x => x.Brands)
-                                          .ToListAsync());
+            return View(await _context.sammaryReportWeeklies
+                                    .Include(x => x.Models)
+                                    .Include(x => x.Outlets)
+                                    .Include(x => x.Wm)
+                                    .Include(x => x.Brands)
+                                    .ToListAsync());
         }
         [Authorize(Roles = "Admin")]
         [Authorize(Roles = "Manager")]
         public async Task<IActionResult> TVModelsM()
         {
 
-                     return View(await _context.sammaryReportMonthlies
-                                                      .Include(x => x.Models)
-                                                      .Include(x => x.Outlets)
-                                                      .Include(x => x.Tv)
-                                                      .Include(x => x.Brands)
-                                                      .ToListAsync());
+            return View(await _context.sammaryReportMonthlies
+                                             .Include(x => x.Models)
+                                             .Include(x => x.Outlets)
+                                             .Include(x => x.Tv)
+                                             .Include(x => x.Brands)
+                                             .ToListAsync());
         }
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> REFModelM()

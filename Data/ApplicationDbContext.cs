@@ -2,13 +2,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel;
-using System.Security.Claims;
 
 
 namespace CE.Data
 {
-  
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
@@ -31,7 +29,7 @@ namespace CE.Data
 
         public DbSet<SammaryReport> sammaryReports { get; set; }
         public DbSet<brands> Brands { get; set; }
-        public DbSet<SammaryReportMonthly>sammaryReportMonthlies {get;set;}
+        public DbSet<SammaryReportMonthly> sammaryReportMonthlies { get; set; }
         public DbSet<SammaryReportWeekly> sammaryReportWeeklies { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {

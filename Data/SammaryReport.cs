@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CE.Data
 {
@@ -18,7 +14,7 @@ namespace CE.Data
 
         public virtual ApplicationUser User { get; set; }
         public virtual models Models { get; set; }
-        public virtual Outlets Outlets{ get; set; }
+        public virtual Outlets Outlets { get; set; }
         public virtual brands Brands { get; set; }
         public virtual TV Tv { get; set; }
         public virtual WM Wm { get; set; }
@@ -26,7 +22,7 @@ namespace CE.Data
         public virtual AC AC { get; set; }
 
 
-     }
+    }
     public class SammaryReportWeekly : SammaryReport
     {
         public int IdSammaryReportWeekly { get; set; }

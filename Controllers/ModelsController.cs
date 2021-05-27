@@ -1,32 +1,25 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using System;
+﻿using CE.Data;
+using CE.Services;
+using CE.Services.Interfaces;
+using CE.ViewModels;
+using ClosedXML.Excel;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using CE.Data;
-using CE.Models;
-using CE.Services;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClosedXML.Excel;
-using static ClosedXML.Excel.XLPredefinedFormat;
-using System.IO;
-using OfficeOpenXml;
-using Microsoft.AspNetCore.Http;
 using System.Data;
-using DocumentFormat.OpenXml.Bibliography;
-using System.ComponentModel.DataAnnotations;
-using CE.Services.Interfaces;
-using DateTime = System.DateTime;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using CE.ViewModels;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CE.Controllers
 {
-    public class ModelsController : Controller,IModelsController
+    public class ModelsController : Controller, IModelsController
     {
 
         private readonly ApplicationDbContext _context;
@@ -55,7 +48,7 @@ namespace CE.Controllers
 
 
         [Authorize(Roles = "Admin")]
-     
+
 
         // GET: Models
         public async Task<IActionResult> IndexModels()
@@ -75,20 +68,20 @@ namespace CE.Controllers
             if (id == 0)
                 return View(new models());
             else
-              return View(_context.Modelss.Find(id));
+                return View(_context.Modelss.Find(id));
         }
         // POST: Models /Create
-       
+
         [Authorize(Roles = "Admin")]
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModels")]
-        public IActionResult AddOrEditModels(ModelEnum SelectedModel )
+        public IActionResult AddOrEditModels(ModelEnum SelectedModel)
         {
             var viewName = "AddOrEditModel";
             return View(viewName + SelectedModel.ToString());
-       
+
 
         }
 
@@ -105,7 +98,7 @@ namespace CE.Controllers
             return RedirectToAction(nameof(IndexModels));
         }
 
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -206,8 +199,8 @@ namespace CE.Controllers
                         newDatamodel.CodeBP = row.Cell(2).Value.ToString();
                         newDatamodel.Name = row.Cell(3).Value.ToString();
                         newDatamodel.Brand.Namebrand = row.Cell(4).Value.ToString();
-                       // newDatamodel.Type = row.Cell(4).Value.ToString();
-                      newDatamodel.Price = row.Cell(5).Value.GetHashCode();
+                        // newDatamodel.Type = row.Cell(4).Value.ToString();
+                        newDatamodel.Price = row.Cell(5).Value.GetHashCode();
                         datamodel.Add(newDatamodel);
                     }
                 }
@@ -333,11 +326,11 @@ namespace CE.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (id== 0)
+                if (id == 0)
                     _context.Add(brands);
                 else
-                   
-                _context.Update(brands);
+
+                    _context.Update(brands);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexBrands));
             }
@@ -438,7 +431,7 @@ namespace CE.Controllers
                         .ToList();
             }
             return _context.Brands.ToList()
-                      
+
                         .Select(x => new SelectListItem
                         {
                             Text = x.Namebrand,

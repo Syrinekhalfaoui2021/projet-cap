@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
-using static CE.Controllers.ModelsController;
 
 namespace CE.Data
 {
@@ -22,7 +17,7 @@ namespace CE.Data
         public string Name { get; set; }
         [DisplayName("AV")]
         public AV Availibility { get; set; }
-        
+
         public int Price { get; set; }
         [DisplayName("Market Share")]
         public bool MarketShare { get; set; }
@@ -41,10 +36,10 @@ namespace CE.Data
 
     }
 
-    public class AC : models 
+    public class AC : models
     {
         public TypeAC TypeAC { get; set; }
-       
+
 
         public string Puissance { get; set; }
         public ClassAC Classac { get; set; }
@@ -61,7 +56,7 @@ namespace CE.Data
         public int SizeCategory { get; set; }
         public SegementWM segementWM { get; set; }
         public string Capacity { get; set; }
-     
+
         public Drying Drying { get; set; }
 
         [DisplayName("Dryer Capacity")]
@@ -125,9 +120,9 @@ namespace CE.Data
         Basic,
         Premuim
     }
-   
+
     public enum SmartTV
-    { 
+    {
         Yes,
         No
 
@@ -135,19 +130,20 @@ namespace CE.Data
     }
     public enum AV
     {
-        Yes, 
+        Yes,
         No
     }
-    public enum Form {
-        Curved, 
+    public enum Form
+    {
+        Curved,
         Flat
-        
+
     }
     public enum ModelEnum
     {
         AC,
-        WM, 
-        REF, 
+        WM,
+        REF,
         TV
     }
     public enum TypeTV
@@ -163,14 +159,14 @@ namespace CE.Data
         Basic,
         Premuim
     }
-    
+
     public enum Resolution
     {
         HD,
         FUllHD,
         UHD
     }
-    public enum  TypeREF
+    public enum TypeREF
     {
         BMF,
         FDR,
@@ -197,9 +193,9 @@ namespace CE.Data
     {
 
         [Display(Name = "<300")] Moin300,
-       
+
         [Display(Name = "300~~400")] Entre300et400,
-       [Display(Name = "400~~500")] Entre400et500,
+        [Display(Name = "400~~500")] Entre400et500,
         [Display(Name = ">500")] Plus500
 
 
@@ -215,10 +211,10 @@ namespace CE.Data
         [Display(Name = "1")] un = 1,
         [Display(Name = "2")] deux = 2,
         [Display(Name = "3")] Trois = 3
-    
 
-}
-    
+
+    }
+
 
     public enum Class
     {
@@ -231,7 +227,7 @@ namespace CE.Data
     {
         Standard,
         [Display(Name = "Integral ventilated cold")]
-         Integral_ventilated_cold,
+        Integral_ventilated_cold,
         [Display(Name = "Sièxime Sens FreshControl")]
         sièxime_Sens_FreshControl,
         Multiflow,
@@ -277,7 +273,7 @@ namespace CE.Data
     {
         [Display(Name = "Active Dual Wash")]
         active_dual_wash,
-              COMBO,
+        COMBO,
         [Display(Name = "Front loading")]
         Front_loading,
         [Display(Name = "TOP loading")]
@@ -295,12 +291,12 @@ namespace CE.Data
     }
     public enum SizeCategoryWM
     {
-        
+
     }
 
     public enum Drying
     {
-        Yes, 
+        Yes,
         No
     }
 
@@ -324,8 +320,8 @@ namespace CE.Data
         Basic,
         Premuim
     }
-            
-  public enum SegmentREF
+
+    public enum SegmentREF
     {
         [Display(Name = "<230")]
         moins230,
