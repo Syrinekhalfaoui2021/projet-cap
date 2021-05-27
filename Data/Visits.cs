@@ -1,11 +1,7 @@
-﻿using CE.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CE.Data
 {
@@ -22,16 +18,16 @@ namespace CE.Data
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
 
         public DateTime Date { get; set; }
-       
+
 
         [DisplayName("Entry time")]
-       
+
 
         public DateTime Entrytime { get; set; }
-        public Visits() 
-            {
-         Entrytime = DateTime.Now;
-         Date = DateTime.Now;
+        public Visits()
+        {
+            Entrytime = DateTime.Now;
+            Date = DateTime.Now;
             Exittime = DateTime.Now;
 
         }
@@ -50,7 +46,7 @@ namespace CE.Data
         [DisplayName("Activity")]
 
         public string Activity { get; set; }
-     
+
         [ForeignKey("Outlets")]
         public int? IdOutlet { get; set; }
         public Outlets Outlets { get; set; }

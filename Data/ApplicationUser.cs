@@ -1,10 +1,5 @@
-﻿using CE.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Azure.Documents;
-using System;
+﻿using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CE.Data
 {
@@ -14,14 +9,14 @@ namespace CE.Data
         {
 
 
-   
+
 
         }
 
         public ApplicationUser(string userName) : base(userName)
         {
 
-          
+
 
 
         }
@@ -32,5 +27,5 @@ namespace CE.Data
         public string LastName { get; set; }
 
         public virtual ICollection<Outlets> Outlets { get; set; }
-}
+    }
 }

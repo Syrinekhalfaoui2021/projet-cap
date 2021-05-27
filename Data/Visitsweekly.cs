@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CE.Data
 {
@@ -13,11 +10,9 @@ namespace CE.Data
     {
         public Visitsweekly()
         {
-            Date = DateTime.Now;    
+            Date = DateTime.Now;
             Entrytime = DateTime.Now;
-
-
-         }
+        }
         [Key]
         [DisplayName("Code")]
         public int IdVisit { get; set; }
@@ -34,8 +29,6 @@ namespace CE.Data
         public string Article { get; set; }
         [Column(TypeName = "nvarchar(250)")]
         public string Activity { get; set; }
-     
-
 
         [ForeignKey("Outlets")]
         public int? IdOutlet { get; set; }

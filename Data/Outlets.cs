@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CE.Data
 {
@@ -18,7 +14,7 @@ namespace CE.Data
         [DisplayName("Code")]
         public int IdOutlet { get; set; }
         [Column(TypeName = "nvarchar(250)")]
-        
+
         [DisplayName("Name outlet")]
         public string NameOutlet { get; set; }
         [Column(TypeName = "nvarchar(250)")]
@@ -73,7 +69,7 @@ namespace CE.Data
 
         public virtual ApplicationUser User { get; set; }
 
-     
+
 
     }
 }

@@ -151,7 +151,7 @@ namespace CE.Controllers
                     {
                         //Add rows to DataTable.
                         newData.NameOutlet = row.Cell(2).Value.ToString();
-                       // var user = await _userManager.FindByNameAsync(row.Cell(3).Value.ToString());
+                        // var user = await _userManager.FindByNameAsync(row.Cell(3).Value.ToString());
                         var names = row.Cell(3).Value.ToString().Split(' ');
                         if (names.Length == 2)
                         {

@@ -1,8 +1,5 @@
 ﻿using CE.Data;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
 
 
 namespace CE.Models
@@ -11,7 +8,7 @@ namespace CE.Models
     {
         public string Id { get; set; }
         public string FirstName { get; set; }
- 
+
 
         public string LastName { get; set; }
 

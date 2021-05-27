@@ -1,35 +1,25 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using System;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using CE.Data;
+﻿using CE.Data;
 using CE.Models;
 using CE.Services;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClosedXML.Excel;
-using static ClosedXML.Excel.XLPredefinedFormat;
-using System.IO;
-using OfficeOpenXml;
-using Microsoft.AspNetCore.Http;
-using System.Data;
-using DocumentFormat.OpenXml.Bibliography;
-using System.ComponentModel.DataAnnotations;
 using CE.Services.Interfaces;
-using DateTime = System.DateTime;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using CE.ViewModels;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CE.Controllers
 {
     [Authorize]
     public class AdminController : Controller
     {
-        
+
 
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -79,7 +69,7 @@ namespace CE.Controllers
             return View(roleViewModel);
         }
 
-     
+
 
         [Authorize(Roles = "Admin")]
         public IActionResult CreateRole()
@@ -207,16 +197,16 @@ namespace CE.Controllers
             return View(viewModel);
         }
 
-        
-       
 
 
-        
-        
 
 
-        
-        
+
+
+
+
+
+
         private List<SelectListItem> GetUsersSelectList()
         {
             var users = _userManager.GetUsersInRoleAsync("Employee").GetAwaiter().GetResult().ToList()
@@ -233,10 +223,10 @@ namespace CE.Controllers
 
 
 
-       
 
-     
-    
+
+
+
 
 
     }

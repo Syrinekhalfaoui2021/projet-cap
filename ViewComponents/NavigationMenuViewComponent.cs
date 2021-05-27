@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using CE.Services;
+﻿using CE.Services;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace CE.ViewComponents

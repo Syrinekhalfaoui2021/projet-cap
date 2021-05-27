@@ -1,9 +1,6 @@
-﻿using ClosedXML.Excel;
-using CE.Data;
-using System;
+﻿using CE.Data;
+using ClosedXML.Excel;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CE.Services.Interfaces
 {
