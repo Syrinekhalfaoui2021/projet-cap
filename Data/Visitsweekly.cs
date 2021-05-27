@@ -12,7 +12,9 @@ namespace CE.Data
         {
             Date = DateTime.Now;
             Entrytime = DateTime.Now;
-        }
+
+
+         }
         [Key]
         [DisplayName("Code")]
         public int IdVisit { get; set; }
@@ -29,6 +31,9 @@ namespace CE.Data
         public string Article { get; set; }
         [Column(TypeName = "nvarchar(250)")]
         public string Activity { get; set; }
+     
+
+
         [ForeignKey("Outlets")]
         public int? IdOutlet { get; set; }
         public Outlets Outlets { get; set; }
