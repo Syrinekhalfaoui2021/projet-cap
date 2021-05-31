@@ -30,19 +30,46 @@ namespace CE.Data
         [DisplayName("W/S")]
         public int Weeklysail { get; set; }
         public string Category { get; set; }
+        [ForeignKey("brands")]
+        public int? codebrand { get; set; }
         public virtual Outlets Outlets { get; set; }
         public virtual brands Brand { get; set; }
         public virtual ApplicationUser User { get; set; }
 
     }
+    public class DW : models
+    {
+
+
+        public bool Encastrable { get; set; }
+        public Color Color { get; set; }
+        public int Promgramme { get; set; }
+        public bool Display { get; set; }
+        [DisplayName("Number of covers")]
+
+        public int Numberofcovers { get; set; }
+        [DisplayName("Energetic efficiency")]
+        public int Energeticefficiency { get; set; }
+    }
 
     public class AC : models
     {
+        [DisplayName("Type")]
+
         public TypeAC TypeAC { get; set; }
+        public Inverter Inverter { get; set; }
+
 
 
         public string Puissance { get; set; }
+        [DisplayName("Class")]
+
         public ClassAC Classac { get; set; }
+        [DisplayName("Energetic class")]
+
+        public int Energeticclass { get; set; }
+       
+
 
     }
     public class WM : models
@@ -111,6 +138,15 @@ namespace CE.Data
         public segmentTV SegmentTV { get; set; }
 
     }
+    public enum Inverter
+    {
+        [Display(Name = "Non inverter")]
+
+        Noninverter,
+        Inverter
+
+
+    }
     public enum segmentTV
     {
 
@@ -144,7 +180,8 @@ namespace CE.Data
         AC,
         WM,
         REF,
-        TV
+        TV,
+       DW
     }
     public enum TypeTV
     {
@@ -252,7 +289,7 @@ namespace CE.Data
     }
     public enum TypeAC
     {
-        [Display(Name = "Chaut Froid")]
+        [Display(Name = "C/F")]
 
         Chaut_Froid,
         Chaut
@@ -320,7 +357,13 @@ namespace CE.Data
         Basic,
         Premuim
     }
+    public enum Color
+    {
+        Silver,
+        White,
+        Inox
 
+    }
     public enum SegmentREF
     {
         [Display(Name = "<230")]

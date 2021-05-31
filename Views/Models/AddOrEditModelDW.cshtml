@@ -1,4 +1,4 @@
-﻿@model CE.Data.AC
+﻿@model CE.Data.DW
 @using Microsoft.AspNetCore.Identity
 @using CE.Data
 
@@ -7,7 +7,7 @@
 
 @{ ViewData["Title"] = "Create"; }
 
-<h4>AC Model Form</h4>
+<h4>DW Model Form</h4>
 <hr />
 <div class="row">
     <div class="col-md-6">
@@ -36,20 +36,21 @@
                     <span asp-validation-for="Brand.Namebrand" class="text-danger"></span>
 
                 </div>
+
+
                 <div class="form-group col-md-6">
-                    <label asp-for="TypeAC" class="control-label"></label>
-                    <input asp-for="TypeAC" class="form-control" />
-                    <span asp-validation-for="TypeAC" class="text-danger"></span>
+                    <label asp-for="Encastrable" class="control-label"></label>
+                    <input asp-for="Encastrable" class="form-control" />
+                    <span asp-validation-for="Encastrable" class="text-danger"></span>
                 </div>
             </div>
 
-
-
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label asp-for="Puissance" class="control-label"></label>
-                    <input asp-for="Puissance" class="form-control" />
-                    <span asp-validation-for="Puissance" class="text-danger"></span>
+                    <label asp-for="Color" class="control-label"></label>
+                    <select asp-for="Color" asp-items="Html.GetEnumSelectList<Color>()" class="form form-control">
+                    </select>
+                    <span asp-validation-for="Color" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-6">
                     <label asp-for="Price" class="control-label"></label>
@@ -57,34 +58,44 @@
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group col-md-6">
-                <label asp-for="Classac" class="control-label"></label>
-                <select asp-for="Classac" asp-items="Html.GetEnumSelectList<ClassAC>()" class="form form-control">
-                </select>
-                <span asp-validation-for="Classac" class="text-danger"></span>
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label asp-for="Display" class="control-label"></label>
+                    <input asp-for="Display" class="form-control" />
+
+                    <span asp-validation-for="Display" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Numberofcovers" class="control-label"></label>
+                    <input asp-for="Numberofcovers" class="form-control" />
+
+                    <span asp-validation-for="Numberofcovers" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-row">
+
+
+                <div class="form-group col-md-6">
+                    <label asp-for="Promgramme" class="control-label"></label>
+                    <input asp-for="Promgramme" class="form-control" />
+                    <span asp-validation-for="Promgramme" class="text-danger"></span>
+                </div>
+
                 <div class="form-group col-md-6">
                     <label asp-for="Availibility" class="control-label"></label>
                     <select asp-for="Availibility" asp-items="Html.GetEnumSelectList<AV>()" class="form form-control">
                     </select>
                     <span asp-validation-for="Availibility" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-6">
-                    <label asp-for="Inverter" class="control-label"></label>
-                    <select asp-for="Inverter" asp-items="Html.GetEnumSelectList<Inverter>()" class="form form-control">
-                    </select>
-                    <span asp-validation-for="Inverter" class="text-danger"></span>
-                </div>
-
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label asp-for="Energeticclass" class="control-label"></label>
-                    <input asp-for="Energeticclass" class="form-control" />
-                    <span asp-validation-for="Energeticclass" class="text-danger"></span>
+                    <label asp-for="Energeticefficiency" class="control-label"></label>
+                    <input asp-for="Energeticefficiency" class="form-control" />
+                    <span asp-validation-for="Energeticefficiency" class="text-danger"></span>
                 </div>
-             
+
             </div>
 
             <div class="form-row">

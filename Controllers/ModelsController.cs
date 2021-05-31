@@ -63,8 +63,10 @@ namespace CE.Controllers
 
 
         [Authorize(Roles = "Admin")]
-        public IActionResult AddOrEditModels(int id)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id)
         {
+            ViewBag.Brands = await GetBrandsSelectList();
+
             if (id == 0)
                 return View(new models());
             else
@@ -77,8 +79,10 @@ namespace CE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModels")]
-        public IActionResult AddOrEditModels(ModelEnum SelectedModel)
+        public async Task<IActionResult> AddOrEditModelsAsync(ModelEnum SelectedModel)
         {
+            ViewBag.Brands = await GetBrandsSelectList();
+
             var viewName = "AddOrEditModel";
             return View(viewName + SelectedModel.ToString());
 
@@ -90,22 +94,39 @@ namespace CE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModelsAC")]
-        public IActionResult AddOrEditModels(int id, [Bind("Namebrand,code,Name,TypeAC,Puissance,Classac,Availibility,Price")] AC ac)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Namebrand,code,Name,TypeAC,Puissance,Classac,Availibility,Price")] AC ac)
 
         {
+            ViewBag.Brands = await GetBrandsSelectList();
+
             _context.Add(ac);
             _context.SaveChanges();
             return RedirectToAction(nameof(IndexModels));
         }
+        [Authorize(Roles = "Admin")]
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("AddOrEditModelsDW")]
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Namebrand,code,Name,Encastrable,Color,Price,Display,Numberofcovers,Price,Promgramme,Availibility,Energeticefficiency")] DW dw)
+
+        {
+            ViewBag.Brands = await GetBrandsSelectList();
+
+            _context.Add(dw);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(IndexModels));
+        }
         [Authorize(Roles = "Admin")]
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModelREF")]
-        public IActionResult AddOrEditModels(int id, [Bind("Namebrand,code,Name,Type2,Color,Segment,Capacity,Energy,Class,Technology,Frost,Display,Waterdispenser,TypeREF,Segment2,Availibility,Price")] REF rEF)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Namebrand,code,Name,Type2,Color,Segment,Capacity,Energy,Class,Technology,Frost,Display,Waterdispenser,TypeREF,Segment2,Availibility,Price")] REF rEF)
 
         {
+            ViewBag.Brands = await GetBrandsSelectList();
+
             _context.Add(rEF);
             _context.SaveChanges();
             return RedirectToAction(nameof(IndexModels));
@@ -115,9 +136,11 @@ namespace CE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModelWM")]
-        public IActionResult AddOrEditModels(int id, [Bind("Namebrand,code,Name,TypeWM2,Color,SizeCategory,segementWM,Capacity,Drying,DryerCapacity,Technology,Class,Motor,TypeWM,Availibility,Price")] WM wM)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Namebrand,code,Name,TypeWM2,Color,SizeCategory,segementWM,Capacity,Drying,DryerCapacity,Technology,Class,Motor,TypeWM,Availibility,Price")] WM wM)
 
         {
+            ViewBag.Brands = await GetBrandsSelectList();
+
             _context.Add(wM);
             _context.SaveChanges();
             return RedirectToAction(nameof(IndexModels));
@@ -127,9 +150,11 @@ namespace CE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModelTV")]
-        public IActionResult AddOrEditModels(int id, [Bind("Namebrand,code,Name,Class,TypeTV,Size,SizeCategory,Resolution,Form,SmartTV,SegmentTV,Availibility,Price")] TV tV)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Namebrand,code,Name,Class,TypeTV,Size,SizeCategory,Resolution,Form,SmartTV,SegmentTV,Availibility,Price")] TV tV)
 
         {
+            ViewBag.Brands = await GetBrandsSelectList();
+
             _context.Add(tV);
             _context.SaveChanges();
             return RedirectToAction(nameof(IndexModels));
@@ -157,8 +182,9 @@ namespace CE.Controllers
             {
                 var datamodel = await _context.Modelss
                     .Include(x => x.User)
+                    
                     .ToListAsync();
-                var xl = dataFlowService.Export(datamodel);
+                             var xl = dataFlowService.Export(datamodel);
 
                 using var stream = new MemoryStream();
                 xl.SaveAs(stream);
@@ -181,11 +207,11 @@ namespace CE.Controllers
                 //Read the first Sheet from Excel file.
                 IXLWorksheet workSheet = workBook.Worksheet(1);
                 bool firstRow = true;
-                var datamodel = new List<models>();
+                var datamodel = new List<AC>();
 
                 foreach (IXLRow row in workSheet.Rows())
                 {
-                    var newDatamodel = new models();
+                    var newDatamodel = new AC();
                     //Use the first row to add columns to DataTable.
                     if (firstRow)
                     {
@@ -196,7 +222,7 @@ namespace CE.Controllers
                         //Add rows to DataTable.
                         newDatamodel.Code = row.Cell(1).Value.GetHashCode();
 
-                        newDatamodel.CodeBP = row.Cell(2).Value.ToString();
+                      
                         newDatamodel.Name = row.Cell(3).Value.ToString();
                         newDatamodel.Brand.Namebrand = row.Cell(4).Value.ToString();
                         // newDatamodel.Type = row.Cell(4).Value.ToString();

@@ -4,14 +4,16 @@ using CE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CE.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210531102554_ac")]
+    partial class ac
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -675,12 +677,6 @@ namespace CE.Migrations
                     b.HasBaseType("CE.Data.models");
 
                     b.Property<int>("Classac")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Efficiency")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EnergyEfficiency")
                         .HasColumnType("int");
 
                     b.Property<string>("Puissance")

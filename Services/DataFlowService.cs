@@ -136,30 +136,46 @@ namespace CE.Services
 
         // models 
 
-        public XLWorkbook Export(IList<models> datamodel)
+        public XLWorkbook Export(IList<AC> datamodel)
         {
             var workbook = new XLWorkbook();
             IXLWorksheet worksheet = workbook.Worksheets.Add("Models");
             worksheet.Cell(1, 1).Value = "Code";
-            worksheet.Cell(1, 2).Value = "CodeBP";
-            worksheet.Cell(1, 3).Value = "Name";
-            worksheet.Cell(1, 4).Value = "Brand";
-            worksheet.Cell(1, 5).Value = "Rang";
+            worksheet.Cell(1, 2).Value = "Name";
+            worksheet.Cell(1, 3).Value = "Brand";
+            worksheet.Cell(1, 4).Value = "TypeAC";
+            worksheet.Cell(1, 5).Value = "Puissance";
+            worksheet.Cell(1, 6).Value = "Inverter";
+            worksheet.Cell(1, 7).Value = "Energeticclass";
+            worksheet.Cell(1, 8).Value = "Classac";
+            worksheet.Cell(1, 9).Value = "price";
+
+
+
+
+
             for (int index = 1; index <= datamodel.Count; index++)
             {
                 worksheet.Cell(index + 1, 1).Value = datamodel[index - 1].Code;
-                worksheet.Cell(index + 1, 2).Value = datamodel[index - 1].CodeBP;
-                worksheet.Cell(index + 1, 3).Value = datamodel[index - 1].Name;
-                //worksheet.Cell(index + 1, 4).Value = datamodel[index - 1].Brand;
+                worksheet.Cell(index + 1, 2).Value = datamodel[index - 1].Name;
+                worksheet.Cell(index + 1, 3).Value = datamodel[index - 1].Brand.Namebrand;
+                worksheet.Cell(index + 1, 4).Value = datamodel[index - 1].TypeAC;
+                worksheet.Cell(index + 1, 5).Value = datamodel[index - 1].Puissance;
+                worksheet.Cell(index + 1, 6).Value = datamodel[index - 1].Inverter;
+                worksheet.Cell(index + 1, 7).Value = datamodel[index - 1].Energeticclass;
+                worksheet.Cell(index + 1, 8).Value = datamodel[index - 1].Classac;
+                worksheet.Cell(index + 1, 8).Value = datamodel[index - 1].Price;
+
+
+
+
+
 
             }
             return workbook;
         }
 
-        public void Import(IList<models> datamodel)
-        {
-            throw new NotImplementedException();
-        }
+      
         public XLWorkbook ExportBrands(IList<brands> dataBrands)
         {
             {
@@ -186,7 +202,50 @@ namespace CE.Services
             throw new NotImplementedException();
         }
 
+        public void Import(IList<AC> datamodel)
+        {
+            throw new NotImplementedException();
+        }
 
+        XLWorkbook IDataFlowService.Export(IList<Outlets> data)
+        {
+            throw new NotImplementedException();
+        }
+
+        XLWorkbook IDataFlowService.Export(IList<AC> datamodel)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IDataFlowService.Import(IList<AC> datamodel)
+        {
+            throw new NotImplementedException();
+        }
+
+        XLWorkbook IDataFlowService.Exportvisitdaily(IList<Visits> datavisitdaily)
+        {
+            throw new NotImplementedException();
+        }
+
+        XLWorkbook IDataFlowService.Exportvisitweekly(IList<Visitsweekly> datavisitweekly)
+        {
+            throw new NotImplementedException();
+        }
+
+        XLWorkbook IDataFlowService.Exportvisitmonthly(IList<Visitsmonthly> datavisitmonthly)
+        {
+            throw new NotImplementedException();
+        }
+
+        XLWorkbook IDataFlowService.ExportBrands(IList<brands> dataBrands)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IDataFlowService.Export(List<models> datamodel)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
