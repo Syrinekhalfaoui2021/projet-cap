@@ -8,12 +8,12 @@ namespace CE.Services.Interfaces
     {
         XLWorkbook Export(IList<Outlets> data);
 
-        XLWorkbook Export(IList<AC> datamodel);
-        void Import(IList<AC> datamodel);
+        XLWorkbook Export(IList<models> datamodel);
+        void Import(IList<models> datamodel);
         XLWorkbook Exportvisitdaily(IList<Visits> datavisitdaily);
         XLWorkbook Exportvisitweekly(IList<Visitsweekly> datavisitweekly);
         XLWorkbook Exportvisitmonthly(IList<Visitsmonthly> datavisitmonthly);
         XLWorkbook ExportBrands(IList<brands> dataBrands);
-        object Export(List<models> datamodel);
+
     }
 }

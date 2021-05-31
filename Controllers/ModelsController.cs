@@ -182,9 +182,8 @@ namespace CE.Controllers
             {
                 var datamodel = await _context.Modelss
                     .Include(x => x.User)
-                    
                     .ToListAsync();
-                             var xl = dataFlowService.Export(datamodel);
+                var xl = dataFlowService.Export(datamodel);
 
                 using var stream = new MemoryStream();
                 xl.SaveAs(stream);
@@ -207,11 +206,11 @@ namespace CE.Controllers
                 //Read the first Sheet from Excel file.
                 IXLWorksheet workSheet = workBook.Worksheet(1);
                 bool firstRow = true;
-                var datamodel = new List<AC>();
+                var datamodel = new List<models>();
 
                 foreach (IXLRow row in workSheet.Rows())
                 {
-                    var newDatamodel = new AC();
+                    var newDatamodel = new models();
                     //Use the first row to add columns to DataTable.
                     if (firstRow)
                     {
@@ -222,7 +221,7 @@ namespace CE.Controllers
                         //Add rows to DataTable.
                         newDatamodel.Code = row.Cell(1).Value.GetHashCode();
 
-                      
+                        newDatamodel.CodeBP = row.Cell(2).Value.ToString();
                         newDatamodel.Name = row.Cell(3).Value.ToString();
                         newDatamodel.Brand.Namebrand = row.Cell(4).Value.ToString();
                         // newDatamodel.Type = row.Cell(4).Value.ToString();
