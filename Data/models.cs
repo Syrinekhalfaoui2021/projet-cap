@@ -30,6 +30,8 @@ namespace CE.Data
         [DisplayName("W/S")]
         public int Weeklysail { get; set; }
         public string Category { get; set; }
+        [ForeignKey("brands")]
+        public int? codebrand { get; set; }
         public virtual Outlets Outlets { get; set; }
         public virtual brands Brand { get; set; }
         public virtual ApplicationUser User { get; set; }
