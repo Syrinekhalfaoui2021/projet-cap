@@ -68,7 +68,7 @@ namespace CE.Data
         [DisplayName("Energetic class")]
 
         public int Energeticclass { get; set; }
-       
+
 
 
     }
@@ -181,7 +181,7 @@ namespace CE.Data
         WM,
         REF,
         TV,
-       DW
+        DW
     }
     public enum TypeTV
     {
