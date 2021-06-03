@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CE.Migrations
 {
-    public partial class data : Migration
+    public partial class BD : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,8 +11,7 @@ namespace CE.Migrations
                 name: "AspNetBrand",
                 columns: table => new
                 {
-                    codebrand = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    codebrand = table.Column<double>(nullable: false),
                     Namebrand = table.Column<string>(nullable: true),
                     Color = table.Column<string>(nullable: true)
                 },
@@ -264,13 +263,16 @@ namespace CE.Migrations
                     typee = table.Column<string>(nullable: true),
                     Weeklysail = table.Column<int>(nullable: false),
                     Category = table.Column<string>(nullable: true),
+                    codebrand = table.Column<double>(nullable: false),
                     OutletsIdOutlet = table.Column<int>(nullable: true),
-                    Brandcodebrand = table.Column<int>(nullable: true),
+                    Brandcodebrand = table.Column<double>(nullable: true),
                     UserId = table.Column<string>(nullable: true),
                     models_type = table.Column<string>(nullable: false),
                     TypeAC = table.Column<int>(nullable: true),
+                    Inverter = table.Column<int>(nullable: true),
                     Puissance = table.Column<string>(nullable: true),
                     Classac = table.Column<int>(nullable: true),
+                    Energeticclass = table.Column<int>(nullable: true),
                     Type2 = table.Column<int>(nullable: true),
                     Color = table.Column<string>(nullable: true),
                     Segment = table.Column<int>(nullable: true),
@@ -335,7 +337,7 @@ namespace CE.Migrations
                     UserId = table.Column<string>(nullable: true),
                     ModelsCode = table.Column<int>(nullable: true),
                     OutletsIdOutlet = table.Column<int>(nullable: true),
-                    Brandscodebrand = table.Column<int>(nullable: true),
+                    Brandscodebrand = table.Column<double>(nullable: true),
                     TvCode = table.Column<int>(nullable: true),
                     WmCode = table.Column<int>(nullable: true),
                     REFCode = table.Column<int>(nullable: true),
@@ -410,7 +412,7 @@ namespace CE.Migrations
                     Article = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     Activity = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     IdOutlet = table.Column<int>(nullable: true),
-                    Brandcodebrand = table.Column<int>(nullable: true),
+                    Brandcodebrand = table.Column<double>(nullable: true),
                     ModelsCode = table.Column<int>(nullable: true),
                     UserId = table.Column<string>(nullable: true)
                 },
@@ -456,7 +458,7 @@ namespace CE.Migrations
                     Article = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     Activity = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     IdOutlet = table.Column<int>(nullable: true),
-                    Brandcodebrand = table.Column<int>(nullable: true),
+                    Brandcodebrand = table.Column<double>(nullable: true),
                     ModelsCode = table.Column<int>(nullable: true),
                     UserId = table.Column<string>(nullable: true)
                 },
@@ -502,7 +504,7 @@ namespace CE.Migrations
                     Article = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     Activity = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     IdOutlet = table.Column<int>(nullable: true),
-                    Brandcodebrand = table.Column<int>(nullable: true),
+                    Brandcodebrand = table.Column<double>(nullable: true),
                     ModelsCode = table.Column<int>(nullable: true),
                     UserId = table.Column<string>(nullable: true)
                 },

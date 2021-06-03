@@ -250,8 +250,8 @@ namespace CE.Migrations
                     b.Property<int?>("ACCode")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Brandscodebrand")
-                        .HasColumnType("int");
+                    b.Property<double?>("Brandscodebrand")
+                        .HasColumnType("float");
 
                     b.Property<int?>("ModelsCode")
                         .HasColumnType("int");
@@ -311,8 +311,8 @@ namespace CE.Migrations
                     b.Property<string>("Article")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int?>("Brandcodebrand")
-                        .HasColumnType("int");
+                    b.Property<double?>("Brandcodebrand")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -363,8 +363,8 @@ namespace CE.Migrations
                     b.Property<string>("Article")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int?>("Brandcodebrand")
-                        .HasColumnType("int");
+                    b.Property<double?>("Brandcodebrand")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -415,8 +415,8 @@ namespace CE.Migrations
                     b.Property<string>("Article")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int?>("Brandcodebrand")
-                        .HasColumnType("int");
+                    b.Property<double?>("Brandcodebrand")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -456,10 +456,8 @@ namespace CE.Migrations
 
             modelBuilder.Entity("CE.Data.brands", b =>
                 {
-                    b.Property<int>("codebrand")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<double>("codebrand")
+                        .HasColumnType("float");
 
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)");
@@ -482,8 +480,8 @@ namespace CE.Migrations
                     b.Property<int>("Availibility")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Brandcodebrand")
-                        .HasColumnType("int");
+                    b.Property<double?>("Brandcodebrand")
+                        .HasColumnType("float");
 
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
@@ -515,8 +513,8 @@ namespace CE.Migrations
                     b.Property<int>("Weeklysail")
                         .HasColumnType("int");
 
-                    b.Property<int?>("codebrand")
-                        .HasColumnType("int");
+                    b.Property<double>("codebrand")
+                        .HasColumnType("float");
 
                     b.Property<string>("models_type")
                         .IsRequired()

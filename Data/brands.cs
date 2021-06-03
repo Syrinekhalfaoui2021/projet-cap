@@ -11,7 +11,7 @@ namespace CE.Data
     {
         [Key]
         [DisplayName("Code")]
-        public int codebrand { get; set; }
+        public double codebrand { get; set; }
         [DisplayName("Brand")]
         public string Namebrand { get; set; }
         public string Color { get; set; }
