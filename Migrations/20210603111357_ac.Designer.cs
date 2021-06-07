@@ -4,14 +4,16 @@ using CE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CE.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210603111357_ac")]
+    partial class ac
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -489,13 +491,10 @@ namespace CE.Migrations
                     b.Property<string>("CodeBP")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("MarketShare")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("MarketShare")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Namebrand")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("OutletsIdOutlet")
@@ -504,17 +503,20 @@ namespace CE.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<string>("ShelfShare")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("ShelfShare")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Stock")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Weeklysail")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Weeklysail")
+                        .HasColumnType("int");
+
+                    b.Property<double>("codebrand")
+                        .HasColumnType("float");
 
                     b.Property<string>("models_type")
                         .IsRequired()

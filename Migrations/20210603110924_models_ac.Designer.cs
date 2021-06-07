@@ -4,14 +4,16 @@ using CE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CE.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210603110924_models_ac")]
+    partial class models_ac
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -477,8 +479,8 @@ namespace CE.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Availibility")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Availibility")
+                        .HasColumnType("int");
 
                     b.Property<double?>("Brandcodebrand")
                         .HasColumnType("float");
@@ -489,14 +491,11 @@ namespace CE.Migrations
                     b.Property<string>("CodeBP")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("MarketShare")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("MarketShare")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Namebrand")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<int?>("OutletsIdOutlet")
                         .HasColumnType("int");
@@ -504,17 +503,20 @@ namespace CE.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<string>("ShelfShare")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("ShelfShare")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Stock")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Weeklysail")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Weeklysail")
+                        .HasColumnType("int");
+
+                    b.Property<double>("codebrand")
+                        .HasColumnType("float");
 
                     b.Property<string>("models_type")
                         .IsRequired()

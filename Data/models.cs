@@ -13,25 +13,24 @@ namespace CE.Data
         [Column(TypeName = "nvarchar(250)")]
         [DisplayName("code BP")]
         public string CodeBP { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
         public string Name { get; set; }
         [DisplayName("AV")]
-        public AV Availibility { get; set; }
+        public string Availibility { get; set; }
 
-        public int Price { get; set; }
+        public double Price { get; set; }
         [DisplayName("Market Share")]
-        public bool MarketShare { get; set; }
+        public string MarketShare { get; set; }
         [DisplayName("Shelf Share")]
-        public bool ShelfShare { get; set; }
-        public int Stock { get; set; }
+        public string ShelfShare { get; set; }
+        public string Stock { get; set; }
         [DisplayName("Type")]
 
         public string typee { get; set; }
         [DisplayName("W/S")]
-        public int Weeklysail { get; set; }
+        public string Weeklysail { get; set; }
         public string Category { get; set; }
         [ForeignKey("brands")]
-        public double codebrand { get; set; }
+        public string Namebrand { get; set; }
         public virtual Outlets Outlets { get; set; }
         public virtual brands Brand { get; set; }
         public virtual ApplicationUser User { get; set; }
@@ -41,33 +40,33 @@ namespace CE.Data
     {
 
 
-        public bool Encastrable { get; set; }
-        public Color Color { get; set; }
-        public int Promgramme { get; set; }
-        public bool Display { get; set; }
+        public string  Encastrable { get; set; }
+        public string Color { get; set; }
+        public double Promgramme { get; set; }
+        public string Display { get; set; }
         [DisplayName("Number of covers")]
 
-        public int Numberofcovers { get; set; }
+        public double Numberofcovers { get; set; }
         [DisplayName("Energetic efficiency")]
-        public int Energeticefficiency { get; set; }
+        public double Energeticefficiency { get; set; }
     }
 
     public class AC : models
     {
         [DisplayName("Type")]
 
-        public TypeAC TypeAC { get; set; }
-        public Inverter Inverter { get; set; }
+        public string TypeAC { get; set; }
+        public string Inverter { get; set; }
 
 
 
-        public string Puissance { get; set; }
+        public double Puissance { get; set; }
         [DisplayName("Class")]
 
         public ClassAC Classac { get; set; }
         [DisplayName("Energetic class")]
 
-        public int Energeticclass { get; set; }
+        public string Energeticclass { get; set; }
 
 
 
