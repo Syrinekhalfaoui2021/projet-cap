@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CE.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210607100234_display_dw")]
-    partial class display_dw
+    [Migration("20210608102138_BD")]
+    partial class BD
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -255,6 +255,10 @@ namespace CE.Migrations
                     b.Property<double?>("Brandscodebrand")
                         .HasColumnType("float");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("ModelsCode")
                         .HasColumnType("int");
 
@@ -263,10 +267,6 @@ namespace CE.Migrations
 
                     b.Property<int?>("REFCode")
                         .HasColumnType("int");
-
-                    b.Property<string>("SammaryReport_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TvCode")
                         .HasColumnType("int");
@@ -297,7 +297,7 @@ namespace CE.Migrations
 
                     b.ToTable("AspNetsammaryweekly");
 
-                    b.HasDiscriminator<string>("SammaryReport_type").HasValue("SammaryReport_base");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("SammaryReport");
                 });
 
             modelBuilder.Entity("CE.Data.Visits", b =>
@@ -491,10 +491,14 @@ namespace CE.Migrations
                     b.Property<string>("CodeBP")
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<string>("Display")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MarketShare")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Namebrand")
@@ -518,10 +522,6 @@ namespace CE.Migrations
                     b.Property<string>("Weeklysail")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("models_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("typee")
                         .HasColumnType("nvarchar(max)");
 
@@ -535,7 +535,7 @@ namespace CE.Migrations
 
                     b.ToTable("AspNetModels");
 
-                    b.HasDiscriminator<string>("models_type").HasValue("models_base");
+                    b.HasDiscriminator<string>("Name").HasValue("models_base");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -655,7 +655,7 @@ namespace CE.Migrations
 
                     b.ToTable("AspNetsammaryweekly");
 
-                    b.HasDiscriminator().HasValue("SammaryReport_AC");
+                    b.HasDiscriminator().HasValue("SammaryReportMonthly");
                 });
 
             modelBuilder.Entity("CE.Data.SammaryReportWeekly", b =>
@@ -667,7 +667,7 @@ namespace CE.Migrations
 
                     b.ToTable("AspNetsammaryweekly");
 
-                    b.HasDiscriminator().HasValue("SammaryReport_SammaryReportWeekly");
+                    b.HasDiscriminator().HasValue("SammaryReportWeekly");
                 });
 
             modelBuilder.Entity("CE.Data.AC", b =>
@@ -706,9 +706,6 @@ namespace CE.Migrations
 
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Display")
-                        .HasColumnType("int");
 
                     b.Property<int>("Energy")
                         .HasColumnType("int");

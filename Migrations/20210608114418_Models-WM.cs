@@ -2,19 +2,52 @@
 
 namespace CE.Migrations
 {
-    public partial class models_ac : Migration
+    public partial class ModelsWM : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<double>(
-                name: "Price",
+            migrationBuilder.AlterColumn<string>(
+                name: "segementWM",
                 table: "AspNetModels",
-                nullable: false,
+                nullable: true,
                 oldClrType: typeof(int),
-                oldType: "int");
+                oldType: "int",
+                oldNullable: true);
 
             migrationBuilder.AlterColumn<string>(
-                name: "TypeAC",
+                name: "TypeWM2",
+                table: "AspNetModels",
+                nullable: true,
+                oldClrType: typeof(int),
+                oldType: "int",
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "TypeWM",
+                table: "AspNetModels",
+                nullable: true,
+                oldClrType: typeof(int),
+                oldType: "int",
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Motor",
+                table: "AspNetModels",
+                nullable: true,
+                oldClrType: typeof(int),
+                oldType: "int",
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Drying",
+                table: "AspNetModels",
+                nullable: true,
+                oldClrType: typeof(int),
+                oldType: "int",
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "WM_Class",
                 table: "AspNetModels",
                 nullable: true,
                 oldClrType: typeof(int),
@@ -22,41 +55,58 @@ namespace CE.Migrations
                 oldNullable: true);
 
             migrationBuilder.AlterColumn<double>(
-                name: "Puissance",
+                name: "WM_Capacity",
                 table: "AspNetModels",
                 nullable: true,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)",
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Inverter",
-                table: "AspNetModels",
-                nullable: true,
-                oldClrType: typeof(int),
-                oldType: "int",
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Energeticclass",
-                table: "AspNetModels",
-                nullable: true,
-                oldClrType: typeof(int),
-                oldType: "int",
                 oldNullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<int>(
-                name: "Price",
+                name: "segementWM",
                 table: "AspNetModels",
                 type: "int",
-                nullable: false,
-                oldClrType: typeof(double));
+                nullable: true,
+                oldClrType: typeof(string),
+                oldNullable: true);
 
             migrationBuilder.AlterColumn<int>(
-                name: "TypeAC",
+                name: "TypeWM2",
+                table: "AspNetModels",
+                type: "int",
+                nullable: true,
+                oldClrType: typeof(string),
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<int>(
+                name: "TypeWM",
+                table: "AspNetModels",
+                type: "int",
+                nullable: true,
+                oldClrType: typeof(string),
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<int>(
+                name: "Motor",
+                table: "AspNetModels",
+                type: "int",
+                nullable: true,
+                oldClrType: typeof(string),
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<int>(
+                name: "Drying",
+                table: "AspNetModels",
+                type: "int",
+                nullable: true,
+                oldClrType: typeof(string),
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<int>(
+                name: "WM_Class",
                 table: "AspNetModels",
                 type: "int",
                 nullable: true,
@@ -64,27 +114,11 @@ namespace CE.Migrations
                 oldNullable: true);
 
             migrationBuilder.AlterColumn<string>(
-                name: "Puissance",
+                name: "WM_Capacity",
                 table: "AspNetModels",
                 type: "nvarchar(max)",
                 nullable: true,
                 oldClrType: typeof(double),
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<int>(
-                name: "Inverter",
-                table: "AspNetModels",
-                type: "int",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<int>(
-                name: "Energeticclass",
-                table: "AspNetModels",
-                type: "int",
-                nullable: true,
-                oldClrType: typeof(string),
                 oldNullable: true);
         }
     }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CE.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210603111357_ac")]
-    partial class ac
+    [Migration("20210608111314_Models-REf-3")]
+    partial class ModelsREf3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -255,6 +255,10 @@ namespace CE.Migrations
                     b.Property<double?>("Brandscodebrand")
                         .HasColumnType("float");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("ModelsCode")
                         .HasColumnType("int");
 
@@ -263,10 +267,6 @@ namespace CE.Migrations
 
                     b.Property<int?>("REFCode")
                         .HasColumnType("int");
-
-                    b.Property<string>("SammaryReport_type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TvCode")
                         .HasColumnType("int");
@@ -297,7 +297,7 @@ namespace CE.Migrations
 
                     b.ToTable("AspNetsammaryweekly");
 
-                    b.HasDiscriminator<string>("SammaryReport_type").HasValue("SammaryReport_base");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("SammaryReport");
                 });
 
             modelBuilder.Entity("CE.Data.Visits", b =>
@@ -491,10 +491,17 @@ namespace CE.Migrations
                     b.Property<string>("CodeBP")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<bool>("MarketShare")
-                        .HasColumnType("bit");
+                    b.Property<string>("Display")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MarketShare")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Namebrand")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("OutletsIdOutlet")
@@ -503,23 +510,16 @@ namespace CE.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<bool>("ShelfShare")
-                        .HasColumnType("bit");
+                    b.Property<string>("ShelfShare")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Stock")
-                        .HasColumnType("int");
+                    b.Property<string>("Stock")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Weeklysail")
-                        .HasColumnType("int");
-
-                    b.Property<double>("codebrand")
-                        .HasColumnType("float");
-
-                    b.Property<string>("models_type")
-                        .IsRequired()
+                    b.Property<string>("Weeklysail")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("typee")
@@ -535,7 +535,7 @@ namespace CE.Migrations
 
                     b.ToTable("AspNetModels");
 
-                    b.HasDiscriminator<string>("models_type").HasValue("models_base");
+                    b.HasDiscriminator<string>("Name").HasValue("models_base");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -655,7 +655,7 @@ namespace CE.Migrations
 
                     b.ToTable("AspNetsammaryweekly");
 
-                    b.HasDiscriminator().HasValue("SammaryReport_AC");
+                    b.HasDiscriminator().HasValue("SammaryReportMonthly");
                 });
 
             modelBuilder.Entity("CE.Data.SammaryReportWeekly", b =>
@@ -667,7 +667,7 @@ namespace CE.Migrations
 
                     b.ToTable("AspNetsammaryweekly");
 
-                    b.HasDiscriminator().HasValue("SammaryReport_SammaryReportWeekly");
+                    b.HasDiscriminator().HasValue("SammaryReportWeekly");
                 });
 
             modelBuilder.Entity("CE.Data.AC", b =>
@@ -701,38 +701,38 @@ namespace CE.Migrations
                     b.Property<string>("Capacity")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Class")
-                        .HasColumnType("int");
+                    b.Property<string>("Class")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Display")
-                        .HasColumnType("int");
+                    b.Property<double>("EnergeticClassREf")
+                        .HasColumnType("float");
 
                     b.Property<int>("Energy")
                         .HasColumnType("int");
 
-                    b.Property<int>("Frost")
-                        .HasColumnType("int");
+                    b.Property<string>("Frost")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Segment")
-                        .HasColumnType("int");
+                    b.Property<string>("Segment")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Segment2")
-                        .HasColumnType("int");
+                    b.Property<string>("Segment2")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Technology")
-                        .HasColumnType("int");
+                    b.Property<string>("Technology")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Type2")
-                        .HasColumnType("int");
+                    b.Property<string>("TypeREF2")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TypeREF")
-                        .HasColumnType("int");
+                    b.Property<string>("Typeref")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Waterdispenser")
-                        .HasColumnType("int");
+                    b.Property<string>("Waterdispenser")
+                        .HasColumnType("nvarchar(max)");
 
                     b.ToTable("AspNetModels");
 

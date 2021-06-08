@@ -2,41 +2,42 @@
 
 namespace CE.Migrations
 {
-    public partial class ac : Migration
+    public partial class ModelsREf2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "Name",
-                table: "AspNetModels",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(250)",
-                oldNullable: true);
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Availibility",
+                name: "Technology",
                 table: "AspNetModels",
                 nullable: true,
                 oldClrType: typeof(int),
-                oldType: "int");
+                oldType: "int",
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Class",
+                table: "AspNetModels",
+                nullable: true,
+                oldClrType: typeof(int),
+                oldType: "int",
+                oldNullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "Name",
+            migrationBuilder.AlterColumn<int>(
+                name: "Technology",
                 table: "AspNetModels",
-                type: "nvarchar(250)",
+                type: "int",
                 nullable: true,
                 oldClrType: typeof(string),
                 oldNullable: true);
 
             migrationBuilder.AlterColumn<int>(
-                name: "Availibility",
+                name: "Class",
                 table: "AspNetModels",
                 type: "int",
-                nullable: false,
+                nullable: true,
                 oldClrType: typeof(string),
                 oldNullable: true);
         }

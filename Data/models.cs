@@ -31,6 +31,8 @@ namespace CE.Data
         public string Category { get; set; }
         [ForeignKey("brands")]
         public string Namebrand { get; set; }
+        public string Display { get; set; }
+
         public virtual Outlets Outlets { get; set; }
         public virtual brands Brand { get; set; }
         public virtual ApplicationUser User { get; set; }
@@ -43,7 +45,6 @@ namespace CE.Data
         public string  Encastrable { get; set; }
         public string Color { get; set; }
         public double Promgramme { get; set; }
-        public string Display { get; set; }
         [DisplayName("Number of covers")]
 
         public double Numberofcovers { get; set; }
@@ -73,68 +74,81 @@ namespace CE.Data
     }
     public class WM : models
     {
-        [DisplayName("Type")]
+        [DisplayName("Type ")]
 
-        public TypeWM2 TypeWM2 { get; set; }
+        public string TypeWM { get; set; }
+
+        [DisplayName("Type 2")]
+
+        public string TypeWM2 { get; set; }
         public string Color { get; set; }
         [DisplayName("Size Category")]
 
         public int SizeCategory { get; set; }
-        public SegementWM segementWM { get; set; }
-        public string Capacity { get; set; }
+        [DisplayName("Segment")]
 
-        public Drying Drying { get; set; }
+        public string segementWM { get; set; }
+        public double Capacity { get; set; }
+
+        public string Drying { get; set; }
 
         [DisplayName("Dryer Capacity")]
-        public string DryerCapacity { get; set; }
+        public double DryerCapacity { get; set; }
 
         public string Technology { get; set; }
 
-        public ClassWM Class { get; set; }
+        public string Class { get; set; }
 
-        public Motor Motor { get; set; }
-        [DisplayName("Type 2")]
+        public string Motor { get; set; }
+      
 
-        public TypeWM TypeWM { get; set; }
     }
     public class REF : models
     {
         [DisplayName("Type 2")]
 
-        public TypeREF2 Type2 { get; set; }
+        public string Typeref { get; set; }
         public string Color { get; set; }
         [DisplayName("Segment 1")]
 
-        public Segment Segment { get; set; }
-        public string Capacity { get; set; }
+        public string Segment { get; set; }
+        public double Capacity { get; set; }
         public Energy Energy { get; set; }
-        public Class Class { get; set; }
-        public Technology Technology { get; set; }
-        public Frost Frost { get; set; }
-        public Display Display { get; set; }
+        public string Class { get; set; }
+        public string Technology { get; set; }
+        public string Frost { get; set; }
         [DisplayName("Water dispenser")]
-        public Waterdispenser Waterdispenser { get; set; }
+        public string Waterdispenser { get; set; }
         [DisplayName("Type")]
 
-        public TypeREF TypeREF { get; set; }
+        public string TypeREF2 { get; set; }
         [DisplayName("Segment 2")]
 
-        public SegmentREF Segment2 { get; set; }
+        public string Segment2 { get; set; }
+        
+        [DisplayName("Energetic class")]
+
+        public double EnergeticClassREf { get; set; }
+
     }
     public class TV : models
     {
         public ClassTV Class { get; set; }
         [DisplayName("Type")]
 
-        public TypeTV TypeTV { get; set; }
+        public string TypeTV { get; set; }
         public string Size { get; set; }
         [DisplayName("Size Category")]
         public int SizeCategory { get; set; }
-        public Resolution Resolution { get; set; }
-        public Form Form { get; set; }
+        public string Resolution { get; set; }
+        public string Form { get; set; }
         [DisplayName("Smart TV")]
-        public SmartTV SmartTV { get; set; }
-        public segmentTV SegmentTV { get; set; }
+        public string SmartTV { get; set; }
+        public string SegmentTV { get; set; }
+        public string Integrated_Receiver { get; set; }
+        public double HDMI { get; set; }
+
+        public double USB { get; set; }
 
     }
     public enum Inverter

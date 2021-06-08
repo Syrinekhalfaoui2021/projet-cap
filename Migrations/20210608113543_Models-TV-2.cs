@@ -2,16 +2,16 @@
 
 namespace CE.Migrations
 {
-    public partial class cb : Migration
+    public partial class ModelsTV2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "codebrand",
+                name: "Integrated",
                 table: "AspNetModels");
 
             migrationBuilder.AddColumn<string>(
-                name: "Namebrand",
+                name: "Integrated_Receiver",
                 table: "AspNetModels",
                 nullable: true);
         }
@@ -19,15 +19,14 @@ namespace CE.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Namebrand",
+                name: "Integrated_Receiver",
                 table: "AspNetModels");
 
-            migrationBuilder.AddColumn<double>(
-                name: "codebrand",
+            migrationBuilder.AddColumn<string>(
+                name: "Integrated",
                 table: "AspNetModels",
-                type: "float",
-                nullable: false,
-                defaultValue: 0.0);
+                type: "nvarchar(max)",
+                nullable: true);
         }
     }
 }

@@ -40,18 +40,14 @@ namespace CE.Data
             base.OnModelCreating(builder);
 
             builder.Entity<models>()
-                .HasDiscriminator<string>("models_type")
+                .HasDiscriminator<string>("Name")
                 .HasValue<models>("models_base")
                 .HasValue<WM>("models_wm")
                 .HasValue<AC>("models_AC")
                 .HasValue<REF>("models_ref")
                 .HasValue<TV>("models_TV");
-            builder.Entity<SammaryReport>()
-               .HasDiscriminator<string>("SammaryReport_type")
-               .HasValue<SammaryReport>("SammaryReport_base")
-               .HasValue<SammaryReportWeekly>("SammaryReport_SammaryReportWeekly")
-               .HasValue<SammaryReportMonthly>("SammaryReport_AC")
-               ;
+
+
 
         }
     }

@@ -4,14 +4,16 @@ using CE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CE.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210608113026_Models-TV")]
+    partial class ModelsTV
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -748,10 +750,10 @@ namespace CE.Migrations
                     b.Property<string>("Form")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("HDMI")
-                        .HasColumnType("float");
+                    b.Property<string>("HDMI")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Integrated_Receiver")
+                    b.Property<string>("Integrated")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Resolution")
@@ -772,8 +774,8 @@ namespace CE.Migrations
                     b.Property<string>("TypeTV")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("USB")
-                        .HasColumnType("float");
+                    b.Property<string>("USB")
+                        .HasColumnType("nvarchar(max)");
 
                     b.ToTable("AspNetModels");
 
@@ -784,26 +786,26 @@ namespace CE.Migrations
                 {
                     b.HasBaseType("CE.Data.models");
 
-                    b.Property<double>("Capacity")
+                    b.Property<string>("Capacity")
                         .HasColumnName("WM_Capacity")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Class")
-                        .HasColumnName("WM_Class")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Class")
+                        .HasColumnName("WM_Class")
+                        .HasColumnType("int");
 
                     b.Property<string>("Color")
                         .HasColumnName("WM_Color")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("DryerCapacity")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Drying")
+                    b.Property<string>("DryerCapacity")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Motor")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Drying")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Motor")
+                        .HasColumnType("int");
 
                     b.Property<int>("SizeCategory")
                         .HasColumnName("WM_SizeCategory")
@@ -813,14 +815,14 @@ namespace CE.Migrations
                         .HasColumnName("WM_Technology")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TypeWM")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TypeWM")
+                        .HasColumnType("int");
 
-                    b.Property<string>("TypeWM2")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TypeWM2")
+                        .HasColumnType("int");
 
-                    b.Property<string>("segementWM")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("segementWM")
+                        .HasColumnType("int");
 
                     b.ToTable("AspNetModels");
 
