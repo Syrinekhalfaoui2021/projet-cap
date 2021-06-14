@@ -97,11 +97,20 @@ namespace CE.Controllers
         public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Namebrand,code,Name,TypeAC,Puissance,Classac,Availibility,Price")] AC ac)
 
         {
-            ViewBag.Brands = await GetBrandsSelectList();
 
-            _context.Add(ac);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(IndexModels));
+          
+                ViewBag.Brands = await GetBrandsSelectList();
+
+                if (id == 0)
+                    _context.Add(ac);
+                else
+
+                    _context.Update(ac);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(IndexModels));
+                       
+
+            
         }
         [Authorize(Roles = "Admin")]
 
