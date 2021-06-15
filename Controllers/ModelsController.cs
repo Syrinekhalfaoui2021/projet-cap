@@ -94,18 +94,15 @@ namespace CE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModelsAC")]
-        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Namebrand,code,Name,TypeAC,Puissance,Classac,Availibility,Price")] AC ac)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,TypeAC,Puissance,Classac,Availibility,Price,Namebrand")] AC ac)
 
         {
 
           
                 ViewBag.Brands = await GetBrandsSelectList();
 
-                if (id == 0)
                     _context.Add(ac);
-                else
-
-                    _context.Update(ac);
+               
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexModels));
                        
@@ -117,13 +114,13 @@ namespace CE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModelsDW")]
-        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Namebrand,code,Name,Encastrable,Color,Price,Display,Numberofcovers,Price,Promgramme,Availibility,Energeticefficiency")] DW dw)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,Encastrable,Color,Price,Display,Numberofcovers,Price,Promgramme,Availibility,Energeticefficiency,Namebrand")] DW dw)
 
         {
             ViewBag.Brands = await GetBrandsSelectList();
 
             _context.Add(dw);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(IndexModels));
         }
         [Authorize(Roles = "Admin")]
