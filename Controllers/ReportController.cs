@@ -14,25 +14,12 @@ namespace CE.Controllers
     {
 
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<ApplicationRole> _roleManager;
-        private readonly IDataAccessService _dataAccessService;
-        private readonly IDataFlowService dataFlowService;
-        private readonly ILogger<ReportController> _logger;
-
+     
         public ReportController(
-            UserManager<ApplicationUser> userManager,
-                RoleManager<ApplicationRole> roleManager,
-                IDataAccessService dataAccessService,
-                IDataFlowService dataFlowService,
-                ILogger<ReportController> logger,
+        
                 ApplicationDbContext context)
         {
-            _userManager = userManager;
-            _roleManager = roleManager;
-            _dataAccessService = dataAccessService;
-            this.dataFlowService = dataFlowService;
-            _logger = logger;
+         
             _context = context;
         }
         [Authorize(Roles = "Admin")]

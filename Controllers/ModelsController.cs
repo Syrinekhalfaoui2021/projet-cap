@@ -44,12 +44,7 @@ namespace CE.Controllers
             _logger = logger;
             _context = context;
         }
-
-
-
         [Authorize(Roles = "Admin")]
-
-
         // GET: Models
         public async Task<IActionResult> IndexModels()
         {
@@ -59,6 +54,7 @@ namespace CE.Controllers
                 SelectedModel = ""
             };
             return View(vm);
+           
         }
 
 
@@ -103,7 +99,7 @@ namespace CE.Controllers
 
                     _context.Add(ac);
                
-                await _context.SaveChangesAsync();
+                 _context.SaveChanges();
                 return RedirectToAction(nameof(IndexModels));
                        
 
@@ -120,7 +116,8 @@ namespace CE.Controllers
             ViewBag.Brands = await GetBrandsSelectList();
 
             _context.Add(dw);
-            await _context.SaveChangesAsync();
+
+            _context.SaveChanges();
             return RedirectToAction(nameof(IndexModels));
         }
         [Authorize(Roles = "Admin")]
@@ -178,7 +175,7 @@ namespace CE.Controllers
         // import  and exprt data  Models 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        [ActionName("DownloadExcelDocumentmodel")]
+        [ActionName("DownloaExcelDocumentmodel")]
         public async Task<IActionResult> DownloadExcelDocumentModel()
         {
             string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
@@ -542,7 +539,7 @@ namespace CE.Controllers
             throw new NotImplementedException();
         }
 
-        Task<IActionResult> IModelsController.IndexModels()
+        Task<IActionResult> IModelsController.IndexModels()                 
         {
             throw new NotImplementedException();
         }
