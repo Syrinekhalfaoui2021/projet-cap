@@ -101,9 +101,6 @@ namespace CE.Controllers
                
                  _context.SaveChanges();
                 return RedirectToAction(nameof(IndexModels));
-                       
-
-            
         }
         [Authorize(Roles = "Admin")]
 
