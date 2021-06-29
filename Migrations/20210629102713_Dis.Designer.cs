@@ -4,14 +4,16 @@ using CE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CE.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210629102713_Dis")]
+    partial class Dis
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -465,12 +467,7 @@ namespace CE.Migrations
                     b.Property<string>("Namebrand")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("codebrand");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("AspNetBrand");
                 });
@@ -494,9 +491,6 @@ namespace CE.Migrations
                     b.Property<string>("CodeBP")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<double>("Codebrand")
-                        .HasColumnType("float");
-
                     b.Property<string>("Disc")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -508,6 +502,9 @@ namespace CE.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Namebrand")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("OutletsIdOutlet")
@@ -972,13 +969,6 @@ namespace CE.Migrations
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("CE.Data.brands", b =>
-                {
-                    b.HasOne("CE.Data.ApplicationUser", "User")
-                        .WithMany("Brands")
-                        .HasForeignKey("UserId");
-                });
-
             modelBuilder.Entity("CE.Data.models", b =>
                 {
                     b.HasOne("CE.Data.brands", "Brand")
@@ -990,7 +980,7 @@ namespace CE.Migrations
                         .HasForeignKey("OutletsIdOutlet");
 
                     b.HasOne("CE.Data.ApplicationUser", "User")
-                        .WithMany("Models")
+                        .WithMany()
                         .HasForeignKey("UserId");
                 });
 

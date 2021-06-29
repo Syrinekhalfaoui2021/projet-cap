@@ -96,7 +96,6 @@ namespace CE.Controllers
 
           
                 ViewBag.Brands = await GetBrandsSelectList();
-            ac.Namebrand = ac.Codebrand.ToString();
             switch (ac.ClassasNumber)
             {
                 case 0:
@@ -466,7 +465,9 @@ namespace CE.Controllers
             }
             return _context.Brands.ToList()
 
-                        .Select(x => new SelectListItem
+
+                .Where(x => x.UserId == user.Id)
+                       .Select(x => new SelectListItem
                         {
                             Text = x.Namebrand,
                             Value = x.codebrand.ToString(),

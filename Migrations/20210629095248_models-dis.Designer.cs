@@ -4,14 +4,16 @@ using CE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CE.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210629095248_models-dis")]
+    partial class modelsdis
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -465,12 +467,7 @@ namespace CE.Migrations
                     b.Property<string>("Namebrand")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("codebrand");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("AspNetBrand");
                 });
@@ -494,9 +491,6 @@ namespace CE.Migrations
                     b.Property<string>("CodeBP")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<double>("Codebrand")
-                        .HasColumnType("float");
-
                     b.Property<string>("Disc")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -508,6 +502,9 @@ namespace CE.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Namebrand")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("OutletsIdOutlet")
@@ -526,6 +523,9 @@ namespace CE.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Weeklysail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("typee")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Code");
@@ -694,31 +694,7 @@ namespace CE.Migrations
 
                     b.ToTable("AspNetModels");
 
-                    b.HasDiscriminator().HasValue("AC");
-                });
-
-            modelBuilder.Entity("CE.Data.DW", b =>
-                {
-                    b.HasBaseType("CE.Data.models");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Encastrable")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Energeticefficiency")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Numberofcovers")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Promgramme")
-                        .HasColumnType("float");
-
-                    b.ToTable("AspNetModels");
-
-                    b.HasDiscriminator().HasValue("DW");
+                    b.HasDiscriminator().HasValue("models_AC");
                 });
 
             modelBuilder.Entity("CE.Data.REF", b =>
@@ -732,7 +708,6 @@ namespace CE.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Color")
-                        .HasColumnName("REF_Color")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("EnergeticClassREf")
@@ -764,7 +739,7 @@ namespace CE.Migrations
 
                     b.ToTable("AspNetModels");
 
-                    b.HasDiscriminator().HasValue("REF");
+                    b.HasDiscriminator().HasValue("models_ref");
                 });
 
             modelBuilder.Entity("CE.Data.TV", b =>
@@ -807,7 +782,7 @@ namespace CE.Migrations
 
                     b.ToTable("AspNetModels");
 
-                    b.HasDiscriminator().HasValue("TV");
+                    b.HasDiscriminator().HasValue("models_TV");
                 });
 
             modelBuilder.Entity("CE.Data.WM", b =>
@@ -854,7 +829,7 @@ namespace CE.Migrations
 
                     b.ToTable("AspNetModels");
 
-                    b.HasDiscriminator().HasValue("WM");
+                    b.HasDiscriminator().HasValue("models_wm");
                 });
 
             modelBuilder.Entity("CE.Data.NavigationMenu", b =>
@@ -972,13 +947,6 @@ namespace CE.Migrations
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("CE.Data.brands", b =>
-                {
-                    b.HasOne("CE.Data.ApplicationUser", "User")
-                        .WithMany("Brands")
-                        .HasForeignKey("UserId");
-                });
-
             modelBuilder.Entity("CE.Data.models", b =>
                 {
                     b.HasOne("CE.Data.brands", "Brand")
@@ -990,7 +958,7 @@ namespace CE.Migrations
                         .HasForeignKey("OutletsIdOutlet");
 
                     b.HasOne("CE.Data.ApplicationUser", "User")
-                        .WithMany("Models")
+                        .WithMany()
                         .HasForeignKey("UserId");
                 });
 

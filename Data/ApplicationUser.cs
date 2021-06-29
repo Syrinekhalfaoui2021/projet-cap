@@ -27,5 +27,8 @@ namespace CE.Data
         public string LastName { get; set; }
 
         public virtual ICollection<Outlets> Outlets { get; set; }
+        public virtual ICollection<models> Models { get; set; }
+        public virtual ICollection<brands> Brands { get; set; }
+
     }
 }

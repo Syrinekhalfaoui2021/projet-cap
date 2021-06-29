@@ -40,12 +40,13 @@ namespace CE.Data
             base.OnModelCreating(builder);
 
             builder.Entity<models>()
-                .HasDiscriminator<string>("Name")
-                .HasValue<models>("models_base")
-                .HasValue<WM>("models_wm")
-                .HasValue<AC>("models_AC")
-                .HasValue<REF>("models_ref")
-                .HasValue<TV>("models_TV");
+                .HasDiscriminator<string>("Disc")
+                .HasValue<DW>("DW")
+
+                .HasValue<WM>("WM")
+                .HasValue<AC>("AC")
+                .HasValue<REF>("REF")
+                .HasValue<TV>("TV");
 
 
 

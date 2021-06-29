@@ -23,19 +23,17 @@ namespace CE.Data
         [DisplayName("Shelf Share")]
         public string ShelfShare { get; set; }
         public string Stock { get; set; }
-        [DisplayName("Type")]
-
-        public string typee { get; set; }
+       
         [DisplayName("W/S")]
         public string Weeklysail { get; set; }
         public string Category { get; set; }
         [ForeignKey("brands")]
-        public string Namebrand { get; set; }
-
-        [NotMapped]
+        
         public double Codebrand { get; set; }
 
         public string Display { get; set; }
+        [DisplayName("type")]
+        public string Disc { get; set; }
 
         public virtual Outlets Outlets { get; set; }
         public virtual brands Brand { get; set; }
