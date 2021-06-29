@@ -31,6 +31,10 @@ namespace CE.Data
         public string Category { get; set; }
         [ForeignKey("brands")]
         public string Namebrand { get; set; }
+
+        [NotMapped]
+        public double Codebrand { get; set; }
+
         public string Display { get; set; }
 
         public virtual Outlets Outlets { get; set; }
@@ -64,6 +68,8 @@ namespace CE.Data
         public double Puissance { get; set; }
         [DisplayName("Class")]
 
+        [NotMapped]
+        public int ClassasNumber { get; set; }
         public ClassAC Classac { get; set; }
         [DisplayName("Energetic class")]
 

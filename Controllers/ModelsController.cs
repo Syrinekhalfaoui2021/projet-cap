@@ -90,13 +90,22 @@ namespace CE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModelsAC")]
-        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,TypeAC,Puissance,Classac,Availibility,Price,Namebrand")] AC ac)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,TypeAC,Puissance,ClassasNumber,Availibility,Price,Codebrand")] AC ac)
 
         {
 
           
                 ViewBag.Brands = await GetBrandsSelectList();
-
+            ac.Namebrand = ac.Codebrand.ToString();
+            switch (ac.ClassasNumber)
+            {
+                case 0:
+                    ac.Classac = ClassAC.Basic;
+                    break;
+                case 1:
+                    ac.Classac = ClassAC.Premuim;
+                    break;
+            }
                     _context.Add(ac);
                
                  _context.SaveChanges();
