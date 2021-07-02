@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -32,8 +33,8 @@ namespace CE.Data
         [ForeignKey("Outlet")]
         public int? IdOutlet { get; set; }
         public Outlets Outlet { get; set; }
-        public virtual brands Brand { get; set; }
-        public virtual models Models { get; set; }
+        public ICollection<brands> Brand { get; set; }
+        public ICollection<models> Models { get; set; }
         public virtual ApplicationUser User { get; set; }
     }
 }

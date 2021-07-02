@@ -272,7 +272,7 @@ namespace CE.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddOrEditmonthly(int id, [Bind("IdVisit,Date,Entrytime,Exittime,Remark,Article,Activity,Zone")] Visitsmonthly visitsmonthly)
+        public async Task<IActionResult> AddOrEditmonthly(int id, [Bind("IdVisit,Date,Entrytime,Exittime,Remark,IdOutlet")] Visitsmonthly visitsmonthly)
         {
             if (ModelState.IsValid)
             {
@@ -283,7 +283,7 @@ namespace CE.Controllers
                     _context.Add(visitsmonthly);
                 }
                 else
-                    visitsmonthly.IdVisit = id;
+                   
 
                 _context.Update(visitsmonthly);
                 await _context.SaveChangesAsync();
@@ -617,26 +617,29 @@ namespace CE.Controllers
 
         {
 
-            return View(await _context.Visits
-                              .Include(x => x.Models)
-
-                              .ToListAsync());
+            return View(await _context.Modelss
+                .Include(x => x.Visits)
+                .Include(x=>x.Brand)
+                .ToListAsync()); ;
         }
         public async Task<IActionResult> WeeklyVisitsModel()
 
         {
 
-            return View(await _context.Visitssweekly
-                              .Include(x => x.Models)
+            return View(await _context.Modelss
+                .Include(x => x.Visitsweekly)
+                                .Include(x => x.Brand)
 
-                              .ToListAsync());
+                .ToListAsync()); ;
         }
         public async Task<IActionResult> MonthlyVisitsModel()
 
         {
 
-            return View(await _context.Visitssmonthly
-                              .Include(x => x.Models)
+            return View(await _context.Modelss
+                .Include(x => x.Visitsmonthly)
+                                .Include(x => x.Brand)
+
                                .ToListAsync());
         }
 

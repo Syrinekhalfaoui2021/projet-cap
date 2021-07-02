@@ -27,16 +27,26 @@ namespace CE.Data
         [DisplayName("W/S")]
         public string Weeklysail { get; set; }
         public string Category { get; set; }
+
         [ForeignKey("brands")]
+        public double Brandcodebrand { get; set; }
+
+        [ForeignKey("Visits")]
+        public int? IdVisit { get; set; }
+
+
         
-        public double Codebrand { get; set; }
+
 
         public string Display { get; set; }
         [DisplayName("type")]
         public string Disc { get; set; }
-
+        public virtual Visitsweekly Visitsweekly { get; set; }
+        public virtual Visitsmonthly Visitsmonthly { get; set; }
         public virtual Outlets Outlets { get; set; }
         public virtual brands Brand { get; set; }
+        public virtual Visits Visits{ get; set; }
+
         public virtual ApplicationUser User { get; set; }
 
     }

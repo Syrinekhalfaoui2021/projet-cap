@@ -311,9 +311,6 @@ namespace CE.Migrations
                     b.Property<string>("Article")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<double?>("Brandcodebrand")
-                        .HasColumnType("float");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -326,9 +323,6 @@ namespace CE.Migrations
                     b.Property<int?>("IdOutlet")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ModelsCode")
-                        .HasColumnType("int");
-
                     b.Property<string>("Remark")
                         .HasColumnType("nvarchar(1000)");
 
@@ -337,13 +331,9 @@ namespace CE.Migrations
 
                     b.HasKey("IdVisit");
 
-                    b.HasIndex("Brandcodebrand");
-
                     b.HasIndex("IdOutlet")
                         .IsUnique()
                         .HasFilter("[IdOutlet] IS NOT NULL");
-
-                    b.HasIndex("ModelsCode");
 
                     b.HasIndex("UserId");
 
@@ -363,9 +353,6 @@ namespace CE.Migrations
                     b.Property<string>("Article")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<double?>("Brandcodebrand")
-                        .HasColumnType("float");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -378,9 +365,6 @@ namespace CE.Migrations
                     b.Property<int?>("IdOutlet")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ModelsCode")
-                        .HasColumnType("int");
-
                     b.Property<string>("Remark")
                         .HasColumnType("nvarchar(250)");
 
@@ -389,13 +373,9 @@ namespace CE.Migrations
 
                     b.HasKey("IdVisit");
 
-                    b.HasIndex("Brandcodebrand");
-
                     b.HasIndex("IdOutlet")
                         .IsUnique()
                         .HasFilter("[IdOutlet] IS NOT NULL");
-
-                    b.HasIndex("ModelsCode");
 
                     b.HasIndex("UserId");
 
@@ -415,9 +395,6 @@ namespace CE.Migrations
                     b.Property<string>("Article")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<double?>("Brandcodebrand")
-                        .HasColumnType("float");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -430,9 +407,6 @@ namespace CE.Migrations
                     b.Property<int?>("IdOutlet")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ModelsCode")
-                        .HasColumnType("int");
-
                     b.Property<string>("Remark")
                         .HasColumnType("nvarchar(250)");
 
@@ -441,13 +415,9 @@ namespace CE.Migrations
 
                     b.HasKey("IdVisit");
 
-                    b.HasIndex("Brandcodebrand");
-
                     b.HasIndex("IdOutlet")
                         .IsUnique()
                         .HasFilter("[IdOutlet] IS NOT NULL");
-
-                    b.HasIndex("ModelsCode");
 
                     b.HasIndex("UserId");
 
@@ -468,9 +438,24 @@ namespace CE.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int?>("VisitsIdVisit")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VisitsmonthlyIdVisit")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VisitsweeklyIdVisit")
+                        .HasColumnType("int");
+
                     b.HasKey("codebrand");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("VisitsIdVisit");
+
+                    b.HasIndex("VisitsmonthlyIdVisit");
+
+                    b.HasIndex("VisitsweeklyIdVisit");
 
                     b.ToTable("AspNetBrand");
                 });
@@ -485,7 +470,7 @@ namespace CE.Migrations
                     b.Property<string>("Availibility")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Brandcodebrand")
+                    b.Property<double>("Brandcodebrand")
                         .HasColumnType("float");
 
                     b.Property<string>("Category")
@@ -494,15 +479,15 @@ namespace CE.Migrations
                     b.Property<string>("CodeBP")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<double>("Codebrand")
-                        .HasColumnType("float");
-
                     b.Property<string>("Disc")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Display")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("IdVisit")
+                        .HasColumnType("int");
 
                     b.Property<string>("MarketShare")
                         .HasColumnType("nvarchar(max)");
@@ -525,6 +510,12 @@ namespace CE.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int?>("VisitsmonthlyIdVisit")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VisitsweeklyIdVisit")
+                        .HasColumnType("int");
+
                     b.Property<string>("Weeklysail")
                         .HasColumnType("nvarchar(max)");
 
@@ -532,9 +523,15 @@ namespace CE.Migrations
 
                     b.HasIndex("Brandcodebrand");
 
+                    b.HasIndex("IdVisit");
+
                     b.HasIndex("OutletsIdOutlet");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("VisitsmonthlyIdVisit");
+
+                    b.HasIndex("VisitsweeklyIdVisit");
 
                     b.ToTable("AspNetModels");
 
@@ -917,17 +914,9 @@ namespace CE.Migrations
 
             modelBuilder.Entity("CE.Data.Visits", b =>
                 {
-                    b.HasOne("CE.Data.brands", "Brand")
-                        .WithMany()
-                        .HasForeignKey("Brandcodebrand");
-
                     b.HasOne("CE.Data.Outlets", "Outlets")
                         .WithOne("Visitss")
                         .HasForeignKey("CE.Data.Visits", "IdOutlet");
-
-                    b.HasOne("CE.Data.models", "Models")
-                        .WithMany()
-                        .HasForeignKey("ModelsCode");
 
                     b.HasOne("CE.Data.ApplicationUser", "User")
                         .WithMany()
@@ -936,17 +925,9 @@ namespace CE.Migrations
 
             modelBuilder.Entity("CE.Data.Visitsmonthly", b =>
                 {
-                    b.HasOne("CE.Data.brands", "Brand")
-                        .WithMany()
-                        .HasForeignKey("Brandcodebrand");
-
                     b.HasOne("CE.Data.Outlets", "Outlet")
                         .WithOne("Visitssmonthly")
                         .HasForeignKey("CE.Data.Visitsmonthly", "IdOutlet");
-
-                    b.HasOne("CE.Data.models", "Models")
-                        .WithMany()
-                        .HasForeignKey("ModelsCode");
 
                     b.HasOne("CE.Data.ApplicationUser", "User")
                         .WithMany()
@@ -955,17 +936,9 @@ namespace CE.Migrations
 
             modelBuilder.Entity("CE.Data.Visitsweekly", b =>
                 {
-                    b.HasOne("CE.Data.brands", "Brand")
-                        .WithMany()
-                        .HasForeignKey("Brandcodebrand");
-
                     b.HasOne("CE.Data.Outlets", "Outlets")
                         .WithOne("Visitssweekly")
                         .HasForeignKey("CE.Data.Visitsweekly", "IdOutlet");
-
-                    b.HasOne("CE.Data.models", "Models")
-                        .WithMany()
-                        .HasForeignKey("ModelsCode");
 
                     b.HasOne("CE.Data.ApplicationUser", "User")
                         .WithMany()
@@ -977,13 +950,31 @@ namespace CE.Migrations
                     b.HasOne("CE.Data.ApplicationUser", "User")
                         .WithMany("Brands")
                         .HasForeignKey("UserId");
+
+                    b.HasOne("CE.Data.Visits", "Visits")
+                        .WithMany("Brand")
+                        .HasForeignKey("VisitsIdVisit");
+
+                    b.HasOne("CE.Data.Visitsmonthly", "Visitsmonthly")
+                        .WithMany("Brand")
+                        .HasForeignKey("VisitsmonthlyIdVisit");
+
+                    b.HasOne("CE.Data.Visitsweekly", "Visitsweekly")
+                        .WithMany("Brand")
+                        .HasForeignKey("VisitsweeklyIdVisit");
                 });
 
             modelBuilder.Entity("CE.Data.models", b =>
                 {
                     b.HasOne("CE.Data.brands", "Brand")
                         .WithMany("Models")
-                        .HasForeignKey("Brandcodebrand");
+                        .HasForeignKey("Brandcodebrand")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CE.Data.Visits", "Visits")
+                        .WithMany("Models")
+                        .HasForeignKey("IdVisit");
 
                     b.HasOne("CE.Data.Outlets", "Outlets")
                         .WithMany()
@@ -992,6 +983,14 @@ namespace CE.Migrations
                     b.HasOne("CE.Data.ApplicationUser", "User")
                         .WithMany("Models")
                         .HasForeignKey("UserId");
+
+                    b.HasOne("CE.Data.Visitsmonthly", "Visitsmonthly")
+                        .WithMany("Models")
+                        .HasForeignKey("VisitsmonthlyIdVisit");
+
+                    b.HasOne("CE.Data.Visitsweekly", "Visitsweekly")
+                        .WithMany("Models")
+                        .HasForeignKey("VisitsweeklyIdVisit");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

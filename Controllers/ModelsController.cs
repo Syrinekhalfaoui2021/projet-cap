@@ -50,7 +50,9 @@ namespace CE.Controllers
         {
             var vm = new ModelViewModel
             {
-                Models = await _context.Modelss.ToListAsync(),
+                Models = await _context.Modelss
+                .Include(x => x.Brand)
+                .ToListAsync(),
                 SelectedModel = ""
             };
             return View(vm);
@@ -90,7 +92,7 @@ namespace CE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModelsAC")]
-        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,TypeAC,Puissance,ClassasNumber,Availibility,Price,Codebrand")] AC ac)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,TypeAC,Puissance,ClassasNumber,Availibility,Price,Brandcodebrand")] AC ac)
 
         {
 
@@ -115,7 +117,7 @@ namespace CE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModelsDW")]
-        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,Encastrable,Color,Price,Display,Numberofcovers,Price,Promgramme,Availibility,Energeticefficiency,Namebrand")] DW dw)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,Encastrable,Color,Price,Display,Numberofcovers,Price,Promgramme,Availibility,Energeticefficiency,Brandcodebrand")] DW dw)
 
         {
             ViewBag.Brands = await GetBrandsSelectList();
@@ -130,7 +132,7 @@ namespace CE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModelREF")]
-        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Namebrand,code,Name,Type2,Color,Segment,Capacity,Energy,Class,Technology,Frost,Display,Waterdispenser,TypeREF,Segment2,Availibility,Price")] REF rEF)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,Type2,Color,Segment,Capacity,Energy,Class,Technology,Frost,Display,Waterdispenser,TypeREF,Segment2,Availibility,Price,Brandcodebrand")] REF rEF)
 
         {
             ViewBag.Brands = await GetBrandsSelectList();
@@ -144,7 +146,7 @@ namespace CE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModelWM")]
-        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Namebrand,code,Name,TypeWM2,Color,SizeCategory,segementWM,Capacity,Drying,DryerCapacity,Technology,Class,Motor,TypeWM,Availibility,Price")] WM wM)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,TypeWM2,Color,SizeCategory,segementWM,Capacity,Drying,DryerCapacity,Technology,Class,Motor,TypeWM,Availibility,Price,Brandcodebrand")] WM wM)
 
         {
             ViewBag.Brands = await GetBrandsSelectList();
@@ -158,7 +160,7 @@ namespace CE.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("AddOrEditModelTV")]
-        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Namebrand,code,Name,Class,TypeTV,Size,SizeCategory,Resolution,Form,SmartTV,SegmentTV,Availibility,Price")] TV tV)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,Class,TypeTV,Size,SizeCategory,Resolution,Form,SmartTV,SegmentTV,Availibility,Price")] TV tV)
 
         {
             ViewBag.Brands = await GetBrandsSelectList();

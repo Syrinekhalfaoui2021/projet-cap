@@ -17,7 +17,10 @@ namespace CE.Data
         public string Color { get; set; }
         [ForeignKey("User")]
         public string UserId { get; set; }
-        public virtual ICollection<models> Models { get; set; }
+        public virtual Visits Visits { get; set; }
+        public virtual Visitsmonthly Visitsmonthly { get; set; }
+        public virtual Visitsweekly Visitsweekly { get; set; }
+       public virtual ICollection<models> Models { get; set; }
         public virtual ICollection<SammaryReport> SammaryReports { get; set; }
         public virtual ApplicationUser User { get; set; }
 

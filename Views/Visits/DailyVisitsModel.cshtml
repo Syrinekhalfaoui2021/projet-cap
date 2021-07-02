@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CE.Data.Visits>
+﻿@model IEnumerable<CE.Data.models>
 @using Microsoft.AspNetCore.Identity
 @using CE.Data
 
@@ -60,36 +60,37 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Brand.Namebrand)
-                </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand.Namebrand)
+            </td>
 
-                <td>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Models.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Models.ShelfShare)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Models.MarketShare)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Models.Price)
-                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disc)
 
-                <td>
-                </td>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
 
-                <td>
+                @Html.TextBoxFor(modelItem => item.ShelfShare)
+            </td>
+            <td>
+                @Html.TextBoxFor(modelItem => item.MarketShare)
+            </td>
+            <td>
 
+                @Html.TextBoxFor(modelItem => item.Price)
+            </td>
 
+            
 
-                </td>
+            <td>
+                <a asp-action="DeleteModels" asp-route-id="@item.Code" class="btn btn-block btn-danger" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash-o"></i></a>
+            </td>
 
-            </tr>
+        </tr>
         }
     </tbody>
 </table>
