@@ -95,9 +95,10 @@
                 <td>
                     @if (item.User != null)
                     {
-                        @item.User.FirstName @item.User.LastName
-                    }
-                </td>
+                        @item.User.FirstName  <br />
+    @item.User.LastName
+    }
+</td>
                 <td>
 
                     @Html.DisplayFor(modelItem => item.Zone)

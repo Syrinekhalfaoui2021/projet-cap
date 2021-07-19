@@ -34,8 +34,9 @@ namespace CE.Data
         [ForeignKey("Visits")]
         public int? IdVisit { get; set; }
 
+        [ForeignKey("Outlets")]
+        public int? IdOutlet { get; set; }
 
-        
 
 
         public string Display { get; set; }

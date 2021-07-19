@@ -616,10 +616,14 @@ namespace CE.Controllers
         public async Task<IActionResult> DailyVisitsModel()
 
         {
-
+            
             return View(await _context.Modelss
+             
+
                 .Include(x => x.Visits)
                 .Include(x=>x.Brand)
+                .Include(x=>x.Outlets)
+
                 .ToListAsync()); ;
         }
         public async Task<IActionResult> WeeklyVisitsModel()
@@ -635,6 +639,7 @@ namespace CE.Controllers
         public async Task<IActionResult> MonthlyVisitsModel()
 
         {
+
 
             return View(await _context.Modelss
                 .Include(x => x.Visitsmonthly)
