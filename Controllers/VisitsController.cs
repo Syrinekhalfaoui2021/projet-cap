@@ -629,9 +629,11 @@ namespace CE.Controllers
         public async Task<IActionResult> WeeklyVisitsModel()
 
         {
+
             return View(await _context.Modelss
                 .Include(x => x.Visitsweekly)
-                .Include(x => x.Brand)       
+                                .Include(x => x.Brand)
+
                 .ToListAsync()); ;
         }
         public async Task<IActionResult> MonthlyVisitsModel()
