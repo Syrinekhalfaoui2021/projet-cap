@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
 
-namespace CE.Handlers
+namespace CAP.Handlers
 {
     public class AuthorizationPolicyProvider : DefaultAuthorizationPolicyProvider
     {

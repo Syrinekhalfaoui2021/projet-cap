@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace CE.Data
+namespace CAP.Data
 {
     public class ApplicationRole : IdentityRole
     {

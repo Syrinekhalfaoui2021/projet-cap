@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CE.Data
+namespace CAP.Data
 {
     [Table(name: "AspNetRoleMenuPermission")]
     public class RoleMenuPermission

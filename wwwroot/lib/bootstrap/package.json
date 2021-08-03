@@ -82,7 +82,7 @@
     "js/*.js",
     "less/**/*.less",
     "Gruntfile.js",
-    "LICENSE"
+    "LICAPNSE"
   ],
   "jspm": {
     "main": "js/bootstrap",

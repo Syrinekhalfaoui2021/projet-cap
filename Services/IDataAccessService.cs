@@ -1,10 +1,10 @@
-﻿using CE.Models;
+﻿using CAP.Models;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace CE.Services
+namespace CAP.Services
 {
     public interface IDataAccessService
     {

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace CE.Data
+namespace CAP.Data
 {
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>

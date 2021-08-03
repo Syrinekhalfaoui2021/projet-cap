@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CE.ViewModels
+namespace CAP.ViewModels
 {
     public class UsersViewModel
     {

@@ -1,7 +1,7 @@
-﻿using CE.Data;
+﻿using CAP.Data;
 using System.Collections.Generic;
 
-namespace CE.ViewModels
+namespace CAP.ViewModels
 {
     public class ModelViewModel
     {

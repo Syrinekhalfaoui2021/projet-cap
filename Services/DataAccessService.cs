@@ -1,5 +1,5 @@
-﻿using CE.Data;
-using CE.Models;
+﻿using CAP.Data;
+using CAP.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace CE.Services
+namespace CAP.Services
 {
     public class DataAccessService : IDataAccessService
     {

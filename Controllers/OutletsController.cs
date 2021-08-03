@@ -1,6 +1,6 @@
-﻿using CE.Data;
-using CE.Services;
-using CE.Services.Interfaces;
+﻿using CAP.Data;
+using CAP.Services;
+using CAP.Services.Interfaces;
 using ClosedXML.Excel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -15,7 +15,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CE.Controllers
+namespace CAP.Controllers
 {
     public class OutletsController : Controller
     {
@@ -222,7 +222,7 @@ namespace CE.Controllers
     }
 }
 
-namespace CE
+namespace CAP
 {
     public class currentuser
     {

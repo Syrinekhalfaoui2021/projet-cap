@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CE.Data
+namespace CAP.Data
 {
     [Table(name: "AspNetsammaryweekly")]
 

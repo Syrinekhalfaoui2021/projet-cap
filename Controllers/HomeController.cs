@@ -1,10 +1,10 @@
-﻿using CE.Models;
+﻿using CAP.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-namespace CE.Controllers
+namespace CAP.Controllers
 {
     [Authorize]
     public class HomeController : Controller

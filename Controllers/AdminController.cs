@@ -1,7 +1,7 @@
-﻿using CE.Data;
-using CE.Models;
-using CE.Services;
-using CE.Services.Interfaces;
+﻿using CAP.Data;
+using CAP.Models;
+using CAP.Services;
+using CAP.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +14,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CE.Controllers
+namespace CAP.Controllers
 {
     [Authorize]
     public class AdminController : Controller
