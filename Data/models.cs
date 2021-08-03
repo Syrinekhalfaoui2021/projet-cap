@@ -48,6 +48,8 @@ namespace CE.Data
         public virtual brands Brand { get; set; }
         public virtual Visits Visits{ get; set; }
 
+       
+
         public virtual ApplicationUser User { get; set; }
 
     }
