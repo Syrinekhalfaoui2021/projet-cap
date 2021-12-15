@@ -1,6 +1,6 @@
-﻿using CE.Data;
-using CE.Services;
-using CE.Services.Interfaces;
+﻿using CAP.Data;
+using CAP.Services;
+using CAP.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace CE.Controllers
+namespace CAP.Controllers
 {
     public class ReportController : Controller
     {

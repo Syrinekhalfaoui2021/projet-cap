@@ -1,9 +1,9 @@
-﻿using CE.Data;
+﻿using CAP.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace CE.Controllers
+namespace CAP.Controllers
 {
     public interface IModelsController
     {

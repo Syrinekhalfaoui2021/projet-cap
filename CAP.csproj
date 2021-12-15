@@ -1,0 +1,155 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-CAP-1000C58A-5879-47D4-82B2-5A64D272C5F1
+    </UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Views\Admin\Outlets\**" />
+    <Compile Remove="Views\sammaryreports\**" />
+    <Content Remove="Views\Admin\Outlets\**" />
+    <Content Remove="Views\sammaryreports\**" />
+    <EmbeddedResource Remove="Views\Admin\Outlets\**" />
+    <EmbeddedResource Remove="Views\sammaryreports\**" />
+    <None Remove="Views\Admin\Outlets\**" />
+    <None Remove="Views\sammaryreports\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="3.3.7" />
+    <PackageReference Include="ClosedXML" Version="0.95.3" />
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.13.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.13">
+    <PrivateAssets>all</PrivateAssets>
+    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="OfficeOpenXml.Core.ExcelPackage" Version="1.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+    </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\jeweler-master\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\jeweler-master\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\jeweler-master\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\jeweler-master\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\jeweler-master\img\logo\Thumbs.db" />
+    <None Include="wwwroot\jeweler-master\js\bootstrap.min.js" />
+    <None Include="wwwroot\jeweler-master\js\c3-charts\c3-active.js" />
+    <None Include="wwwroot\jeweler-master\js\c3-charts\c3.min.js" />
+    <None Include="wwwroot\jeweler-master\js\c3-charts\d3.min.js" />
+    <None Include="wwwroot\jeweler-master\js\calendar\fullcalendar-active.js" />
+    <None Include="wwwroot\jeweler-master\js\calendar\fullcalendar.min.js" />
+    <None Include="wwwroot\jeweler-master\js\calendar\moment.min.js" />
+    <None Include="wwwroot\jeweler-master\js\card.js" />
+    <None Include="wwwroot\jeweler-master\js\charts\area-chart.js" />
+    <None Include="wwwroot\jeweler-master\js\charts\bar-chart.js" />
+    <None Include="wwwroot\jeweler-master\js\charts\Chart.js" />
+    <None Include="wwwroot\jeweler-master\js\charts\line-chart.js" />
+    <None Include="wwwroot\jeweler-master\js\charts\rounded-chart.js" />
+    <None Include="wwwroot\jeweler-master\js\chart\jquery.peity.min.js" />
+    <None Include="wwwroot\jeweler-master\js\chart\peity-active.js" />
+    <None Include="wwwroot\jeweler-master\js\chosen\chosen-active.js" />
+    <None Include="wwwroot\jeweler-master\js\chosen\chosen.jquery.js" />
+    <None Include="wwwroot\jeweler-master\js\code-editor\code-editor-active.js" />
+    <None Include="wwwroot\jeweler-master\js\code-editor\code-editor.js" />
+    <None Include="wwwroot\jeweler-master\js\code-editor\codemirror.js" />
+    <None Include="wwwroot\jeweler-master\js\colorpicker\color-picker-active.js" />
+    <None Include="wwwroot\jeweler-master\js\colorpicker\jquery.spectrum.min.js" />
+    <None Include="wwwroot\jeweler-master\js\counterup\counterup-active.js" />
+    <None Include="wwwroot\jeweler-master\js\counterup\jquery.counterup.min.js" />
+    <None Include="wwwroot\jeweler-master\js\counterup\waypoints.min.js" />
+    <None Include="wwwroot\jeweler-master\js\cropper\cropper-actice.js" />
+    <None Include="wwwroot\jeweler-master\js\cropper\cropper.min.js" />
+    <None Include="wwwroot\jeweler-master\js\data-map\d3.min.js" />
+    <None Include="wwwroot\jeweler-master\js\data-map\data-maps-active.js" />
+    <None Include="wwwroot\jeweler-master\js\data-map\datamaps.all.min.js" />
+    <None Include="wwwroot\jeweler-master\js\data-map\topojson.js" />
+    <None Include="wwwroot\jeweler-master\js\data-table\bootstrap-editable.js" />
+    <None Include="wwwroot\jeweler-master\js\data-table\bootstrap-table-editable.js" />
+    <None Include="wwwroot\jeweler-master\js\data-table\bootstrap-table-export.js" />
+    <None Include="wwwroot\jeweler-master\js\data-table\bootstrap-table-resizable.js" />
+    <None Include="wwwroot\jeweler-master\js\data-table\bootstrap-table.js" />
+    <None Include="wwwroot\jeweler-master\js\data-table\colResizable-1.5.source.js" />
+    <None Include="wwwroot\jeweler-master\js\data-table\data-table-active.js" />
+    <None Include="wwwroot\jeweler-master\js\data-table\tableExport.js" />
+    <None Include="wwwroot\jeweler-master\js\datapicker\bootstrap-datepicker.js" />
+    <None Include="wwwroot\jeweler-master\js\datapicker\datepicker-active.js" />
+    <None Include="wwwroot\jeweler-master\js\dropzone\dropzone.js" />
+    <None Include="wwwroot\jeweler-master\js\duallistbox\duallistbox.active.js" />
+    <None Include="wwwroot\jeweler-master\js\duallistbox\jquery.bootstrap-duallistbox.js" />
+    <None Include="wwwroot\jeweler-master\js\e-payment.js" />
+    <None Include="wwwroot\jeweler-master\js\editable\bootstrap-datetimepicker.js" />
+    <None Include="wwwroot\jeweler-master\js\editable\bootstrap-editable.js" />
+    <None Include="wwwroot\jeweler-master\js\editable\jquery.mockjax.js" />
+    <None Include="wwwroot\jeweler-master\js\editable\mock-active.js" />
+    <None Include="wwwroot\jeweler-master\js\editable\moment.min.js" />
+    <None Include="wwwroot\jeweler-master\js\editable\select2.js" />
+    <None Include="wwwroot\jeweler-master\js\editable\xediable-active.js" />
+    <None Include="wwwroot\jeweler-master\js\google.maps\google.maps-active.js" />
+    <None Include="wwwroot\jeweler-master\js\icheck\icheck-active.js" />
+    <None Include="wwwroot\jeweler-master\js\icheck\icheck.min.js" />
+    <None Include="wwwroot\jeweler-master\js\input-mask\jasny-bootstrap.min.js" />
+    <None Include="wwwroot\jeweler-master\js\ionRangeSlider\ion.rangeSlider.active.js" />
+    <None Include="wwwroot\jeweler-master\js\ionRangeSlider\ion.rangeSlider.min.js" />
+    <None Include="wwwroot\jeweler-master\js\jquery-price-slider.js" />
+    <None Include="wwwroot\jeweler-master\js\jquery.meanmenu.js" />
+    <None Include="wwwroot\jeweler-master\js\jquery.payform.min.js" />
+    <None Include="wwwroot\jeweler-master\js\jquery.scrollUp.min.js" />
+    <None Include="wwwroot\jeweler-master\js\jquery.sticky.js" />
+    <None Include="wwwroot\jeweler-master\js\knob\jquery.knob.js" />
+    <None Include="wwwroot\jeweler-master\js\knob\knob-active.js" />
+    <None Include="wwwroot\jeweler-master\js\main.js" />
+    <None Include="wwwroot\jeweler-master\js\metisMenu\metisMenu-active.js" />
+    <None Include="wwwroot\jeweler-master\js\metisMenu\metisMenu.min.js" />
+    <None Include="wwwroot\jeweler-master\js\morrisjs\morris-active-pro.js" />
+    <None Include="wwwroot\jeweler-master\js\morrisjs\morris-active.js" />
+    <None Include="wwwroot\jeweler-master\js\morrisjs\morris.js" />
+    <None Include="wwwroot\jeweler-master\js\morrisjs\raphael-min.js" />
+    <None Include="wwwroot\jeweler-master\js\notifications\Lobibox.js" />
+    <None Include="wwwroot\jeweler-master\js\notifications\notification-active.js" />
+    <None Include="wwwroot\jeweler-master\js\owl.carousel.min.js" />
+    <None Include="wwwroot\jeweler-master\js\password-meter\password-meter-active.js" />
+    <None Include="wwwroot\jeweler-master\js\password-meter\pwstrength-bootstrap.min.js" />
+    <None Include="wwwroot\jeweler-master\js\password-meter\zxcvbn.js" />
+    <None Include="wwwroot\jeweler-master\js\pdf\jquery.media.js" />
+    <None Include="wwwroot\jeweler-master\js\pdf\pdf-active.js" />
+    <None Include="wwwroot\jeweler-master\js\peity\jquery.peity.min.js" />
+    <None Include="wwwroot\jeweler-master\js\peity\peity-active.js" />
+    <None Include="wwwroot\jeweler-master\js\plugins.js" />
+    <None Include="wwwroot\jeweler-master\js\rangle-slider\jquery-ui-1.10.4.custom.min.js" />
+    <None Include="wwwroot\jeweler-master\js\rangle-slider\jquery-ui-touch-punch.min.js" />
+    <None Include="wwwroot\jeweler-master\js\rangle-slider\rangle-active.js" />
+    <None Include="wwwroot\jeweler-master\js\scrollbar\jquery.mCustomScrollbar.concat.min.js" />
+    <None Include="wwwroot\jeweler-master\js\scrollbar\mCustomScrollbar-active.js" />
+    <None Include="wwwroot\jeweler-master\js\select2\select2-active.js" />
+    <None Include="wwwroot\jeweler-master\js\select2\select2.full.min.js" />
+    <None Include="wwwroot\jeweler-master\js\sparkline\jquery.charts-sparkline.js" />
+    <None Include="wwwroot\jeweler-master\js\sparkline\jquery.sparkline.min.js" />
+    <None Include="wwwroot\jeweler-master\js\sparkline\sparkline-active.js" />
+    <None Include="wwwroot\jeweler-master\js\summernote\summernote-active.js" />
+    <None Include="wwwroot\jeweler-master\js\summernote\summernote.min.js" />
+    <None Include="wwwroot\jeweler-master\js\tab.js" />
+    <None Include="wwwroot\jeweler-master\js\touchspin\jquery.bootstrap-touchspin.min.js" />
+    <None Include="wwwroot\jeweler-master\js\touchspin\touchspin-active.js" />
+    <None Include="wwwroot\jeweler-master\js\tree-line\jstree.active.js" />
+    <None Include="wwwroot\jeweler-master\js\tree-line\jstree.min.js" />
+    <None Include="wwwroot\jeweler-master\js\vendor\jquery-1.11.3.min.js" />
+    <None Include="wwwroot\jeweler-master\js\vendor\modernizr-2.8.3.min.js" />
+    <None Include="wwwroot\jeweler-master\js\wizard\jquery.steps.js" />
+    <None Include="wwwroot\jeweler-master\js\wizard\steps-active.js" />
+    <None Include="wwwroot\jeweler-master\js\wow.min.js" />
+  </ItemGroup>
+    <ProjectExtensions><VisualStudio>
+    <UserProperties appsettings_1json__JsonSchema="https://jenkins-x.io/schemas/jx-requirements.json" libman_1json__JsonSchema="" />
+    </VisualStudio>
+    </ProjectExtensions>
+
+</Project>

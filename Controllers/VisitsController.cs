@@ -1,6 +1,6 @@
-﻿using CE.Data;
-using CE.Services;
-using CE.Services.Interfaces;
+﻿using CAP.Data;
+using CAP.Services;
+using CAP.Services.Interfaces;
 using ClosedXML.Excel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -16,7 +16,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DateTime = System.DateTime;
 
-namespace CE.Controllers
+namespace CAP.Controllers
 {
     public class VisitsController : Controller
     {

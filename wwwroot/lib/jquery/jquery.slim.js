@@ -655,7 +655,7 @@ var i,
 	fcssescape = function( ch, asCodePoint ) {
 		if ( asCodePoint ) {
 
-			// U+0000 NULL becomes U+FFFD REPLACEMENT CHARACTER
+			// U+0000 NULL becomes U+FFFD REPLACAPMENT CHARACTER
 			if ( ch === "\0" ) {
 				return "\uFFFD";
 			}

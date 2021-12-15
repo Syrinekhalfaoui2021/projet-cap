@@ -1,7 +1,7 @@
-﻿using CE.Data;
-using CE.Services;
-using CE.Services.Interfaces;
-using CE.ViewModels;
+﻿using CAP.Data;
+using CAP.Services;
+using CAP.Services.Interfaces;
+using CAP.ViewModels;
 using ClosedXML.Excel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -17,7 +17,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CE.Controllers
+namespace CAP.Controllers
 {
     public class ModelsController : Controller, IModelsController
     {

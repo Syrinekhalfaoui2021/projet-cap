@@ -1,8 +1,8 @@
-﻿using CE.Data;
+﻿using CAP.Data;
 using System.Collections.Generic;
 
 
-namespace CE.Models
+namespace CAP.Models
 {
     public class UserViewModel
     {

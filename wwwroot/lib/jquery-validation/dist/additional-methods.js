@@ -358,8 +358,8 @@ $.validator.addMethod( "creditcard", function( value, element ) {
 	return ( nCheck % 10 ) === 0;
 }, "Please enter a valid credit card number." );
 
-/* NOTICE: Modified version of Castle.Components.Validator.CreditCardValidator
- * Redistributed under the the Apache License 2.0 at http://www.apache.org/licenses/LICENSE-2.0
+/* NOTICAP: Modified version of Castle.Components.Validator.CreditCardValidator
+ * Redistributed under the the Apache License 2.0 at http://www.apache.org/licenses/LICAPNSE-2.0
  * Valid Types: mastercard, visa, amex, dinersclub, enroute, discover, jcb, unknown, all (overrides all other settings)
  */
 $.validator.addMethod( "creditcardtypes", function( value, element, param ) {
@@ -895,7 +895,7 @@ $.validator.addMethod( "phoneUS", function( phone_number, element ) {
 }, "Please specify a valid phone number" );
 
 /*
-* Valida CEPs do brasileiros:
+* Valida CAPPs do brasileiros:
 *
 * Formatos aceitos:
 * 99999-999
@@ -904,7 +904,7 @@ $.validator.addMethod( "phoneUS", function( phone_number, element ) {
 */
 $.validator.addMethod( "postalcodeBR", function( cep_value, element ) {
 	return this.optional( element ) || /^\d{2}.\d{3}-\d{3}?$|^\d{5}-?\d{3}?$/.test( cep_value );
-}, "Informe um CEP válido." );
+}, "Informe um CAPP válido." );
 
 /**
  * Matches a valid Canadian Postal Code
@@ -920,7 +920,7 @@ $.validator.addMethod( "postalcodeBR", function( cep_value, element ) {
  * @cat Plugins/Validate/Methods
  */
 $.validator.addMethod( "postalCodeCA", function( value, element ) {
-	return this.optional( element ) || /^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ] *\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i.test( value );
+	return this.optional( element ) || /^[ABCAPGHJKLMNPRSTVXY]\d[ABCAPGHJKLMNPRSTVWXYZ] *\d[ABCAPGHJKLMNPRSTVWXYZ]\d$/i.test( value );
 }, "Please specify a valid postal code" );
 
 /* Matches Italian postcode (CAP) */
@@ -1061,13 +1061,13 @@ $.validator.addMethod( "stateUS", function( value, element, options ) {
 		regex;
 
 	if ( !includeTerritories && !includeMilitary ) {
-		regex = "^(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])$";
+		regex = "^(A[KLRZ]|C[AOT]|D[CAP]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])$";
 	} else if ( includeTerritories && includeMilitary ) {
-		regex = "^(A[AEKLPRSZ]|C[AOT]|D[CE]|FL|G[AU]|HI|I[ADLN]|K[SY]|LA|M[ADEINOPST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY])$";
+		regex = "^(A[AEKLPRSZ]|C[AOT]|D[CAP]|FL|G[AU]|HI|I[ADLN]|K[SY]|LA|M[ADEINOPST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY])$";
 	} else if ( includeTerritories ) {
-		regex = "^(A[KLRSZ]|C[AOT]|D[CE]|FL|G[AU]|HI|I[ADLN]|K[SY]|LA|M[ADEINOPST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY])$";
+		regex = "^(A[KLRSZ]|C[AOT]|D[CAP]|FL|G[AU]|HI|I[ADLN]|K[SY]|LA|M[ADEINOPST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY])$";
 	} else {
-		regex = "^(A[AEKLPRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])$";
+		regex = "^(A[AEKLPRZ]|C[AOT]|D[CAP]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])$";
 	}
 
 	regex = caseSensitive ? new RegExp( regex ) : new RegExp( regex, "i" );

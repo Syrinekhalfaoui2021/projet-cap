@@ -1,9 +1,9 @@
-﻿using CE.Services;
+﻿using CAP.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Routing;
 using System.Threading.Tasks;
 
-namespace CE.Handlers
+namespace CAP.Handlers
 {
     public class AuthorizationRequirement : IAuthorizationRequirement
     {

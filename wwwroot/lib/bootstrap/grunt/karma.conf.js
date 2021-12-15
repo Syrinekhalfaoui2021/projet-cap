@@ -35,7 +35,7 @@ module.exports = function (config) {
     conf.hostname = ip.address();
     conf.browserStack = {
       username: process.env.BROWSER_STACK_USERNAME,
-      accessKey: process.env.BROWSER_STACK_ACCESS_KEY,
+      accessKey: process.env.BROWSER_STACK_ACCAPSS_KEY,
       build: 'bootstrap-v3-' + new Date().toISOString(),
       project: 'Bootstrap v3',
       retryLimit: 1

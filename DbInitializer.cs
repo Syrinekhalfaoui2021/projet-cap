@@ -1,4 +1,4 @@
-﻿using CE.Data;
+﻿using CAP.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CE
+namespace CAP
 {
     public static class DbInitializer
     {

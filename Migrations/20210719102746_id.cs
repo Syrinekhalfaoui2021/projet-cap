@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CE.Migrations
+namespace CAP.Migrations
 {
     public partial class id : Migration
     {

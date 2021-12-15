@@ -1,8 +1,8 @@
-﻿using CE.Services;
+﻿using CAP.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace CE.ViewComponents
+namespace CAP.ViewComponents
 {
     public class NavigationMenuViewComponent : ViewComponent
     {

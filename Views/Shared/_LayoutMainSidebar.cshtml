@@ -1,92 +1,58 @@
-﻿
+﻿<!--[if lt IE 8]>
+           <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+       <![endif]-->
 
-<aside class="main-sidebar">
-
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-
-        <!-- Sidebar user panel (optional) -->
-
-
-
-      
-        <div class="user-panel">
-
-            <a class="logo-mini" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-
-
+<div class="left-sidebar-pro">
+    <nav id="sidebar" class="">
+        <div class="sidebar-header">
+            <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
+            <strong><img src="img/logo/logosn.png" alt="" /></strong>
         </div>
+        <div class="left-custom-menu-adp-wrap comment-scrollbar">
+            <nav class="sidebar-nav left-sidebar-menu-pro">
+                <ul class="metismenu" id="menu1">
+                    <li class="active">
+                        <a class="has-arrow" href="">
+                            <i class="fa big-icon fa-home icon-wrap"></i>
+                            <span class="mini-click-non">Visits</span>
+                        </a>
+                        <ul class="submenu-angle" aria-expanded="true">
+                            <li><a title="Daily" href="/Visits/indexe"><i class="fa fa-bullseye sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Daily</span></a></li>
+                            <li><a title="Weekly" href="/Visits/Indexweekly"><i class="fa fa-bullseye sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Weekly</span></a></li>
+                            <li><a title="Monthly" href="/Visits/Indexmonthly"><i class="fa fa-bullseye sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Monthly</span></a></li>
+                         
+                        </ul>
+                    </li>
+                  
+                   
+                  
+                
+                    <li>
+                        <a class="has-arrow" href="/Outlets/Index" aria-expanded="false"><i class="fa big-icon fa-table icon-wrap"></i> <span class="mini-click-non">Outlets</span></a>
+                      
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="" aria-expanded="false"><i class="fa big-icon fa-table icon-wrap"></i> <span class="mini-click-non">Sammary reports</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
+                            
+                            <li><a title="Weekly" href="/Report/Reportweekly"><i class="fa fa-bullseye sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Weekly</span></a></li>
+                            <li><a title="Monthly" href="/Report/Reportmonthly"><i class="fa fa-bullseye sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Monthly</span></a></li>
+                        
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="" aria-expanded="false"><i class="fa big-icon fa-desktop icon-wrap"></i> <span class="mini-click-non">Models</span></a>
+                        <ul class="submenu-angle" aria-expanded="false">
 
-        <!-- search form (Optional) -->
-        <form action="" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search...">
-                <span class="input-group-btn">
-                    <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </span>
-            </div>
-        </form>
-        <!-- /.search form -->
-        <!-- Sidebar Menu -->
-        <ul class="sidebar-menu" data-widget="tree">
-            <li class="header"></li>
-            <!-- Optionally, you can add icons to the links -->
-            <li class="active">
-                <a href="">
-                    <i class="fa fa-link"></i> <span>Visits</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/Visits/indexe"><i class="fa fa-circle-o"></i>Daily</a></li>
-                    <li><a href="/Visits/Indexweekly"><i class="fa fa-circle-o"></i>Weekly</a></li>
-                    <li><a href="/Visits/Indexmonthly"><i class="fa fa-circle-o"></i>Monthly</a></li>
+                            <li><a title="Models" href="/Models/IndexModels"><i class="fa fa-building sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Models</span></a></li>
+                            <li><a title="Modals" href="/Models/IndexBrands"><i class="fa fa-building sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Brands</span></a></li>
+
+                        </ul>
+                    </li>
+                    
                 </ul>
-            </li>
-            <li>
-                <a href="/Outlets/Index"><i class="fa fa-link"></i> <span>Outlets</span></a>
-            </li>
-
-            <li class="active">
-                <a href="">
-                    <i class="fa fa-link"></i> <span>Sammary reports</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/Report/Reportweekly"><i class="fa fa-circle-o"></i>Weekly</a></li>
-                    <li><a href="/Report/Reportmonthly"><i class="fa fa-circle-o"></i>Monthly</a></li>
-                </ul>
-            </li>
-            <li class="active">
-                <a href="/Models/IndexModels">
-                    <i class="fa fa-link"></i> <span>Models</span>
-
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/Models/IndexBrands"><i class="fa fa-circle-o"></i>Brands</a></li>
-                </ul>
-
-
-
-            </li>
-
-
-            <li><a href="/Home/Privacy"><i class="fa fa-link"></i> <span>Administration</span></a></li>
-
-            <li>
-                <a class="active" asp-area="Identity" asp-page="/Account/Register"><i class="fa fa-link"></i><span>Register</span></a>
-            </li>
-        </ul>
-        <!-- /.sidebar-menu -->
-    </section>
-    <!-- /.sidebar -->
-</aside>
+            </nav>
+        </div>
+    </nav>
+</div>
 

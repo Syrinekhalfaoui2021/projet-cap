@@ -1,8 +1,8 @@
-﻿@model CE.ViewModels.ModelViewModel
+﻿@model CAP.ViewModels.ModelViewModel
 
 
 @using Microsoft.AspNetCore.Identity
-@using CE.Data
+@using CAP.Data
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
@@ -49,7 +49,7 @@
             <form asp-action="AddOrEditModels" method="post">
                 
 
-                @Html.DropDownListFor(x => Model.SelectedModel, Html.GetEnumSelectList<CE.Data.ModelEnum>(), htmlAttributes: new { @class = "form form-control", id = "Models" })
+                @Html.DropDownListFor(x => Model.SelectedModel, Html.GetEnumSelectList<CAP.Data.ModelEnum>(), htmlAttributes: new { @class = "form form-control", id = "Models" })
 
                 <button name="AddOrEditModels" class="btn btn-primary" type="submit">Add</button>
             </form>

@@ -1,4 +1,4 @@
-﻿using CE.Data;
+﻿using CAP.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CE.Areas.Identity.Pages.Account
+namespace CAP.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterConfirmationModel : PageModel

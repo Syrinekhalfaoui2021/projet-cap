@@ -21,7 +21,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#transitions
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICAPNSE)
  * ======================================================================== */
 
 
@@ -81,7 +81,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#alerts
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICAPNSE)
  * ======================================================================== */
 
 
@@ -177,7 +177,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#buttons
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICAPNSE)
  * ======================================================================== */
 
 
@@ -303,7 +303,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#carousel
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICAPNSE)
  * ======================================================================== */
 
 
@@ -550,7 +550,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#collapse
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICAPNSE)
  * ======================================================================== */
 
 /* jshint latedef: false */
@@ -763,7 +763,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#dropdowns
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICAPNSE)
  * ======================================================================== */
 
 
@@ -929,7 +929,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#modals
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICAPNSE)
  * ======================================================================== */
 
 
@@ -1289,7 +1289,7 @@ if (typeof jQuery === 'undefined') {
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICAPNSE)
  * ======================================================================== */
 
 +function ($) {
@@ -1966,7 +1966,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#popovers
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICAPNSE)
  * ======================================================================== */
 
 
@@ -2090,7 +2090,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#scrollspy
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICAPNSE)
  * ======================================================================== */
 
 
@@ -2263,7 +2263,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#tabs
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICAPNSE)
  * ======================================================================== */
 
 
@@ -2419,7 +2419,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#affix
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICAPNSE)
  * ======================================================================== */
 
 

@@ -1,4 +1,4 @@
-﻿namespace CE.Models
+﻿namespace CAP.Models
 {
     public class RoleViewModel
     {
