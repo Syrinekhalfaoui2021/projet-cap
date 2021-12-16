@@ -39,7 +39,7 @@
 </div>
 <div>
     <form asp-action="DownloadExcelDocument" method="post">
-        <button name="export" class="btn btn-primary" type="submit">Export</button>
+        <button name="export" class="btn btn-custon-rounded-three btn-danger" type="submit">Export</button>
     </form>
 
     <form asp-action="ImportExcelDocument" method="post"
@@ -47,7 +47,7 @@
         <label for="file" class="btn">Select a file</label>
         <input class="hide" id="file" type="file" name="file" />
         <div id="file-name-container"></div>
-        <button disabled id="submit-file-btn" class="btn btn-primary" name="import" type="submit">Import</button>
+        <button disabled id="submit-file-btn" class="btn btn-custon-rounded-three btn-danger" name="import" type="submit">Import</button>
     </form>
 
 

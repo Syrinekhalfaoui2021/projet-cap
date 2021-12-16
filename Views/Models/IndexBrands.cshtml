@@ -29,7 +29,7 @@
 
 
 <form asp-action="DownloadExcelDocumentBrands" method="post">
-    <button name="export" class="btn btn-primary" type="submit">Export</button>
+    <button name="export" class="btn btn-custon-rounded-three btn-danger" type="submit">Export</button>
 </form>
 
 <form asp-action="ImportExcelDocumentBrands" method="post"
@@ -37,7 +37,7 @@
     <label for="file" class="btn">Select a file</label>
     <input class="hide" id="file" type="file" name="file" />
     <div id="file-name-container"></div>
-    <button disabled id="submit-file-btn" class="btn btn-primary" name="import" type="submit">Import</button>
+    <button disabled id="submit-file-btn" class="btn btn-custon-rounded-three btn-danger" name="import" type="submit">Import</button>
 </form>
 
 
@@ -60,7 +60,7 @@
             </th>
 
             <th>
-                <a asp-action="AddOrEditBrands" class="btn btn-block btn-primary">ADD</a>
+                <a asp-action="AddOrEditBrands" class="btn btn-custon-rounded-three btn-danger">ADD</a>
             </th>
         </tr>
     </thead>

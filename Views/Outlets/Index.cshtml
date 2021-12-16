@@ -30,8 +30,8 @@
 
 
 <div class="input-group">
-    <div class="input-group-btn">
-        <form asp-action="Search" method="post">
+    <div class="readcome-heading">
+        <form role="search" asp-action="Search" method="post">
             <input type="text" name="search" class="form-control" placeholder="Search...">
             <button type="submit" name="search" id="search-btn" class="btn btn-flat">
                 <i class="fa fa-search"></i>
@@ -39,9 +39,10 @@
         </form>
     </div>
 </div>
+
 <div>
     <form asp-action="DownloadExcelDocument" method="post">
-        <button name="export" class="btn btn-primary" type="submit">Export</button>
+        <button name="export" class="btn btn-custon-rounded-three btn-danger" type="submit">Export</button>
     </form>
 
     <form asp-action="ImportExcelDocument" method="post"
@@ -49,7 +50,7 @@
         <label for="file" class="btn">Select a file</label>
         <input class="hide" id="file" type="file" name="file" />
         <div id="file-name-container"></div>
-        <button disabled id="submit-file-btn" class="btn btn-primary" name="import" type="submit">Import</button>
+        <button disabled id="submit-file-btn" class="btn btn-custon-rounded-three btn-danger" name="import" type="submit">Import</button>
     </form>
 
 
@@ -76,7 +77,7 @@
                 @Html.DisplayNameFor(model => model.City)
             </th>
             <th>
-                <a asp-action="AddOrEdit" class="btn btn-block btn-primary">ADD</a>
+                <a asp-action="AddOrEdit" class="btn btn-custon-rounded-three btn-danger">ADD</a>
             </th>
         </tr>
     </thead>
@@ -95,10 +96,10 @@
                 <td>
                     @if (item.User != null)
                     {
-                        @item.User.FirstName  <br />
-    @item.User.LastName
-    }
-</td>
+                        @item.User.FirstName <br />
+                        @item.User.LastName
+                    }
+                </td>
                 <td>
 
                     @Html.DisplayFor(modelItem => item.Zone)

@@ -24,8 +24,8 @@
 </section>
 <hr />
 <div class="input-group">
-    <div class="input-group-btn">
-        <form asp-action="Searchmodel" method="post">
+    <div class="readcome-heading">
+        <form  role="search" asp-action="Searchmodel" method="post">
             <input type="text" name="searchmodel" class="form-control" placeholder="Search...">
             <button type="submit" name="searchmodel" id="search-btn" class="btn btn-flat">
                 <i class="fa fa-search"></i>
@@ -34,24 +34,25 @@
     </div>
 </div>
 <div>
+   
     <form asp-action="DownloadExcelDocumentmodel" method="post">
-        <button name="Exportvisitmodel" class="btn btn-primary" type="submit">Export</button>
+        <button name="Exportvisitmodel" class="btn btn-custon-rounded-three btn-danger" type="submit">Export</button>
     </form>
     <form asp-action="ImportExcelDocumentmodel" method="post"
           enctype="multipart/form-data">
         <label for="file" class="btn">Select a file</label>
         <input class="hide" id="file" type="file" name="file" />
         <div id="file-name-container"></div>
-        <button disabled id="submit-file-btn" class="btn btn-primary" name="Importdatamodel" type="submit">Import</button>
+        <button disabled id="submit-file-btn" class="btn btn-custon-rounded-three btn-danger" name="Importdatamodel" type="submit">Import</button>
     </form>
     <center>
         <div class="btn-group">
-            <form asp-action="AddOrEditModels" method="post">
-                
+            <form class="button-drop-style-one btn-danger-bg" asp-action="AddOrEditModels" method="post">
+
 
                 @Html.DropDownListFor(x => Model.SelectedModel, Html.GetEnumSelectList<CAP.Data.ModelEnum>(), htmlAttributes: new { @class = "form form-control", id = "Models" })
 
-                <button name="AddOrEditModels" class="btn btn-primary" type="submit">Add</button>
+                <button name="AddOrEditModels" class="btn btn-custon-rounded-three btn-danger" type="submit">Add</button>
             </form>
         </div>
     </center>

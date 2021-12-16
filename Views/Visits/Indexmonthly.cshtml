@@ -27,7 +27,7 @@
 </section>
 <hr />
 
-<h4>Visits Monthly</h4>
+
 
 
 <div>
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="col-md-push-4">
-                <button type="submit" name="Searchvisitmonthly" id="search-btn" class="btn btn-primary">
+                <button type="submit" name="Searchvisitmonthly" id="search-btn" class="btn btn-custon-rounded-three btn-danger">
                     <i class="fa fa-search"></i> Search
                 </button>
             </div>
@@ -63,7 +63,7 @@
         <div class="btn-group">
           
                 <form asp-action="DownloadExcelDocumentvisitmonthly" method="post">
-                    <button name="Exportvisitmonthly" class="btn btn-primary" type="submit">Export</button>
+                    <button name="Exportvisitmonthly" class="btn btn-custon-rounded-three btn-danger" type="submit">Export</button>
                 </form>
 
                 <form asp-action="ImportExcelDocumentvisitmonthly" method="post"
@@ -71,7 +71,7 @@
                     <label for="file" class="btn">Select a file</label>
                     <input class="hide" id="file" type="file" name="file" />
                     <div id="file-name-container"></div>
-                    <button disabled id="submit-file-btn" class="btn btn-primary" name="Importdatavisitmonthly" type="submit">Import</button>
+                    <button disabled id="submit-file-btn" class="btn btn-custon-rounded-three btn-danger" name="Importdatavisitmonthly" type="submit">Import</button>
                 </form>
          </div>
     </div>
@@ -95,7 +95,7 @@
 
                         <th>
 
-                            <a asp-action="AddOrEditmonthly" class="btn btn-primary">ADD</a>
+                            <a asp-action="AddOrEditmonthly" class="btn btn-custon-rounded-three btn-danger">ADD</a>
                         </th>
                     </tr>
                 </thead>
