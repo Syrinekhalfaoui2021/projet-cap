@@ -163,7 +163,7 @@ namespace CAP.Controllers
                         }
                         newData.Zone = row.Cell(4).Value.ToString();
                         newData.City = row.Cell(5).Value.ToString();
-                        newData.State = row.Cell(6).Value.ToString();
+                        newData.Delegation = row.Cell(6).Value.ToString();
                         newData.District = row.Cell(7).Value.ToString();
                         newData.Channel = row.Cell(8).Value.ToString();
                         newData.Outletstype = row.Cell(9).Value.ToString();
@@ -196,7 +196,7 @@ namespace CAP.Controllers
                         x.NameOutlet.Contains(search) ||
                         (x.User != null && x.User.UserName == search) ||
                         x.Zone.Contains(search) ||
-                        x.State.Contains(search) ||
+                        x.Delegation.Contains(search) ||
                         x.City.Contains(search)
                     ).ToListAsync()
                     .ConfigureAwait(false);

@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace CAP.Migrations
+namespace Client.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210719102746_id")]
-    partial class id
+    [Migration("20211229162250_2")]
+    partial class _2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -166,13 +166,22 @@ namespace CAP.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AV")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Activity")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(250)");
+                    b.Property<int>("Antenna")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Area")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Channel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ChannelType")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
@@ -184,13 +193,31 @@ namespace CAP.Migrations
                     b.Property<string>("Compte")
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<string>("ContactPerson")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Coverage")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Delegation")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("District")
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("FullAddress")
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("HA")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Keydealer")
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Latitude")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LinkGoogleMAPS2")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Longitude")
@@ -202,20 +229,32 @@ namespace CAP.Migrations
                     b.Property<string>("Outletstype")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
+                    b.Property<string>("POSName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Retailer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("State")
-                        .HasColumnType("nvarchar(250)");
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StoreSize")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Website")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Zone")
                         .HasColumnType("nvarchar(250)");

@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CAP.Migrations
+namespace Client.Migrations
 {
-    public partial class data : Migration
+    public partial class _1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -128,6 +128,7 @@ namespace CAP.Migrations
                     Zone = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     State = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     City = table.Column<string>(type: "nvarchar(250)", nullable: true),
+                    Website = table.Column<string>(nullable: true),
                     Phone = table.Column<string>(nullable: true),
                     Longitude = table.Column<string>(type: "nvarchar(10)", nullable: true),
                     Latitude = table.Column<string>(nullable: true),
@@ -388,11 +389,11 @@ namespace CAP.Migrations
                     Category = table.Column<string>(nullable: true),
                     Brandcodebrand = table.Column<double>(nullable: false),
                     IdVisit = table.Column<int>(nullable: true),
+                    IdOutlet = table.Column<int>(nullable: true),
                     Display = table.Column<string>(nullable: true),
                     Disc = table.Column<string>(nullable: false),
                     VisitsweeklyIdVisit = table.Column<int>(nullable: true),
                     VisitsmonthlyIdVisit = table.Column<int>(nullable: true),
-                    OutletsIdOutlet = table.Column<int>(nullable: true),
                     UserId = table.Column<string>(nullable: true),
                     TypeAC = table.Column<string>(nullable: true),
                     Inverter = table.Column<string>(nullable: true),
@@ -449,16 +450,16 @@ namespace CAP.Migrations
                         principalColumn: "codebrand",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_AspNetModels_AspNetOutlet_IdOutlet",
+                        column: x => x.IdOutlet,
+                        principalTable: "AspNetOutlet",
+                        principalColumn: "IdOutlet",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_AspNetModels_AspNetVisit_IdVisit",
                         column: x => x.IdVisit,
                         principalTable: "AspNetVisit",
                         principalColumn: "IdVisit",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetModels_AspNetOutlet_OutletsIdOutlet",
-                        column: x => x.OutletsIdOutlet,
-                        principalTable: "AspNetOutlet",
-                        principalColumn: "IdOutlet",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AspNetModels_AspNetUsers_UserId",
@@ -577,14 +578,14 @@ namespace CAP.Migrations
                 column: "Brandcodebrand");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AspNetModels_IdOutlet",
+                table: "AspNetModels",
+                column: "IdOutlet");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AspNetModels_IdVisit",
                 table: "AspNetModels",
                 column: "IdVisit");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetModels_OutletsIdOutlet",
-                table: "AspNetModels",
-                column: "OutletsIdOutlet");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetModels_UserId",

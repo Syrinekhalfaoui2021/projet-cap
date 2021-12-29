@@ -33,7 +33,7 @@ namespace CAP.Services
                 worksheet.Cell(index + 1, 2).Value = data[index - 1].NameOutlet;
                 worksheet.Cell(index + 1, 3).Value = data[index - 1]?.User?.UserName;
                 worksheet.Cell(index + 1, 4).Value = data[index - 1].Zone;
-                worksheet.Cell(index + 1, 5).Value = data[index - 1].State;
+                worksheet.Cell(index + 1, 5).Value = data[index - 1].Delegation;
                 worksheet.Cell(index + 1, 6).Value = data[index - 1].City;
                 worksheet.Cell(index + 1, 7).Value = data[index - 1].District;
                 worksheet.Cell(index + 1, 8).Value = data[index - 1].Channel;

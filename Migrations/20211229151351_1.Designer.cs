@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace CAP.Migrations
+namespace Client.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210701105037_data")]
-    partial class data
+    [Migration("20211229151351_1")]
+    partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -216,6 +216,9 @@ namespace CAP.Migrations
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Website")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Zone")
                         .HasColumnType("nvarchar(250)");
@@ -488,6 +491,9 @@ namespace CAP.Migrations
                     b.Property<string>("Display")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("IdOutlet")
+                        .HasColumnType("int");
+
                     b.Property<int?>("IdVisit")
                         .HasColumnType("int");
 
@@ -496,9 +502,6 @@ namespace CAP.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("OutletsIdOutlet")
-                        .HasColumnType("int");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
@@ -525,9 +528,9 @@ namespace CAP.Migrations
 
                     b.HasIndex("Brandcodebrand");
 
-                    b.HasIndex("IdVisit");
+                    b.HasIndex("IdOutlet");
 
-                    b.HasIndex("OutletsIdOutlet");
+                    b.HasIndex("IdVisit");
 
                     b.HasIndex("UserId");
 
@@ -974,13 +977,13 @@ namespace CAP.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CAP.Data.Outlets", "Outlets")
+                        .WithMany()
+                        .HasForeignKey("IdOutlet");
+
                     b.HasOne("CAP.Data.Visits", "Visits")
                         .WithMany("Models")
                         .HasForeignKey("IdVisit");
-
-                    b.HasOne("CAP.Data.Outlets", "Outlets")
-                        .WithMany()
-                        .HasForeignKey("OutletsIdOutlet");
 
                     b.HasOne("CAP.Data.ApplicationUser", "User")
                         .WithMany("Models")

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,8 +16,17 @@ namespace CAP.Data
         public int IdOutlet { get; set; }
         [Column(TypeName = "nvarchar(250)")]
 
-        [DisplayName("Name outlet")]
+        [DisplayName("Account")]
         public string NameOutlet { get; set; }
+
+        [DisplayName("Date")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+
+        public DateTime Date { get; set; }
+
+        [DisplayName("POS Name")]
+
+        public string POSName { get; set; }
         [Column(TypeName = "nvarchar(250)")]
 
         [DisplayName("Key dealer")]
@@ -39,26 +49,48 @@ namespace CAP.Data
         [Column(TypeName = "nvarchar(250)")]
 
 
-        public string State { get; set; }
+        public string District { get; set; }
         [Column(TypeName = "nvarchar(250)")]
 
         public string City { get; set; }
-
-        public string Phone { get; set; }
+        public string Website { get; set; }
+        [DisplayName("Contact Person")]
+        public string  ContactPerson { get; set; }
+        [DisplayName("PhoneNumber")]
+        public string PhoneNumber { get; set; }
         [Column(TypeName = "nvarchar(10)")]
 
         public string Longitude { get; set; }
+        public string Delegation { get; set; }
+        [DisplayName("Channel Type")]
 
+        public string ChannelType { get; set; }
+        
         public string Latitude { get; set; }
         [Column(TypeName = "nvarchar(250)")]
+        [DisplayName("Full Address")]
 
-        public string Address { get; set; }
+        public string FullAddress { get; set; }
+        [DisplayName("Link Google MAPS2")]
+
+        public string LinkGoogleMAPS2 { get; set; }
+        public string Street { get; set; }
         [DisplayName("Outlet type")]
         public string Outletstype { get; set; }
-        public string District { get; set; }
+        [DisplayName("Store Size")]
+
+        public string StoreSize { get; set; }
         public string Channel { get; set; }
         public string Retailer { get; set; }
+        public string Area { get; set; }
+        public string Status { get; set; }
 
+        public int Coverage { get; set; }
+        public int Antenna { get; set; }
+        public string HA { get; set; }
+        public string AV { get; set; }
+
+        
         [ForeignKey("User")]
         public string UserId { get; set; }
 
