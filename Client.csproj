@@ -147,9 +147,7 @@
     <None Include="wwwroot\jeweler-master\js\wizard\steps-active.js" />
     <None Include="wwwroot\jeweler-master\js\wow.min.js" />
   </ItemGroup>
-    <ProjectExtensions><VisualStudio>
-    <UserProperties appsettings_1json__JsonSchema="https://jenkins-x.io/schemas/jx-requirements.json" libman_1json__JsonSchema="" />
-    </VisualStudio>
+    <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" libman_1json__JsonSchema="" /></VisualStudio>
     </ProjectExtensions>
 
 </Project>

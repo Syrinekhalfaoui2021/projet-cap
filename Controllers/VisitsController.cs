@@ -110,7 +110,7 @@ namespace CAP.Controllers
                 return _context.Outletss.ToList()
                         .Select(x => new SelectListItem
                         {
-                            Text = x.NameOutlet,
+                            Text = x.Account,
                             Value = x.IdOutlet.ToString(),
                             Selected = false
                         })
@@ -120,7 +120,7 @@ namespace CAP.Controllers
                         .Where(x => x.UserId == user.Id)
                         .Select(x => new SelectListItem
                         {
-                            Text = x.NameOutlet,
+                            Text = x.Account,
                             Value = x.IdOutlet.ToString(),
                             Selected = false
                         })
@@ -366,7 +366,7 @@ namespace CAP.Controllers
                             newDatavisitdaily.Entrytime = date;
                         }
                         newDatavisitdaily.Outlets = _context.Outletss.ToList().FirstOrDefault(x =>
-                            String.Equals(x.NameOutlet, row.Cell(1).Value.ToString(), StringComparison.OrdinalIgnoreCase)
+                            String.Equals(x.Account, row.Cell(1).Value.ToString(), StringComparison.OrdinalIgnoreCase)
                         );
                         if (newDatavisitdaily.Outlets == null)
                         {
@@ -468,7 +468,7 @@ namespace CAP.Controllers
                         }
                         // newDatavisitweekly.Zone = row.Cell(5).Value.ToString();
                         newDatavisitweekly.Outlets = _context.Outletss.ToList().FirstOrDefault(x =>
-                            String.Equals(x.NameOutlet, row.Cell(1).Value.ToString(), StringComparison.OrdinalIgnoreCase)
+                            String.Equals(x.Account, row.Cell(1).Value.ToString(), StringComparison.OrdinalIgnoreCase)
                         );
                         if (newDatavisitweekly.Outlets == null)
                         {
@@ -573,7 +573,7 @@ namespace CAP.Controllers
                         }
                         //newDatavisitmonthly.Zone = row.Cell(5).Value.ToString();
                         newDatavisitmonthly.Outlet = _context.Outletss.ToList().FirstOrDefault(x =>
-                            String.Equals(x.NameOutlet, row.Cell(1).Value.ToString(), StringComparison.OrdinalIgnoreCase)
+                            String.Equals(x.Account, row.Cell(1).Value.ToString(), StringComparison.OrdinalIgnoreCase)
                         );
                         if (newDatavisitmonthly.Outlet == null)
                         {

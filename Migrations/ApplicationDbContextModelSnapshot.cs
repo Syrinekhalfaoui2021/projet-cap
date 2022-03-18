@@ -164,22 +164,31 @@ namespace Client.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("A2C")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("AV")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AVMonthly")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Account")
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Activity")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int>("Antenna")
-                        .HasColumnType("int");
+                    b.Property<string>("Antenna")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Area")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Channel")
+                    b.Property<string>("CONDOR")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ChannelType")
+                    b.Property<string>("Channeltype")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
@@ -194,8 +203,8 @@ namespace Client.Migrations
                     b.Property<string>("ContactPerson")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Coverage")
-                        .HasColumnType("int");
+                    b.Property<string>("Coverage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -203,8 +212,17 @@ namespace Client.Migrations
                     b.Property<string>("Delegation")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DisplayPriority")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Displaystatus")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("District")
                         .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("Estann")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullAddress")
                         .HasColumnType("nvarchar(250)");
@@ -215,6 +233,9 @@ namespace Client.Migrations
                     b.Property<string>("Keydealer")
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<string>("LGPromoters")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Latitude")
                         .HasColumnType("nvarchar(max)");
 
@@ -223,9 +244,6 @@ namespace Client.Migrations
 
                     b.Property<string>("Longitude")
                         .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("NameOutlet")
-                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Outletstype")
                         .HasColumnType("nvarchar(max)");
@@ -236,10 +254,28 @@ namespace Client.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PromoterRemarks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RACDisplay")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("REFDisplay")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Retailer")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SIS")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SODIG")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StoreClass")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StoreSize")
@@ -248,11 +284,17 @@ namespace Client.Migrations
                     b.Property<string>("Street")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TVDisplay")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("WMDisplay")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Website")
                         .HasColumnType("nvarchar(max)");

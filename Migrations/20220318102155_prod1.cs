@@ -2,101 +2,77 @@
 
 namespace Client.Migrations
 {
-    public partial class _2 : Migration
+    public partial class prod1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Address",
-                table: "AspNetOutlet");
-
-            migrationBuilder.DropColumn(
-                name: "Phone",
-                table: "AspNetOutlet");
-
-            migrationBuilder.RenameColumn(
-                name: "State",
-                table: "AspNetOutlet",
-                newName: "FullAddress");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "District",
-                table: "AspNetOutlet",
-                type: "nvarchar(250)",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)",
-                oldNullable: true);
-
             migrationBuilder.AddColumn<string>(
-                name: "AV",
-                table: "AspNetOutlet",
-                nullable: true);
-
-            migrationBuilder.AddColumn<int>(
-                name: "Antenna",
-                table: "AspNetOutlet",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.AddColumn<string>(
-                name: "Area",
+                name: "A2C",
                 table: "AspNetOutlet",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "ChannelType",
+                name: "AVMonthly",
                 table: "AspNetOutlet",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "ContactPerson",
-                table: "AspNetOutlet",
-                nullable: true);
-
-            migrationBuilder.AddColumn<int>(
-                name: "Coverage",
-                table: "AspNetOutlet",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.AddColumn<string>(
-                name: "Delegation",
+                name: "CONDOR",
                 table: "AspNetOutlet",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "HA",
+                name: "DisplayPriority",
                 table: "AspNetOutlet",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "LinkGoogleMAPS2",
+                name: "Displaystatus",
                 table: "AspNetOutlet",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "POSName",
+                name: "Estann",
                 table: "AspNetOutlet",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "PhoneNumber",
+                name: "LGPromoters",
                 table: "AspNetOutlet",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "Status",
+                name: "PromoterRemarks",
                 table: "AspNetOutlet",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "StoreSize",
+                name: "RACDisplay",
                 table: "AspNetOutlet",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "Street",
+                name: "REFDisplay",
+                table: "AspNetOutlet",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "SIS",
+                table: "AspNetOutlet",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "SODIG",
+                table: "AspNetOutlet",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "TVDisplay",
+                table: "AspNetOutlet",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "WMDisplay",
                 table: "AspNetOutlet",
                 nullable: true);
         }
@@ -104,86 +80,60 @@ namespace Client.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "AV",
+                name: "A2C",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "Antenna",
+                name: "AVMonthly",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "Area",
+                name: "CONDOR",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "ChannelType",
+                name: "DisplayPriority",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "ContactPerson",
+                name: "Displaystatus",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "Coverage",
+                name: "Estann",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "Delegation",
+                name: "LGPromoters",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "HA",
+                name: "PromoterRemarks",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "LinkGoogleMAPS2",
+                name: "RACDisplay",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "POSName",
+                name: "REFDisplay",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "PhoneNumber",
+                name: "SIS",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "Status",
+                name: "SODIG",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "StoreSize",
+                name: "TVDisplay",
                 table: "AspNetOutlet");
 
             migrationBuilder.DropColumn(
-                name: "Street",
+                name: "WMDisplay",
                 table: "AspNetOutlet");
-
-            migrationBuilder.RenameColumn(
-                name: "FullAddress",
-                table: "AspNetOutlet",
-                newName: "State");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "District",
-                table: "AspNetOutlet",
-                type: "nvarchar(max)",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(250)",
-                oldNullable: true);
-
-            migrationBuilder.AddColumn<string>(
-                name: "Address",
-                table: "AspNetOutlet",
-                type: "nvarchar(250)",
-                nullable: true);
-
-            migrationBuilder.AddColumn<string>(
-                name: "Phone",
-                table: "AspNetOutlet",
-                type: "nvarchar(max)",
-                nullable: true);
         }
     }
 }

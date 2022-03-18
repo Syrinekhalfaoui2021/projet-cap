@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Client.Migrations
 {
-    public partial class _1 : Migration
+    public partial class prod : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -119,24 +119,37 @@ namespace Client.Migrations
                 {
                     IdOutlet = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NameOutlet = table.Column<string>(type: "nvarchar(250)", nullable: true),
+                    Account = table.Column<string>(type: "nvarchar(250)", nullable: true),
+                    Date = table.Column<DateTime>(nullable: false),
+                    POSName = table.Column<string>(nullable: true),
                     Keydealer = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     Compte = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     Type = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     Class = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     Activity = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     Zone = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    State = table.Column<string>(type: "nvarchar(250)", nullable: true),
+                    District = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     City = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     Website = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true),
+                    ContactPerson = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
                     Longitude = table.Column<string>(type: "nvarchar(10)", nullable: true),
+                    Delegation = table.Column<string>(nullable: true),
+                    StoreClass = table.Column<string>(nullable: true),
                     Latitude = table.Column<string>(nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(250)", nullable: true),
+                    FullAddress = table.Column<string>(type: "nvarchar(250)", nullable: true),
+                    LinkGoogleMAPS2 = table.Column<string>(nullable: true),
+                    Street = table.Column<string>(nullable: true),
                     Outletstype = table.Column<string>(nullable: true),
-                    District = table.Column<string>(nullable: true),
-                    Channel = table.Column<string>(nullable: true),
+                    StoreSize = table.Column<string>(nullable: true),
+                    Channeltype = table.Column<string>(nullable: true),
                     Retailer = table.Column<string>(nullable: true),
+                    Area = table.Column<string>(nullable: true),
+                    Status = table.Column<string>(nullable: true),
+                    Coverage = table.Column<string>(nullable: true),
+                    Antenna = table.Column<string>(nullable: true),
+                    HA = table.Column<string>(nullable: true),
+                    AV = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

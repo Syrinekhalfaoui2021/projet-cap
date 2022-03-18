@@ -73,7 +73,7 @@ namespace CAP.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddOrEdit(int id, [Bind("IdOutlet,NameOutlet,Class,Activity,Zone,State,City,Phone,Longitude,Latitude,Address")] Outlets outlets)
+        public async Task<IActionResult> AddOrEdit(int id, [Bind("IdOutlet,Account,POSName,City,Delegation,District,Street,Area,ChannelType,StoreSize,ContactPerson,PhoneNumber,Website,Latitude,Longitude,FullAddress,LinkGoogleMAPS2,Status,Estann,AvMonthly,StoreClass,TVDisplay,REFDisplay,WMDisplay,RACDisplay,DisplayStatus,DisplayPriority,SIS,SODIG,CONDOR,A2C,Coverage,LGPromoters,PromoterRemarks")] Outlets outlets)
         {
             if (ModelState.IsValid)
             {
@@ -150,9 +150,9 @@ namespace CAP.Controllers
                     else
                     {
                         //Add rows to DataTable.
-                        newData.NameOutlet = row.Cell(2).Value.ToString();
+                        
                         // var user = await _userManager.FindByNameAsync(row.Cell(3).Value.ToString());
-                        var names = row.Cell(3).Value.ToString().Split(' ');
+                        var names = row.Cell(2).Value.ToString().Split(' ');
                         if (names.Length == 2)
                         {
                             var user = _userManager.Users.ToList().FirstOrDefault(x =>
@@ -161,16 +161,40 @@ namespace CAP.Controllers
                             );
                             newData.User = user;
                         }
-                        newData.Zone = row.Cell(4).Value.ToString();
+                    
+                        newData.POSName = row.Cell(4).Value.ToString();
                         newData.City = row.Cell(5).Value.ToString();
                         newData.Delegation = row.Cell(6).Value.ToString();
                         newData.District = row.Cell(7).Value.ToString();
-                        newData.Channel = row.Cell(8).Value.ToString();
-                        newData.Outletstype = row.Cell(9).Value.ToString();
-                        newData.Class = row.Cell(10).Value.ToString();
-                        newData.Keydealer = row.Cell(11).Value.ToString();
+                        newData.Street = row.Cell(8).Value.ToString();
+                        newData.Area = row.Cell(9).Value.ToString();
+                        newData.Channeltype = row.Cell(10).Value.ToString();
+                        newData.StoreSize = row.Cell(11).Value.ToString();
+                        newData.ContactPerson = row.Cell(12).Value.ToString();
 
-
+                        newData.PhoneNumber = row.Cell(13).Value.ToString();
+                        newData.Website = row.Cell(14).Value.ToString();
+                        newData.Latitude = row.Cell(15).Value.ToString();
+                        newData.Longitude = row.Cell(16).Value.ToString();
+                        newData.FullAddress = row.Cell(17).Value.ToString();
+                        newData.LinkGoogleMAPS2 = row.Cell(18).Value.ToString();
+                        newData.Status = row.Cell(19).Value.ToString();
+                        newData.Estann = row.Cell(20).Value.ToString();
+                        newData.AVMonthly = row.Cell(21).Value.ToString();
+                        newData.StoreClass = row.Cell(22).Value.ToString();
+                        newData.TVDisplay = row.Cell(23).Value.ToString();
+                        newData.REFDisplay = row.Cell(23).Value.ToString();
+                        newData.WMDisplay = row.Cell(23).Value.ToString();
+                        newData.RACDisplay = row.Cell(23).Value.ToString();
+                        newData.Displaystatus = row.Cell(23).Value.ToString();
+                        newData.DisplayPriority = row.Cell(23).Value.ToString();
+                        newData.SIS = row.Cell(23).Value.ToString();
+                        newData.SODIG = row.Cell(23).Value.ToString();
+                        newData.CONDOR = row.Cell(23).Value.ToString();
+                        newData.A2C = row.Cell(23).Value.ToString();
+                        newData.Coverage = row.Cell(23).Value.ToString(); 
+                        newData.LGPromoters = row.Cell(23).Value.ToString();
+                        newData.PromoterRemarks = row.Cell(23).Value.ToString();
                         data.Add(newData);
                     }
                 }
@@ -193,7 +217,7 @@ namespace CAP.Controllers
             {
                 data = await _context.Outletss
                     .Where(x =>
-                        x.NameOutlet.Contains(search) ||
+                        x.Account.Contains(search) ||
                         (x.User != null && x.User.UserName == search) ||
                         x.Zone.Contains(search) ||
                         x.Delegation.Contains(search) ||

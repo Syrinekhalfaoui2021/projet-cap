@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Client.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211229151351_1")]
-    partial class _1
+    [Migration("20220317134534_prod")]
+    partial class prod
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -166,13 +166,22 @@ namespace Client.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AV")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Account")
+                        .HasColumnType("nvarchar(250)");
+
                     b.Property<string>("Activity")
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(250)");
+                    b.Property<string>("Antenna")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Channel")
+                    b.Property<string>("Area")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Channeltype")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
@@ -184,7 +193,25 @@ namespace Client.Migrations
                     b.Property<string>("Compte")
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<string>("ContactPerson")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Coverage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Delegation")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("District")
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("FullAddress")
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("HA")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Keydealer")
@@ -193,23 +220,35 @@ namespace Client.Migrations
                     b.Property<string>("Latitude")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("LinkGoogleMAPS2")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Longitude")
                         .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("NameOutlet")
-                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Outletstype")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
+                    b.Property<string>("POSName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Retailer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("State")
-                        .HasColumnType("nvarchar(250)");
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StoreClass")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StoreSize")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(250)");

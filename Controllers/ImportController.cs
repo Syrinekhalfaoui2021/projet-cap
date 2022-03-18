@@ -31,7 +31,7 @@ namespace CAP.Controllers
 
             var adminRole = await roleManager.FindByNameAsync("Admin");
             var employeeRole = await roleManager.FindByNameAsync("Employee");
-            var admins = new List<string> { "syrine@cap.tn", "wissal@capesolution.tn" };
+            var admins = new List<string> { "LG.office@trendtunisie.tn", "a.ala@trendtunisie.tn" };
             foreach (IXLRow row in ws1.Rows())
             {
                 var newUser = new ApplicationUser();

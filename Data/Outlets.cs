@@ -17,14 +17,51 @@ namespace CAP.Data
         [Column(TypeName = "nvarchar(250)")]
 
         [DisplayName("Account")]
-        public string NameOutlet { get; set; }
+        public string Account  { get; set; }
 
         [DisplayName("Date")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-
         public DateTime Date { get; set; }
+        [DisplayName("Est.Ann.T/O(KTND)")]
 
-        [DisplayName("POS Name")]
+        public string Estann { get; set; }
+
+        [DisplayName("Av. Monthly T/O")]
+
+        public string AVMonthly { get; set; }
+        [DisplayName("TV Display")]
+
+        public string TVDisplay { get; set; }
+        [DisplayName("REF Display")]
+
+        public string REFDisplay { get; set; }
+        [DisplayName("RAC Display")]
+
+        public string RACDisplay { get; set; }
+        [DisplayName("WM Display")]
+
+        public string WMDisplay { get; set; }
+        [DisplayName("Display Status")]
+        
+        public string Displaystatus { get; set; }
+        [DisplayName("Display Priority")]
+        
+        public string DisplayPriority { get; set; }
+        public string SIS { get; set; }
+        public string SODIG { get; set; }
+        public string CONDOR { get; set; }
+        public string A2C { get; set; }
+        [DisplayName("LG Promoters")]
+
+        public string LGPromoters { get; set; }
+        [DisplayName("Promoter Remarks")]
+
+        public string PromoterRemarks { get; set; }
+     
+       
+
+
+       [DisplayName("POS Name")]
 
         public string POSName { get; set; }
         [Column(TypeName = "nvarchar(250)")]
@@ -56,16 +93,17 @@ namespace CAP.Data
         public string Website { get; set; }
         [DisplayName("Contact Person")]
         public string  ContactPerson { get; set; }
-        [DisplayName("PhoneNumber")]
+        [DisplayName("Phone Number")]
         public string PhoneNumber { get; set; }
         [Column(TypeName = "nvarchar(10)")]
 
         public string Longitude { get; set; }
         public string Delegation { get; set; }
-        [DisplayName("Channel Type")]
+      
+        [DisplayName("Store Class")]
 
-        public string ChannelType { get; set; }
-        
+        public string StoreClass { get; set; }
+
         public string Latitude { get; set; }
         [Column(TypeName = "nvarchar(250)")]
         [DisplayName("Full Address")]
@@ -80,13 +118,14 @@ namespace CAP.Data
         [DisplayName("Store Size")]
 
         public string StoreSize { get; set; }
-        public string Channel { get; set; }
+        [DisplayName("Channel type")]
+        public string Channeltype { get; set; }
         public string Retailer { get; set; }
         public string Area { get; set; }
         public string Status { get; set; }
 
-        public int Coverage { get; set; }
-        public int Antenna { get; set; }
+        public string Coverage { get; set; }
+        public string Antenna { get; set; }
         public string HA { get; set; }
         public string AV { get; set; }
 

@@ -16,30 +16,59 @@ namespace CAP.Services
             var workbook = new XLWorkbook();
             IXLWorksheet worksheet = workbook.Worksheets.Add("Outlets");
             worksheet.Cell(1, 1).Value = "Code";
-            worksheet.Cell(1, 2).Value = "Name";
+            worksheet.Cell(1, 2).Value = "Date";
             worksheet.Cell(1, 3).Value = "SFO";
-            worksheet.Cell(1, 4).Value = "Zone";
-            worksheet.Cell(1, 5).Value = "State";
-            worksheet.Cell(1, 6).Value = "City";
+            worksheet.Cell(1, 4).Value = "Outlet";
+            worksheet.Cell(1, 5).Value = "City";
+            worksheet.Cell(1, 6).Value = "Delegation";
             worksheet.Cell(1, 7).Value = "District";
-            worksheet.Cell(1, 8).Value = "Channel";
-            worksheet.Cell(1, 9).Value = "Outletstype";
-            worksheet.Cell(1, 10).Value = "Class";
-            worksheet.Cell(1, 11).Value = "keydealer";
+            worksheet.Cell(1, 8).Value = "Street";
+            worksheet.Cell(1, 9).Value = "Area";
+            worksheet.Cell(1, 10).Value = "Channel";
+            worksheet.Cell(1, 11).Value = "Type";
+            worksheet.Cell(1, 12).Value = "Store size";
+            worksheet.Cell(1, 13).Value = "Zone";
+            worksheet.Cell(1, 14).Value = "Contact personnel";
+            worksheet.Cell(1, 15).Value = "Phone Number";
+            worksheet.Cell(1, 16).Value = "Website";
+            worksheet.Cell(1, 17).Value = "Latitude";
+            worksheet.Cell(1, 18).Value = "Longitude";
+            worksheet.Cell(1, 19).Value = "Full adress";
+            worksheet.Cell(1, 20).Value = "Link Google MAPS2";
+            worksheet.Cell(1, 21).Value = "Status";
+            worksheet.Cell(1, 22).Value = "AV"; 
+            worksheet.Cell(1, 23).Value = "HA";
+            worksheet.Cell(1, 24).Value = "Couvrage";
+            worksheet.Cell(1, 25).Value = "Antena";
 
             for (int index = 1; index <= data.Count; index++)
             {
                 worksheet.Cell(index + 1, 1).Value = data[index - 1].IdOutlet;
-                worksheet.Cell(index + 1, 2).Value = data[index - 1].NameOutlet;
+                worksheet.Cell(index + 1, 2).Value = data[index - 1].Date;
                 worksheet.Cell(index + 1, 3).Value = data[index - 1]?.User?.UserName;
-                worksheet.Cell(index + 1, 4).Value = data[index - 1].Zone;
-                worksheet.Cell(index + 1, 5).Value = data[index - 1].Delegation;
-                worksheet.Cell(index + 1, 6).Value = data[index - 1].City;
+                worksheet.Cell(index + 1, 4).Value = data[index - 1].Account;
+
+                worksheet.Cell(index + 1, 5).Value = data[index - 1].City;
+                worksheet.Cell(index + 1, 6).Value = data[index - 1].Delegation;
                 worksheet.Cell(index + 1, 7).Value = data[index - 1].District;
-                worksheet.Cell(index + 1, 8).Value = data[index - 1].Channel;
-                worksheet.Cell(index + 1, 9).Value = data[index - 1].Outletstype;
-                worksheet.Cell(index + 1, 10).Value = data[index - 1].Class;
-                worksheet.Cell(index + 1, 11).Value = data[index - 1].Keydealer;
+                worksheet.Cell(index + 1, 8).Value = data[index - 1].Street;
+                worksheet.Cell(index + 1, 9).Value = data[index - 1].Area;
+                worksheet.Cell(index + 1, 10).Value = data[index - 1].Channeltype;
+                worksheet.Cell(index + 1, 11).Value = data[index - 1].StoreSize;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].Zone;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].ContactPerson;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].PhoneNumber;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].Website;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].Latitude;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].Longitude;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].FullAddress;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].LinkGoogleMAPS2;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].AV;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].HA;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].Coverage;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].Antenna;
+
+
             }
             return workbook;
         }
@@ -93,7 +122,7 @@ namespace CAP.Services
                     worksheet.Cell(index + 1, 2).Value = datavisitweekly[index - 1].User?.UserName;
                     worksheet.Cell(index + 1, 3).Value = datavisitweekly[index - 1]?.Date;
                     worksheet.Cell(index + 1, 4).Value = datavisitweekly[index - 1].Outlets.Zone;
-                    worksheet.Cell(index + 1, 5).Value = datavisitweekly[index - 1].Outlets.NameOutlet;
+                    worksheet.Cell(index + 1, 5).Value = datavisitweekly[index - 1].Outlets.Account;
 
 
                 }
@@ -122,7 +151,7 @@ namespace CAP.Services
                     worksheet.Cell(index + 1, 2).Value = datavisitmonthly[index - 1].User?.UserName;
                     worksheet.Cell(index + 1, 3).Value = datavisitmonthly[index - 1]?.Date;
                     worksheet.Cell(index + 1, 4).Value = datavisitmonthly[index - 1].Outlet.Zone;
-                    worksheet.Cell(index + 1, 5).Value = datavisitmonthly[index - 1].Outlet.NameOutlet;
+                    worksheet.Cell(index + 1, 5).Value = datavisitmonthly[index - 1].Outlet.Account;
 
 
                 }
