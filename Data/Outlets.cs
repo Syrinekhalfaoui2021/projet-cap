@@ -18,9 +18,15 @@ namespace CAP.Data
         [DisplayName("Account")]
         public string Account  { get; set; }
 
-        [DisplayName("Date")]
-    
+       
+
         public DateTime Date { get; set; }
+        public Outlets()
+        {
+            
+            Date = DateTime.Now;
+
+        }
         [DisplayName("Est.Ann.T/O(KTND)")]
 
         public string Estann { get; set; }
@@ -85,8 +91,10 @@ namespace CAP.Data
 
         public string City { get; set; }
         public string Website { get; set; }
+        [DisplayName("Contact Person")]
+
         public string  ContactPerson { get; set; }
-    
+        [DisplayName("Contact Person 2")]
         public string ContactPerson2 { get; set; }
    
 

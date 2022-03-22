@@ -147,6 +147,10 @@
     <None Include="wwwroot\jeweler-master\js\wizard\steps-active.js" />
     <None Include="wwwroot\jeweler-master\js\wow.min.js" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Report\" />
+    <Folder Include="Views\Sammaryreport\" />
+  </ItemGroup>
     <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" libman_1json__JsonSchema="" /></VisualStudio>
     </ProjectExtensions>
 

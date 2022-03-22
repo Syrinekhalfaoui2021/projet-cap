@@ -45,17 +45,7 @@
         <div id="file-name-container"></div>
         <button disabled id="submit-file-btn" class="btn btn-custon-rounded-three btn-danger" name="Importdatamodel" type="submit">Import</button>
     </form>
-    <center>
-        <div class="btn-group">
-            <form class="button-drop-style-one btn-danger-bg" asp-action="AddOrEditModels" method="post">
-
-
-                @Html.DropDownListFor(x => Model.SelectedModel, Html.GetEnumSelectList<CAP.Data.ModelEnum>(), htmlAttributes: new { @class = "form form-control", id = "Models" })
-
-                <button name="AddOrEditModels" class="btn btn-custon-rounded-three btn-danger" type="submit">Add</button>
-            </form>
-        </div>
-    </center>
+  
 
 </div>
 <table class="table table-hover">
@@ -91,7 +81,7 @@
                     @Html.DisplayFor(modelItem => item.Code)
                 </td>
                 <td>
-                   @Html.DisplayFor(modelItem => item.Name)
+                   @Html.DisplayFor(modelItem => item.ModelName)
                 </td>
                 <td>
                      @Html.DisplayFor(modelItem => item.Disc)

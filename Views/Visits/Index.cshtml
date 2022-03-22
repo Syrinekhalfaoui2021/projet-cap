@@ -14,18 +14,18 @@
     <h1>
         <i class="fa fa-fw fa-qrcode"></i>
         Visits
-        <small>Visit daily</small>
+        <small>Visit </small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Visits</a></li>
-        <li class="active">Visit daily</li>
+        <li class="active">Visit</li>
     </ol>
 </section>
 <hr />
 
     <div>
-        <form class="container" asp-action="Searchvisitdaily" method="post">
+        <form class="container" asp-action="Searchvisit" method="post">
 
             <div class="row">
                 <div class="col-md-6">
@@ -37,7 +37,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <input type="text" name="searchvisitdaily" class="form-control" placeholder="Search...">
+                    <input type="text" name="searchvisit" class="form-control" placeholder="Search...">
                 </div>
                 <div class="col-md-6">
                    
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="col-md-push-4">
-                <button type="submit" name="searchvisitdaily" id="search-btn" class="btn btn-custon-rounded-three btn-danger">
+                <button type="submit" name="searchvisit" id="search-btn" class="btn btn-custon-rounded-three btn-danger">
                     <i class="fa fa-search"></i> Search
                 </button>
             </div>
@@ -55,11 +55,11 @@
     </div>
     <div class="container">
         <div class="btn-group">
-            <form asp-action="DownloadExcelDocumentvisitdaily" method="post">
+            <form asp-action="DownloadExcelDocumentvisit" method="post">
                 <button name="Exportvisitdaily" class="btn btn-custon-rounded-three btn-danger" type="submit">Export</button>
             </form>
 
-            <form asp-action="ImportExcelDocumentvisitdaily" method="post"
+            <form asp-action="ImportExcelDocumentvisit" method="post"
                   enctype="multipart/form-data">
                 <label for="file" class="btn">Select a file</label>
                 <input class="hide" id="file" type="file" name="file" />
