@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Client.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220318102155_prod1")]
-    partial class prod1
+    [Migration("20220321162914_test")]
+    partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -176,10 +176,10 @@ namespace Client.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Account")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Activity")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Antenna")
                         .HasColumnType("nvarchar(max)");
@@ -194,15 +194,18 @@ namespace Client.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Class")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Compte")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ContactPerson")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactPerson2")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Coverage")
@@ -221,19 +224,19 @@ namespace Client.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("District")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Estann")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullAddress")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HA")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Keydealer")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LGPromoters")
                         .HasColumnType("nvarchar(max)");
@@ -241,19 +244,16 @@ namespace Client.Migrations
                     b.Property<string>("Latitude")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LinkGoogleMAPS2")
+                    b.Property<string>("LinkGoogleMAPS")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Longitude")
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Outletstype")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("POSName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PromoterRemarks")
@@ -290,7 +290,7 @@ namespace Client.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -302,7 +302,7 @@ namespace Client.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Zone")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdOutlet");
 

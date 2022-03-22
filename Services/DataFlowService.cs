@@ -57,12 +57,12 @@ namespace CAP.Services
                 worksheet.Cell(index + 1, 11).Value = data[index - 1].StoreSize;
                 worksheet.Cell(index + 1, 12).Value = data[index - 1].Zone;
                 worksheet.Cell(index + 1, 12).Value = data[index - 1].ContactPerson;
-                worksheet.Cell(index + 1, 12).Value = data[index - 1].PhoneNumber;
+              //  worksheet.Cell(index + 1, 12).Value = data[index - 1].PhoneNumber;
                 worksheet.Cell(index + 1, 12).Value = data[index - 1].Website;
                 worksheet.Cell(index + 1, 12).Value = data[index - 1].Latitude;
                 worksheet.Cell(index + 1, 12).Value = data[index - 1].Longitude;
                 worksheet.Cell(index + 1, 12).Value = data[index - 1].FullAddress;
-                worksheet.Cell(index + 1, 12).Value = data[index - 1].LinkGoogleMAPS2;
+                worksheet.Cell(index + 1, 12).Value = data[index - 1].LinkGoogleMAPS;
                 worksheet.Cell(index + 1, 12).Value = data[index - 1].AV;
                 worksheet.Cell(index + 1, 12).Value = data[index - 1].HA;
                 worksheet.Cell(index + 1, 12).Value = data[index - 1].Coverage;

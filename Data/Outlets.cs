@@ -14,13 +14,12 @@ namespace CAP.Data
 
         [DisplayName("Code")]
         public int IdOutlet { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
 
         [DisplayName("Account")]
         public string Account  { get; set; }
 
         [DisplayName("Date")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+    
         public DateTime Date { get; set; }
         [DisplayName("Est.Ann.T/O(KTND)")]
 
@@ -64,38 +63,32 @@ namespace CAP.Data
        [DisplayName("POS Name")]
 
         public string POSName { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
+      
 
         [DisplayName("Key dealer")]
         public string Keydealer { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
 
         public string Compte { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
 
         public string Type { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
+     
 
         public string Class { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
+      
 
         public string Activity { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
 
         public string Zone { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
 
 
         public string District { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
 
         public string City { get; set; }
         public string Website { get; set; }
-        [DisplayName("Contact Person")]
         public string  ContactPerson { get; set; }
-        [DisplayName("Phone Number")]
-        public string PhoneNumber { get; set; }
-        [Column(TypeName = "nvarchar(10)")]
+    
+        public string ContactPerson2 { get; set; }
+   
 
         public string Longitude { get; set; }
         public string Delegation { get; set; }
@@ -105,19 +98,18 @@ namespace CAP.Data
         public string StoreClass { get; set; }
 
         public string Latitude { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
         [DisplayName("Full Address")]
 
         public string FullAddress { get; set; }
         [DisplayName("Link Google MAPS2")]
 
-        public string LinkGoogleMAPS2 { get; set; }
+        public string LinkGoogleMAPS { get; set; }
         public string Street { get; set; }
         [DisplayName("Outlet type")]
         public string Outletstype { get; set; }
         [DisplayName("Store Size")]
 
-        public string StoreSize { get; set; }
+        public string  StoreSize { get; set; }
         [DisplayName("Channel type")]
         public string Channeltype { get; set; }
         public string Retailer { get; set; }

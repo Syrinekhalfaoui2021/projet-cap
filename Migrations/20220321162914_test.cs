@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Client.Migrations
 {
-    public partial class prod : Migration
+    public partial class test : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -119,26 +119,40 @@ namespace Client.Migrations
                 {
                     IdOutlet = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Account = table.Column<string>(type: "nvarchar(250)", nullable: true),
+                    Account = table.Column<string>(nullable: true),
                     Date = table.Column<DateTime>(nullable: false),
+                    Estann = table.Column<string>(nullable: true),
+                    AVMonthly = table.Column<string>(nullable: true),
+                    TVDisplay = table.Column<string>(nullable: true),
+                    REFDisplay = table.Column<string>(nullable: true),
+                    RACDisplay = table.Column<string>(nullable: true),
+                    WMDisplay = table.Column<string>(nullable: true),
+                    Displaystatus = table.Column<string>(nullable: true),
+                    DisplayPriority = table.Column<string>(nullable: true),
+                    SIS = table.Column<string>(nullable: true),
+                    SODIG = table.Column<string>(nullable: true),
+                    CONDOR = table.Column<string>(nullable: true),
+                    A2C = table.Column<string>(nullable: true),
+                    LGPromoters = table.Column<string>(nullable: true),
+                    PromoterRemarks = table.Column<string>(nullable: true),
                     POSName = table.Column<string>(nullable: true),
-                    Keydealer = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    Compte = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    Type = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    Class = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    Activity = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    Zone = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    District = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    City = table.Column<string>(type: "nvarchar(250)", nullable: true),
+                    Keydealer = table.Column<string>(nullable: true),
+                    Compte = table.Column<string>(nullable: true),
+                    Type = table.Column<string>(nullable: true),
+                    Class = table.Column<string>(nullable: true),
+                    Activity = table.Column<string>(nullable: true),
+                    Zone = table.Column<string>(nullable: true),
+                    District = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
                     Website = table.Column<string>(nullable: true),
                     ContactPerson = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true),
-                    Longitude = table.Column<string>(type: "nvarchar(10)", nullable: true),
+                    ContactPerson2 = table.Column<string>(nullable: true),
+                    Longitude = table.Column<string>(nullable: true),
                     Delegation = table.Column<string>(nullable: true),
                     StoreClass = table.Column<string>(nullable: true),
                     Latitude = table.Column<string>(nullable: true),
-                    FullAddress = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    LinkGoogleMAPS2 = table.Column<string>(nullable: true),
+                    FullAddress = table.Column<string>(nullable: true),
+                    LinkGoogleMAPS = table.Column<string>(nullable: true),
                     Street = table.Column<string>(nullable: true),
                     Outletstype = table.Column<string>(nullable: true),
                     StoreSize = table.Column<string>(nullable: true),

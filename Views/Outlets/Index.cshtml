@@ -64,11 +64,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Account)
             </th>
+
             <th>
-                SFO
+                @Html.DisplayNameFor(model => model.POSName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Zone)
+                Marchandiser
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Delegation)
@@ -84,38 +85,39 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdOutlet)
-                </td>
-                <td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdOutlet)
+            </td>
+            <td>
 
-                    @Html.DisplayFor(modelItem => item.Account)
+                @Html.DisplayFor(modelItem => item.Account)
 
-                </td>
-                <td>
-                    @if (item.User != null)
-                    {
-                        @item.User.FirstName <br />
-                        @item.User.LastName
-                    }
-                </td>
-                <td>
+            </td>
+            <td>
 
-                    @Html.DisplayFor(modelItem => item.Zone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Delegation)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.City)
-                </td>
+                @Html.DisplayFor(modelItem => item.POSName)
+            </td>
+            <td>
+                @if (item.User != null)
+                {
+                    @item.User.FirstName <br />
+                    @item.User.LastName
+                }
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Delegation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
 
-                <td>
-                    <a asp-action="AddOrEdit" asp-route-id="@item.IdOutlet" class="btn btn-block btn-success">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.IdOutlet" class="btn btn-block btn-danger" onclick="return confirm('Are you sure to delete this record?')">Delete</a>
-                </td>
-            </tr>
+            <td>
+                <a asp-action="AddOrEdit" asp-route-id="@item.IdOutlet" class="btn btn-block btn-success">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.IdOutlet" class="btn btn-block btn-danger" onclick="return confirm('Are you sure to delete this record?')">Delete</a>
+            </td>
+        </tr>
 
         }
     </tbody>
