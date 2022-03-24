@@ -1,0 +1,107 @@
+﻿@model CAP.Data.AC
+@using Microsoft.AspNetCore.Identity
+@using CAP.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{ ViewData["Title"] = "Create"; }
+
+<h4>AC Model Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddOrEditModelsAC">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Code" />
+            <div class="form-group">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+
+                    <label asp-for="Brand.Namebrand" class="control-label"></label>
+
+                    <select asp-for="Brandcodebrand"  asp-items="ViewBag.brands" class="form-control"></select>
+
+                    <span asp-validation-for="Brand.Namebrand" class="text-danger"></span>
+
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="TypeAC" class="control-label"></label>
+                    <input asp-for="TypeAC" class="form-control" />
+                    <span asp-validation-for="TypeAC" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Puissance" class="control-label"></label>
+                    <input asp-for="Puissance" class="form-control" />
+                    <span asp-validation-for="Puissance" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Classac" class="control-label"></label>
+                <select asp-for="ClassasNumber" asp-items="Html.GetEnumSelectList<ClassAC>()" class="form form-control">
+                </select>
+                <span asp-validation-for="Classac" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Availibility" class="control-label"></label>
+                    <select asp-for="Availibility" asp-items="Html.GetEnumSelectList<AV>()" class="form form-control">
+                    </select>
+                    <span asp-validation-for="Availibility" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Inverter" class="control-label"></label>
+                    <select asp-for="Inverter" asp-items="Html.GetEnumSelectList<Inverter>()" class="form form-control">
+                    </select>
+                    <span asp-validation-for="Inverter" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Energeticclass" class="control-label"></label>
+                    <input asp-for="Energeticclass" class="form-control" />
+                    <span asp-validation-for="Energeticclass" class="text-danger"></span>
+                </div>
+             
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Save" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-action="IndexModels" class="btn btn-block btn-danger">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

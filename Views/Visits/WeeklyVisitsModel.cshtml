@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<CAP.Data.models>
+
 @using Microsoft.AspNetCore.Identity
 @using CAP.Data
 
@@ -11,18 +12,19 @@
 
 <section class="content-header">
     <h1>
-        Visits
-        <small>Visit daily </small>
-        <small>Visit daily Models </small>
+     Visits
+        <small>Visit Weekly </small>
+        <small>Visit Weekly Models </small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Visits</a></li>
-        <li class="active">Visit daily</li>
-        <li class="active">Visit daily Models</li>
+        <li class="active">Visit Weekly</li>
+        <li class="active">Visit Weekly Models</li>
     </ol>
 </section>
 <hr />
+
 <table class="table table-hover">
     <thead>
         <tr>
@@ -47,14 +49,9 @@
             <th>
                 Price
             </th>
-
             <th>
-                <a asp-action="Index" class="btn btn-custon-rounded-three btn-danger">SAVE</a>
-
+                <a asp-action="Indexweekly" class="btn btn-custon-rounded-three btn-danger">SAVE</a>
             </th>
-
-
-
         </tr>
     </thead>
     <tbody>
@@ -70,6 +67,7 @@
 
             </td>
             <td>
+
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
@@ -84,17 +82,10 @@
                 @Html.TextBoxFor(modelItem => item.Price)
             </td>
 
-            
-
             <td>
                 <a asp-action="DeleteModels" asp-route-id="@item.Code" class="btn btn-block btn-danger" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash-o"></i></a>
             </td>
-
         </tr>
         }
     </tbody>
 </table>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

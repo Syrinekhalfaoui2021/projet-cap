@@ -1,0 +1,216 @@
+﻿
+
+@model IEnumerable<CAP.Data.SammaryReportWeekly>
+
+
+
+@using Microsoft.AspNetCore.Identity
+@using CAP.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section class="content-header">
+    <h1>
+        Sammary Report
+        <small>Sammary Report Model REF</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Sammary Report</a></li>
+        <li><a href="">Sammary Report Model REF</a></li>
+        <li class="active"></li>
+    </ol>
+</section>
+
+<hr />
+
+
+<div class="input-group">
+    <div class="input-group-btn">
+        <form asp-action="Search" method="post">
+            <input type="text" name="search" class="form-control" placeholder="Search...">
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</div>
+<div>
+    <form asp-action="DownloadExcelDocument" method="post">
+        <button name="export" class="btn btn-custon-rounded-three btn-danger" type="submit">Export</button>
+    </form>
+
+    <form asp-action="ImportExcelDocument" method="post"
+          enctype="multipart/form-data">
+        <label for="file" class="btn">Select a file</label>
+        <input class="hide" id="file" type="file" name="file" />
+        <div id="file-name-container"></div>
+        <button disabled id="submit-file-btn" class="btn btn-custon-rounded-three btn-danger" name="import" type="submit">Import</button>
+    </form>
+
+
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Outlets.Keydealer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Outlets.Account)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Outlets.Delegation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Outlets.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Outlets.Zone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Outlets.Outletstype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brands.Namebrand)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Models.Name)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REF.Frost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REF.Typeref)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REF.TypeREF2)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REF.Color)
+
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REF.Segment)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REF.Capacity)
+
+            </th>
+            <th>
+
+                @Html.DisplayNameFor(model => model.REF.Energy)
+
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Models.ShelfShare)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Models.MarketShare)
+
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Models.Price)
+
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Models.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Models.Availibility)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Outlets.Keydealer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Outlets.Account)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Outlets.Delegation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Outlets.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Outlets.Zone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Outlets.Outletstype)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brands.Namebrand)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Models.Name)
+
+                </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.REF.Frost)
+
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REF.Typeref)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.REF.Color)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REF.Segment)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REF.Capacity)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REF.Energy)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Models.ShelfShare)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Models.MarketShare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Models.Price)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Models.Stock)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Models.Availibility)
+                </td>
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+

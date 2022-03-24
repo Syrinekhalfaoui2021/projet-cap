@@ -158,39 +158,39 @@ namespace CAP.Controllers
                             );
                             newData.User = user;
                         }
-                      
                         newData.Account = row.Cell(3).Value.ToString();
+
                         newData.POSName = row.Cell(4).Value.ToString();
                         newData.City = row.Cell(5).Value.ToString();
                         newData.Delegation = row.Cell(6).Value.ToString();
-                        newData.District = row.Cell(7).Value.ToString();
-                        newData.Street = row.Cell(8).Value.ToString();
-                        newData.Area = row.Cell(9).Value.ToString();
-                        newData.Channeltype = row.Cell(10).Value.ToString();
+                        newData.District = row.Cell(6).Value.ToString();
+                        newData.Street = row.Cell(7).Value.ToString();
+                        newData.Area = row.Cell(8).Value.ToString();
+                        newData.Channeltype = row.Cell(9).Value.ToString();
                     
-                        newData.ContactPerson = row.Cell(11).Value.ToString();
-                       newData.ContactPerson2 = row.Cell(12).Value.ToString();
-                        newData.Website = row.Cell(13).Value.ToString();
-                        newData.Latitude = row.Cell(14).Value.ToString();
-                        newData.Longitude = row.Cell(15).Value.ToString();
-                        newData.FullAddress = row.Cell(16).Value.ToString();
-                        newData.LinkGoogleMAPS = row.Cell(17).Value.ToString();
-                        newData.Status = row.Cell(18).Value.ToString();
-                        newData.Estann = row.Cell(19).Value.ToString();
-                       // newData.AVMonthly = row.Cell(21).Value.ToString();
-                        newData.StoreClass = row.Cell(22).Value.ToString();
-                        newData.TVDisplay = row.Cell(23).Value.ToString();
-                        newData.REFDisplay = row.Cell(24).Value.ToString();
-                        newData.WMDisplay = row.Cell(25).Value.ToString();
-                        newData.RACDisplay = row.Cell(26).Value.ToString();
-                        newData.Displaystatus = row.Cell(27).Value.ToString();
-                        newData.DisplayPriority = row.Cell(28).Value.ToString();
-                        newData.SODIG = row.Cell(29).Value.ToString();
-                        newData.CONDOR = row.Cell(30).Value.ToString();
-                        newData.A2C = row.Cell(31).Value.ToString();
-                        newData.Coverage = row.Cell(32).Value.ToString();
-                        newData.LGPromoters = row.Cell(33).Value.ToString();
-                        newData.PromoterRemarks = row.Cell(33).Value.ToString();
+                        newData.ContactPerson = row.Cell(10).Value.ToString();
+                       newData.ContactPerson2 = row.Cell(11).Value.ToString();
+                        newData.Website = row.Cell(12).Value.ToString();
+                        newData.Latitude = row.Cell(13).Value.ToString();
+                        newData.Longitude = row.Cell(14).Value.ToString();
+                        newData.FullAddress = row.Cell(15).Value.ToString();
+                        newData.LinkGoogleMAPS = row.Cell(16).Value.ToString();
+                        newData.Status = row.Cell(17).Value.ToString();
+                        newData.Estann = row.Cell(18).Value.ToString();
+                        newData.AVMonthly = row.Cell(19).Value.ToString();
+                       // newData.StoreClass = row.Cell(20).Value.ToString();
+                        newData.TVDisplay = row.Cell(21).Value.ToString();
+                        newData.REFDisplay = row.Cell(22).Value.ToString();
+                        newData.WMDisplay = row.Cell(23).Value.ToString();
+                        newData.RACDisplay = row.Cell(24).Value.ToString();
+                        newData.Displaystatus = row.Cell(25).Value.ToString();
+                        newData.DisplayPriority = row.Cell(26).Value.ToString();
+                        newData.SODIG = row.Cell(27).Value.ToString();
+                        newData.CONDOR = row.Cell(28).Value.ToString();
+                        newData.A2C = row.Cell(29).Value.ToString();
+                        newData.Coverage = row.Cell(30).Value.ToString();
+                        newData.LGPromoters = row.Cell(31).Value.ToString();
+                        newData.PromoterRemarks = row.Cell(32).Value.ToString();
                         data.Add(newData);
                     }
                 }

@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace CAP.Controllers
 {
-    public class ModelsController : Controller
+    public class ModelsController : Controller, IModelsController
     {
 
         private readonly ApplicationDbContext _context;
@@ -48,20 +48,20 @@ namespace CAP.Controllers
         // GET: Models
         public async Task<IActionResult> IndexModels()
         {
-           
+            var vm = new ModelViewModel
             {
-                return View(await _context.Modelss
+                Models = await _context.Modelss
                 .Include(x => x.Brand)
-                .ToListAsync());
-               
-            }
+                .ToListAsync(),
+                SelectedModel = ""
+            };
+            return View(vm);
            
         }
-    
 
 
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> AddOrEditModelsAsync(int id=0)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id)
         {
             ViewBag.Brands = await GetBrandsSelectList();
 
@@ -70,37 +70,105 @@ namespace CAP.Controllers
             else
                 return View(_context.Modelss.Find(id));
         }
-
-       
+        // POST: Models /Create
 
         [Authorize(Roles = "Admin")]
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-       
-        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Code,ModelName,Availibility,Price,MarketShare,ShelfShare,Stock,Weeklysail,Category,ProductType,SizeCapacity,REFCapa,DryerCapa,RPM,Segment,Resolution,SMART,Programs,Frosttype,Type,EnergyClass,Dimension,OutterDisplay,WaterDispenser")] models models)
+        [ActionName("AddOrEditModels")]
+        public async Task<IActionResult> AddOrEditModelsAsync(ModelEnum SelectedModel)
         {
             ViewBag.Brands = await GetBrandsSelectList();
 
-            if (ModelState.IsValid)
-            {
-                if (id == 0)
-                    _context.Add(models);
-                else
+            var viewName = "AddOrEditModel";
+            return View(viewName + SelectedModel.ToString());
 
-                    _context.Update(models);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(IndexModels));
-            }
-            return View(models);
+
         }
 
+        [Authorize(Roles = "Admin")]
 
-    
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("AddOrEditModelsAC")]
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,TypeAC,Puissance,ClassasNumber,Availibility,Price,Brandcodebrand")] AC ac)
 
-        
+        {
 
-       
-       
+          
+                ViewBag.Brands = await GetBrandsSelectList();
+            switch (ac.ClassasNumber)
+            {
+                case 0:
+                    ac.Classac = ClassAC.Basic;
+                    break;
+                case 1:
+                    ac.Classac = ClassAC.Premuim;
+                    break;
+            }
+                    _context.Add(ac);
+               
+                 _context.SaveChanges();
+                return RedirectToAction(nameof(IndexModels));
+        }
+        [Authorize(Roles = "Admin")]
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("AddOrEditModelsDW")]
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,Encastrable,Color,Price,Display,Numberofcovers,Price,Promgramme,Availibility,Energeticefficiency,Brandcodebrand")] DW dw)
+
+        {
+            ViewBag.Brands = await GetBrandsSelectList();
+
+            _context.Add(dw);
+
+            _context.SaveChanges();
+            return RedirectToAction(nameof(IndexModels));
+        }
+        [Authorize(Roles = "Admin")]
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("AddOrEditModelREF")]
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,Type2,Color,Segment,Capacity,Energy,Class,Technology,Frost,Display,Waterdispenser,TypeREF,Segment2,Availibility,Price,Brandcodebrand")] REF rEF)
+
+        {
+            ViewBag.Brands = await GetBrandsSelectList();
+
+            _context.Add(rEF);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(IndexModels));
+        }
+        [Authorize(Roles = "Admin")]
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("AddOrEditModelWM")]
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,TypeWM2,Color,SizeCategory,segementWM,Capacity,Drying,DryerCapacity,Technology,Class,Motor,TypeWM,Availibility,Price,Brandcodebrand")] WM wM)
+
+        {
+            ViewBag.Brands = await GetBrandsSelectList();
+
+            _context.Add(wM);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(IndexModels));
+        }
+        [Authorize(Roles = "Admin")]
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("AddOrEditModelTV")]
+        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("code,Name,Class,TypeTV,Size,SizeCategory,Resolution,Form,SmartTV,SegmentTV,Availibility,Price")] TV tV)
+
+        {
+            ViewBag.Brands = await GetBrandsSelectList();
+
+            _context.Add(tV);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(IndexModels));
+        }
 
         [Authorize(Roles = "Admin")]
         // GET: Models/Delete/5
@@ -211,7 +279,7 @@ namespace CAP.Controllers
                     .Where(x =>
 
                         (x.User != null && x.User.UserName == search) ||
-                        x.ModelName.Contains(search)
+                        x.CodeBP.Contains(search)
                     //x.Brand.Contains(search) ||
                     //  x.Type.Contains(search)
                     ).ToListAsync()
@@ -238,7 +306,49 @@ namespace CAP.Controllers
 
         [Authorize(Roles = "Admin")]
         // GET: sammary reports 
-       
+        public async Task<IActionResult> Indexsammaryweekly()
+        {
+            return View(await _context.sammaryReports
+                .Include(x => x.Models)
+                .Include(x => x.Outlets)
+                .ToListAsync());
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult AddOrEditsammary(int id = 0)
+        {
+            if (id == 0)
+                return View(new SammaryReport());
+            else
+                return View(_context.sammaryReports.Find(id));
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddOrEditsammary(int id, [Bind("Idsammary")] SammaryReport sammaryweekly)
+        {
+            if (ModelState.IsValid)
+            {
+                if (sammaryweekly.Idsammary == 0)
+                    _context.Add(sammaryweekly);
+                else
+                    _context.Update(sammaryweekly);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Indexsammaryweekly));
+            }
+            return View(sammaryweekly);
+        }
+
+        [Authorize(Roles = "Admin")]
+        // GET: sammaryweekly/Delete/5
+        public async Task<IActionResult> Deletesammary(int? id)
+        {
+            var sammaryweekly = await _context.sammaryReports.FindAsync(id);
+            _context.sammaryReports.Remove(sammaryweekly);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Indexsammaryweekly));
+        }
+
 
         [Authorize(Roles = "Admin")]
 
@@ -343,11 +453,10 @@ namespace CAP.Controllers
                     else
                     {
                         //Add rows to DataTable.
-                       // newDataBrands.codebrand = row.Cell(2).Value.ToString();
-
-                        newDataBrands.Namebrand = row.Cell(2).Value.ToString();
-                        newDataBrands.Color = row.Cell(3).Value.ToString();
-                       
+                        newDataBrands.Namebrand = row.Cell(3).Value.ToString();
+                        newDataBrands.Color = row.Cell(4).Value.ToString();
+                        //newDatamodel.Type = row.Cell(4).Value.ToString();
+                        // newDatamodel.Price = row.Cell(5).Value.ToString();
                         dataBrands.Add(newDataBrands);
                     }
                 }
@@ -389,5 +498,89 @@ namespace CAP.Controllers
                         .ToList();
         }
 
+        IActionResult IModelsController.AddOrEditBrandsAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.AddOrEditBrands(int id, brands brands)
+        {
+            throw new NotImplementedException();
+        }
+
+        IActionResult IModelsController.AddOrEditModels()
+        {
+            throw new NotImplementedException();
+        }
+
+        IActionResult IModelsController.AddOrEditModels(ModelEnum SelectedModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        IActionResult IModelsController.AddOrEditsammary(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.AddOrEditsammary(int id, SammaryReport sammaryweekly)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.DeleteBrands(int? id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.DeleteModels(int? id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.Deletesammary(int? id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.DownloadExcelDocumentBrands()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.DownloadExcelDocumentModel()
+        {
+            throw new NotImplementedException();
+        }
+
+        IActionResult IModelsController.ImportExcelDocumentBrands(IFormFile input)
+        {
+            throw new NotImplementedException();
+        }
+
+        IActionResult IModelsController.ImportExcelDocumentmodel(IFormFile input)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.IndexBrands()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.IndexModels()                 
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.Indexsammaryweekly()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IActionResult> IModelsController.SearchmodelAsync(string search)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -16,7 +16,10 @@ namespace CAP.Data
         public virtual models Models { get; set; }
         public virtual Outlets Outlets { get; set; }
         public virtual brands Brands { get; set; }
-       
+        public virtual TV Tv { get; set; }
+        public virtual WM Wm { get; set; }
+        public virtual REF REF { get; set; }
+        public virtual AC AC { get; set; }
 
 
     }

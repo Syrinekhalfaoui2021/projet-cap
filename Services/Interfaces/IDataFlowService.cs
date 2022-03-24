@@ -10,8 +10,9 @@ namespace CAP.Services.Interfaces
 
         XLWorkbook Export(IList<models> datamodel);
         void Import(IList<models> datamodel);
-        XLWorkbook Exportvisit(IList<Visits> datavisit);
-  
+        XLWorkbook Exportvisitdaily(IList<Visits> datavisitdaily);
+        XLWorkbook Exportvisitweekly(IList<Visitsweekly> datavisitweekly);
+        XLWorkbook Exportvisitmonthly(IList<Visitsmonthly> datavisitmonthly);
         XLWorkbook ExportBrands(IList<brands> dataBrands);
 
     }
