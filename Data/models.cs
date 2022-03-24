@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,14 +11,13 @@ namespace CAP.Data
         [Key]
         [DisplayName("Code")]
         public int Code { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
     
         [DisplayName("Model Name")]
         public string ModelName { get; set; }
         [DisplayName("AV")]
         public string Availibility { get; set; }
 
-        public double Price { get; set; }
+        public string Price { get; set; }
         [DisplayName("Market Share")]
         public string MarketShare { get; set; }
         [DisplayName("Shelf Share")]
@@ -61,14 +61,8 @@ namespace CAP.Data
         [DisplayName("Outter Display")]
         public string WaterDispenser { get; set; }
         
-        [ForeignKey("brands")]
-        public double Brandcodebrand { get; set; }
+      
 
-        [ForeignKey("Visits")]
-        public int IdVisit { get; set; }
-
-        [ForeignKey("Outlets")]
-        public int IdOutlet { get; set; }
 
 
 
@@ -76,9 +70,9 @@ namespace CAP.Data
         [DisplayName("type")]
         public string Disc { get; set; }
 
-        public virtual Outlets Outlets { get; set; }
+        public virtual  Outlets Outlets { get; set; }
         public virtual brands Brand { get; set; }
-        public virtual Visits Visits { get; set; }
+        public virtual  Visits Visits { get; set; }
 
 
 

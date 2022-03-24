@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -135,9 +136,7 @@ namespace CAP.Data
 
 
         public virtual Visits Visitss { get; set; }
-        public virtual Visitsweekly Visitssweekly { get; set; }
-        public virtual Visitsmonthly Visitssmonthly { get; set; }
-
+     
         public virtual ApplicationUser User { get; set; }
 
 

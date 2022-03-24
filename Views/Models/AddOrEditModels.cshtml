@@ -1,1 +1,169 @@
-﻿
+﻿@model CAP.Data.models
+@using Microsoft.AspNetCore.Identity
+@using CAP.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Models Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Code" />
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Code" class="control-label"></label>
+                    <input asp-for="Code" class="form-control" />
+                    <span asp-validation-for="Code" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="ModelName" class="control-label"></label>
+                    <input asp-for="ModelName" class="form-control" />
+                    <span asp-validation-for="ModelName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="ProductType" class="control-label"></label>
+                    <input asp-for="ProductType" class="form-control" />
+                    <span asp-validation-for="ProductType" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Brand.Namebrand" class="control-label"></label>
+
+                        <select asp-for="Code" asp-items="ViewBag.brand" class="form-control"></select>
+
+                        <span asp-validation-for="Brand.Namebrand" class="text-danger"></span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="SizeCapacity" class="control-label"></label>
+                    <input asp-for="SizeCapacity" class="form-control" />
+                    <span asp-validation-for="SizeCapacity" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="REFCapa" class="control-label"></label>
+                    <input asp-for="REFCapa" class="form-control" />
+                    <span asp-validation-for="REFCapa" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="FrzCapa" class="control-label"></label>
+                    <input asp-for="FrzCapa" class="form-control" />
+                    <span asp-validation-for="FrzCapa" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="DryerCapa" class="control-label"></label>
+                    <input asp-for="DryerCapa" class="form-control" />
+                    <span asp-validation-for="DryerCapa" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="RPM" class="control-label"></label>
+                    <input asp-for="RPM" class="form-control" />
+                    <span asp-validation-for="RPM" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Segment" class="control-label"></label>
+                    <input asp-for="Segment" class="form-control" />
+                    <span asp-validation-for="Segment" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Resolution" class="control-label"></label>
+                    <input asp-for="Resolution" class="form-control" />
+                    <span asp-validation-for="Resolution" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Color" class="control-label"></label>
+                    <input asp-for="Color" class="form-control" />
+                    <span asp-validation-for="Color" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="SMART" class="control-label"></label>
+                    <input asp-for="SMART" class="form-control" />
+                    <span asp-validation-for="SMART" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Type" class="control-label"></label>
+                    <input asp-for="Type" class="form-control" />
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Frosttype" class="control-label"></label>
+                    <input asp-for="Frosttype" class="form-control" />
+                    <span asp-validation-for="Frosttype" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Programs" class="control-label"></label>
+                    <input asp-for="Programs" class="form-control" />
+                    <span asp-validation-for="Programs" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="EnergyClass" class="control-label"></label>
+                    <input asp-for="EnergyClass" class="form-control" />
+                    <span asp-validation-for="EnergyClass" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Dimension" class="control-label"></label>
+                    <input asp-for="Dimension" class="form-control" />
+                    <span asp-validation-for="Dimension" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="OutterDisplay" class="control-label"></label>
+                    <input asp-for="OutterDisplay" class="form-control" />
+                    <span asp-validation-for="OutterDisplay" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="WaterDispenser" class="control-label"></label>
+                    <input asp-for="WaterDispenser" class="form-control" />
+                    <span asp-validation-for="WaterDispenser" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+              
+            </div>
+            <
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-action="IndexModels" class="btn btn-secondary btn-block"><i class="fa fa-table"></i> Back to List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

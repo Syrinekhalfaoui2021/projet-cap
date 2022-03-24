@@ -4,14 +4,16 @@ using CAP.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Client.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220322164654_t")]
+    partial class t
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -364,13 +366,10 @@ namespace Client.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Activity")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Article")
                         .HasColumnType("nvarchar(250)");
-
-                    b.Property<double?>("Brandcodebrand")
-                        .HasColumnType("float");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -384,35 +383,105 @@ namespace Client.Migrations
                     b.Property<int?>("IdOutlet")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ModelsCode")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Presence")
-                        .HasColumnType("int");
-
                     b.Property<string>("Remark")
                         .HasColumnType("nvarchar(1000)");
-
-                    b.Property<string>("SalesA")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SalesQ")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("IdVisit");
 
-                    b.HasIndex("Brandcodebrand");
-
-                    b.HasIndex("IdOutlet");
-
-                    b.HasIndex("ModelsCode");
+                    b.HasIndex("IdOutlet")
+                        .IsUnique()
+                        .HasFilter("[IdOutlet] IS NOT NULL");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("AspNetVisit");
+                });
+
+            modelBuilder.Entity("CAP.Data.Visitsmonthly", b =>
+                {
+                    b.Property<int>("IdVisit")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Activity")
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("Article")
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Entrytime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Exittime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("IdOutlet")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Remark")
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("IdVisit");
+
+                    b.HasIndex("IdOutlet")
+                        .IsUnique()
+                        .HasFilter("[IdOutlet] IS NOT NULL");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetVisitmonthly");
+                });
+
+            modelBuilder.Entity("CAP.Data.Visitsweekly", b =>
+                {
+                    b.Property<int>("IdVisit")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Activity")
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("Article")
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Entrytime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTimeOffset>("Exittime")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<int?>("IdOutlet")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Remark")
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("IdVisit");
+
+                    b.HasIndex("IdOutlet")
+                        .IsUnique()
+                        .HasFilter("[IdOutlet] IS NOT NULL");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetVisitweekly");
                 });
 
             modelBuilder.Entity("CAP.Data.brands", b =>
@@ -429,9 +498,24 @@ namespace Client.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int?>("VisitsIdVisit")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VisitsmonthlyIdVisit")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VisitsweeklyIdVisit")
+                        .HasColumnType("int");
+
                     b.HasKey("codebrand");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("VisitsIdVisit");
+
+                    b.HasIndex("VisitsmonthlyIdVisit");
+
+                    b.HasIndex("VisitsweeklyIdVisit");
 
                     b.ToTable("AspNetBrand");
                 });
@@ -446,7 +530,7 @@ namespace Client.Migrations
                     b.Property<string>("Availibility")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Brandcodebrand")
+                    b.Property<double>("Brandcodebrand")
                         .HasColumnType("float");
 
                     b.Property<string>("Category")
@@ -476,20 +560,23 @@ namespace Client.Migrations
                     b.Property<string>("FrzCapa")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("IdOutlet")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdVisit")
+                        .HasColumnType("int");
+
                     b.Property<string>("MarketShare")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ModelName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("OutletsIdOutlet")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("OutterDisplay")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<string>("ProductType")
                         .HasColumnType("nvarchar(max)");
@@ -527,6 +614,12 @@ namespace Client.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int?>("VisitsmonthlyIdVisit")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VisitsweeklyIdVisit")
+                        .HasColumnType("int");
+
                     b.Property<string>("WaterDispenser")
                         .HasColumnType("nvarchar(max)");
 
@@ -537,9 +630,15 @@ namespace Client.Migrations
 
                     b.HasIndex("Brandcodebrand");
 
-                    b.HasIndex("OutletsIdOutlet");
+                    b.HasIndex("IdOutlet");
+
+                    b.HasIndex("IdVisit");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("VisitsmonthlyIdVisit");
+
+                    b.HasIndex("VisitsweeklyIdVisit");
 
                     b.ToTable("AspNetModels");
                 });
@@ -696,17 +795,31 @@ namespace Client.Migrations
 
             modelBuilder.Entity("CAP.Data.Visits", b =>
                 {
-                    b.HasOne("CAP.Data.brands", "Brand")
-                        .WithMany("Visits")
-                        .HasForeignKey("Brandcodebrand");
-
                     b.HasOne("CAP.Data.Outlets", "Outlets")
-                        .WithMany("Visitss")
-                        .HasForeignKey("IdOutlet");
+                        .WithOne("Visitss")
+                        .HasForeignKey("CAP.Data.Visits", "IdOutlet");
 
-                    b.HasOne("CAP.Data.models", "Models")
-                        .WithMany("Visits")
-                        .HasForeignKey("ModelsCode");
+                    b.HasOne("CAP.Data.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("CAP.Data.Visitsmonthly", b =>
+                {
+                    b.HasOne("CAP.Data.Outlets", "Outlet")
+                        .WithOne("Visitssmonthly")
+                        .HasForeignKey("CAP.Data.Visitsmonthly", "IdOutlet");
+
+                    b.HasOne("CAP.Data.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("CAP.Data.Visitsweekly", b =>
+                {
+                    b.HasOne("CAP.Data.Outlets", "Outlets")
+                        .WithOne("Visitssweekly")
+                        .HasForeignKey("CAP.Data.Visitsweekly", "IdOutlet");
 
                     b.HasOne("CAP.Data.ApplicationUser", "User")
                         .WithMany()
@@ -718,21 +831,51 @@ namespace Client.Migrations
                     b.HasOne("CAP.Data.ApplicationUser", "User")
                         .WithMany("Brands")
                         .HasForeignKey("UserId");
+
+                    b.HasOne("CAP.Data.Visits", "Visits")
+                        .WithMany("Brand")
+                        .HasForeignKey("VisitsIdVisit");
+
+                    b.HasOne("CAP.Data.Visitsmonthly", null)
+                        .WithMany("Brand")
+                        .HasForeignKey("VisitsmonthlyIdVisit");
+
+                    b.HasOne("CAP.Data.Visitsweekly", null)
+                        .WithMany("Brand")
+                        .HasForeignKey("VisitsweeklyIdVisit");
                 });
 
             modelBuilder.Entity("CAP.Data.models", b =>
                 {
                     b.HasOne("CAP.Data.brands", "Brand")
                         .WithMany("Models")
-                        .HasForeignKey("Brandcodebrand");
+                        .HasForeignKey("Brandcodebrand")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CAP.Data.Outlets", "Outlets")
                         .WithMany()
-                        .HasForeignKey("OutletsIdOutlet");
+                        .HasForeignKey("IdOutlet")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CAP.Data.Visits", "Visits")
+                        .WithMany("Models")
+                        .HasForeignKey("IdVisit")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CAP.Data.ApplicationUser", "User")
                         .WithMany("Models")
                         .HasForeignKey("UserId");
+
+                    b.HasOne("CAP.Data.Visitsmonthly", null)
+                        .WithMany("Models")
+                        .HasForeignKey("VisitsmonthlyIdVisit");
+
+                    b.HasOne("CAP.Data.Visitsweekly", null)
+                        .WithMany("Models")
+                        .HasForeignKey("VisitsweeklyIdVisit");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

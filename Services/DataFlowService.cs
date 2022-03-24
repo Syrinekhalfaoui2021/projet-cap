@@ -102,7 +102,7 @@ namespace CAP.Services
             throw new NotImplementedException();
         }
 
-        //visits daily
+        //visits 
         public XLWorkbook Exportvisit(IList<Visits> datavisit)
         {
             var workbook = new XLWorkbook();
@@ -110,14 +110,45 @@ namespace CAP.Services
             worksheet.Cell(1, 1).Value = "IdVisit";
             worksheet.Cell(1, 2).Value = "SFO";
             worksheet.Cell(1, 3).Value = "Date";
-            worksheet.Cell(1, 4).Value = "Zone";
+            worksheet.Cell(1, 4).Value = "Year"; 
+            worksheet.Cell(1, 5).Value = "Month";
+            worksheet.Cell(1, 6).Value = "Week";
+            worksheet.Cell(1, 7).Value = "POS Name";
+            worksheet.Cell(1, 8).Value = "Model Name";
+            worksheet.Cell(1, 9).Value = "Brand";
+            worksheet.Cell(1, 10).Value = "Product type";
+            worksheet.Cell(1, 11).Value = " Capacity / Size";
+            worksheet.Cell(1, 12).Value = "Segment";
+            worksheet.Cell(1, 13).Value = "Color";
+            worksheet.Cell(1, 14).Value = "Type";
+            worksheet.Cell(1, 15).Value = "Presence";
+            worksheet.Cell(1, 16).Value = "Sales (Q)";
+            worksheet.Cell(1, 17).Value = "Price";
+            worksheet.Cell(1, 18).Value = "Sales (A)";
+
 
             for (int index = 1; index <= datavisit.Count; index++)
             {
+               
                 worksheet.Cell(index + 1, 1).Value = datavisit[index - 1].IdVisit;
-                worksheet.Cell(index + 1, 2).Value = datavisit[index - 1].User?.UserName;
-                worksheet.Cell(index + 1, 3).Value = datavisit[index - 1]?.Date;
-                worksheet.Cell(index + 1, 3).Value = datavisit[index - 1]?.Outlets.Zone;
+                worksheet.Cell(index + 1, 2).Value = datavisit[index - 1].User.UserName;
+                worksheet.Cell(index + 1, 3).Value = datavisit[index - 1].Date;
+                worksheet.Cell(index + 1, 4).Value = datavisit[index - 1].Date.Year;
+                worksheet.Cell(index + 1, 5).Value = datavisit[index - 1].Date.Month;
+                worksheet.Cell(index + 1, 6).Value = datavisit[index - 1].GetWeekNumber();
+                worksheet.Cell(index + 1, 7).Value = datavisit[index - 1].Outlets.POSName;
+                worksheet.Cell(index + 1, 8).Value = datavisit[index - 1].Models.ModelName;
+                worksheet.Cell(index + 1, 9).Value = datavisit[index - 1].Brand.Namebrand;
+                worksheet.Cell(index + 1, 10).Value = datavisit[index - 1].Models.ProductType;
+                worksheet.Cell(index + 1, 11).Value = datavisit[index - 1].Models.SizeCapacity;
+                worksheet.Cell(index + 1, 12).Value = datavisit[index - 1].Models.Segment;
+                worksheet.Cell(index + 1, 13).Value = datavisit[index - 1].Models.Color;
+                worksheet.Cell(index + 1, 14).Value = datavisit[index - 1].Models.Type;
+                worksheet.Cell(index + 1, 15).Value = datavisit[index - 1].Presence;
+                worksheet.Cell(index + 1, 16).Value = datavisit[index - 1].SalesQ;
+                worksheet.Cell(index + 1, 17).Value = datavisit[index - 1].Models.Price;
+                worksheet.Cell(index + 1, 18).Value = datavisit[index - 1].SalesA;
+
 
             }
             return workbook;

@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Globalization;
+
 
 namespace CAP.Data
 {
     [Table(name: "AspNetVisit")]
 
-    public class Visits
+    public class Visits 
     {
+     
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [DisplayName("Code")]
@@ -20,6 +24,8 @@ namespace CAP.Data
 
         public DateTime Date { get; set; }
 
+       
+     
 
         [DisplayName("Entry time")]
 
@@ -43,17 +49,32 @@ namespace CAP.Data
         [DisplayName("Article")]
 
         public string Article { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
+      
         [DisplayName("Activity")]
 
         public string Activity { get; set; }
+       
+        public int Presence { get; set; }
+        [DisplayName("Sales(Q)")]
+        public string SalesQ { get; set; }
+        [DisplayName("Sales(A)")]
 
-        [ForeignKey("Outlets")]
+        public string SalesA { get; set; }
+    [ForeignKey("Outlets")]
         public int? IdOutlet { get; set; }
-        public Outlets Outlets { get; set; }
-        public ICollection <brands> Brand { get; set; }
-        public ICollection<models> Models { get; set; }
+        [ForeignKey("models")]
+        public int? Code { get; set; }
+        public  Outlets Outlets { get; set; }
+        public brands Brand { get; set; }
+        public models Models { get; set; }
         public virtual ApplicationUser User { get; set; }
 
+            public int GetWeekNumber()
+        {
+            CultureInfo ciCurr = CultureInfo.CurrentCulture;
+            int weekNum = ciCurr.Calendar.GetWeekOfYear(this.Date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+            return weekNum;
+        }
+      
     }
 }

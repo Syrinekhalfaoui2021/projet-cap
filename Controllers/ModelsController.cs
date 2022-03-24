@@ -161,13 +161,33 @@ namespace CAP.Controllers
                     else
                     {
                         //Add rows to DataTable.
-                        newDatamodel.Code = row.Cell(1).Value.GetHashCode();
+                       
 
-                       // newDatamodel.CodeBP = row.Cell(2).Value.ToString();
-                        //newDatamodel.Name = row.Cell(3).Value.ToString();
+                        newDatamodel.ModelName = row.Cell(2).Value.ToString();
+                        newDatamodel.ProductType = row.Cell(3).Value.ToString();
                         newDatamodel.Brand.Namebrand = row.Cell(4).Value.ToString();
-                        // newDatamodel.Type = row.Cell(4).Value.ToString();
-                        newDatamodel.Price = row.Cell(5).Value.GetHashCode();
+                        newDatamodel.SizeCapacity = row.Cell(5).Value.ToString();
+                        newDatamodel.REFCapa = row.Cell(6).Value.ToString();
+                        newDatamodel.FrzCapa = row.Cell(7).Value.ToString();
+                        newDatamodel.DryerCapa = row.Cell(8).Value.ToString();
+                        newDatamodel.RPM = row.Cell(9).Value.ToString();
+                        newDatamodel.Segment = row.Cell(10).Value.ToString();
+                        newDatamodel.Resolution = row.Cell(11).Value.ToString();
+                        newDatamodel.Color = row.Cell(12).Value.ToString();
+
+                        newDatamodel.SMART = row.Cell(13).Value.ToString();
+
+                        newDatamodel.Type = row.Cell(14).Value.ToString();
+                        newDatamodel.Frosttype = row.Cell(15).Value.ToString();
+                        newDatamodel.Programs = row.Cell(16).Value.ToString();
+                        newDatamodel.EnergyClass = row.Cell(17).Value.ToString();
+                        newDatamodel.Dimension = row.Cell(18).Value.ToString();
+                        newDatamodel.OutterDisplay = row.Cell(19).Value.ToString();
+                        newDatamodel.WaterDispenser = row.Cell(20).Value.ToString();
+                        newDatamodel.Price = row.Cell(21).Value.ToString();
+
+
+
                         datamodel.Add(newDatamodel);
                     }
                 }

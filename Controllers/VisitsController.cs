@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -209,6 +210,7 @@ namespace CAP.Controllers
                 throw ex;
             }
         }
+    
         [HttpPost]
         [ActionName("ImportExcelDocumentvisit")]
         public IActionResult ImportExcelDocumentvisit([FromForm(Name = "file")] IFormFile input)
@@ -249,7 +251,7 @@ namespace CAP.Controllers
                         );
                         if (newDatavisit.Outlets == null)
                         {
-                            newDatavisit.IdOutlet = 0;
+                            newDatavisit.Outlets.IdOutlet = 0;
                         }
                         datavisit.Add(newDatavisit);
                     }

@@ -1,4 +1,4 @@
-﻿@model CAP.ViewModels.ModelViewModel
+﻿@model IEnumerable<CAP.Data.models>
 
 
 @using Microsoft.AspNetCore.Identity
@@ -13,7 +13,7 @@
 <section class="content-header">
     <h1>
         <i class="fa fa-fw fa-qrcode"></i>
-                   Models
+        Models
         <small>Model</small>
     </h1>
     <ol class="breadcrumb">
@@ -25,7 +25,7 @@
 <hr />
 <div class="input-group">
     <div class="readcome-heading">
-        <form  role="search" asp-action="Searchmodel" method="post">
+        <form role="search" asp-action="Searchmodel" method="post">
             <input type="text" name="searchmodel" class="form-control" placeholder="Search...">
             <button type="submit" name="searchmodel" id="search-btn" class="btn btn-flat">
                 <i class="fa fa-search"></i>
@@ -34,7 +34,7 @@
     </div>
 </div>
 <div>
-   
+
     <form asp-action="DownloadExcelDocumentmodel" method="post">
         <button name="Exportvisitmodel" class="btn btn-custon-rounded-three btn-danger" type="submit">Export</button>
     </form>
@@ -45,52 +45,52 @@
         <div id="file-name-container"></div>
         <button disabled id="submit-file-btn" class="btn btn-custon-rounded-three btn-danger" name="Importdatamodel" type="submit">Import</button>
     </form>
-  
+
 
 </div>
 <table class="table table-hover">
     <thead>
         <tr>
             <th>
-             Brand
+                Brand
             </th>
             <th>
-             Code
+                Code
             </th>
             <th>
-             Name            
+                Name
             </th>
             <th>
-             Type
+                Type
             </th>
             <th>
-             Actions 
-                @*<a asp-action="AddOrEditModels" class="btn btn-block btn-primary">ADD</a>*@
+                Actions
+               <a asp-action="AddOrEditModels" class="btn btn-block btn-primary">ADD</a>
             </th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Models)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Brand.Namebrand)
                 </td>
-               
+
                 <td>
                     @Html.DisplayFor(modelItem => item.Code)
                 </td>
                 <td>
-                   @Html.DisplayFor(modelItem => item.ModelName)
+                    @Html.DisplayFor(modelItem => item.ModelName)
                 </td>
                 <td>
-                     @Html.DisplayFor(modelItem => item.Disc)
+                    @Html.DisplayFor(modelItem => item.Disc)
                 </td>
-                        <td>
-                            <a asp-action="AddOrEditModels" asp-route-id="@item.Code" class="btn btn-block btn-success">Edit</a>
-                            <a asp-action="DeleteModels" asp-route-id="@item.Code" class="btn btn-block btn-danger" onclick="return confirm('Are you sure to delete this record?')">Delete</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                <td>
+                    <a asp-action="AddOrEditModels" asp-route-id="@item.Code" class="btn btn-block btn-success">Edit</a>
+                    <a asp-action="DeleteModels" asp-route-id="@item.Code" class="btn btn-block btn-danger" onclick="return confirm('Are you sure to delete this record?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
