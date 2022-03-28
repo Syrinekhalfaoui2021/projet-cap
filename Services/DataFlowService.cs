@@ -137,17 +137,17 @@ namespace CAP.Services
                 worksheet.Cell(index + 1, 5).Value = datavisit[index - 1].Date.Month;
                 worksheet.Cell(index + 1, 6).Value = datavisit[index - 1].GetWeekNumber();
                 worksheet.Cell(index + 1, 7).Value = datavisit[index - 1].Outlets.POSName;
-                worksheet.Cell(index + 1, 8).Value = datavisit[index - 1].Models.ModelName;
-                worksheet.Cell(index + 1, 9).Value = datavisit[index - 1].Brand.Namebrand;
-                worksheet.Cell(index + 1, 10).Value = datavisit[index - 1].Models.ProductType;
-                worksheet.Cell(index + 1, 11).Value = datavisit[index - 1].Models.SizeCapacity;
-                worksheet.Cell(index + 1, 12).Value = datavisit[index - 1].Models.Segment;
-                worksheet.Cell(index + 1, 13).Value = datavisit[index - 1].Models.Color;
-                worksheet.Cell(index + 1, 14).Value = datavisit[index - 1].Models.Type;
-                worksheet.Cell(index + 1, 15).Value = datavisit[index - 1].Presence;
-                worksheet.Cell(index + 1, 16).Value = datavisit[index - 1].SalesQ;
-                worksheet.Cell(index + 1, 17).Value = datavisit[index - 1].Models.Price;
-                worksheet.Cell(index + 1, 18).Value = datavisit[index - 1].SalesA;
+               worksheet.Cell(index + 1, 8).Value = datavisit[index - 1].Models.ModelName;
+              worksheet.Cell(index + 1, 9).Value = datavisit[index - 1].Brand.Namebrand;
+               worksheet.Cell(index + 1, 10).Value = datavisit[index - 1].Models.ProductType;
+               worksheet.Cell(index + 1, 11).Value = datavisit[index - 1].Models.SizeCapacity;
+             worksheet.Cell(index + 1, 12).Value = datavisit[index - 1].Models.Segment;
+              worksheet.Cell(index + 1, 13).Value = datavisit[index - 1].Models.Color;
+              worksheet.Cell(index + 1, 14).Value = datavisit[index - 1].Models.Type;
+               worksheet.Cell(index + 1, 15).Value = datavisit[index - 1].Presence;
+              worksheet.Cell(index + 1, 16).Value = datavisit[index - 1].SalesQ;
+              worksheet.Cell(index + 1, 17).Value = datavisit[index - 1].Models.Price;
+               worksheet.Cell(index + 1, 18).Value = datavisit[index - 1].SalesA;
 
 
             }
@@ -161,17 +161,48 @@ namespace CAP.Services
         {
             var workbook = new XLWorkbook();
             IXLWorksheet worksheet = workbook.Worksheets.Add("Models");
-            worksheet.Cell(1, 1).Value = "Code";
-            worksheet.Cell(1, 2).Value = "CodeBP";
-            worksheet.Cell(1, 3).Value = "Name";
-            worksheet.Cell(1, 4).Value = "Brand";
-            worksheet.Cell(1, 5).Value = "Rang";
+            worksheet.Cell(1, 1).Value = "Model Name";
+            worksheet.Cell(1, 2).Value = "Product Type";
+            worksheet.Cell(1, 3).Value = "Brand";
+            worksheet.Cell(1, 4).Value = "Size/Capacity";
+            worksheet.Cell(1, 5).Value = "REF Capa";
+            worksheet.Cell(1, 6).Value = "Frz Capa";
+            worksheet.Cell(1, 7).Value = "Dryer Capa";
+            worksheet.Cell(1, 8).Value = "RPM";
+            worksheet.Cell(1, 9).Value = "Segment";
+            worksheet.Cell(1, 10).Value = "Resolution";
+            worksheet.Cell(1, 11).Value = "Color";
+            worksheet.Cell(1, 12).Value = "SMART";
+            worksheet.Cell(1, 13).Value = "Type";
+            worksheet.Cell(1, 14).Value = "Frost type";
+            worksheet.Cell(1, 15).Value = "Programs";
+            worksheet.Cell(1, 16).Value = "Energy Class";
+            worksheet.Cell(1, 17).Value = "Dimension";
+            worksheet.Cell(1, 18).Value = "Outter Display";
+            worksheet.Cell(1, 19).Value = "Water Dispenser";
+
+
             for (int index = 1; index <= datamodel.Count; index++)
             {
-                worksheet.Cell(index + 1, 1).Value = datamodel[index - 1].Code;
-               // worksheet.Cell(index + 1, 2).Value = datamodel[index - 1].CodeBP;
-               // worksheet.Cell(index + 1, 3).Value = datamodel[index - 1].Name;
-                worksheet.Cell(index + 1, 4).Value = datamodel[index - 1].Brand;
+                worksheet.Cell(index + 1, 1).Value = datamodel[index - 1].ModelName;
+               worksheet.Cell(index + 1, 2).Value = datamodel[index - 1].ProductType;
+                worksheet.Cell(index + 1, 3).Value = datamodel[index - 1].Brand.Namebrand;
+                worksheet.Cell(index + 1, 4).Value = datamodel[index - 1].SizeCapacity;
+                worksheet.Cell(index + 1, 5).Value = datamodel[index - 1].REFCapa;
+                worksheet.Cell(index + 1, 6).Value = datamodel[index - 1].FrzCapa;
+                worksheet.Cell(index + 1, 7).Value = datamodel[index - 1].DryerCapa;
+                worksheet.Cell(index + 1, 8).Value = datamodel[index - 1].RPM;
+                worksheet.Cell(index + 1, 9).Value = datamodel[index - 1].Segment;
+                worksheet.Cell(index + 1, 10).Value = datamodel[index - 1].Resolution;
+                worksheet.Cell(index + 1, 11).Value = datamodel[index - 1].Color;
+                worksheet.Cell(index + 1, 12).Value = datamodel[index - 1].SMART;
+                worksheet.Cell(index + 1, 13).Value = datamodel[index - 1].Type;
+                worksheet.Cell(index + 1, 14).Value = datamodel[index - 1].Frosttype;
+                worksheet.Cell(index + 1, 15).Value = datamodel[index - 1].Programs;
+                worksheet.Cell(index + 1, 16).Value = datamodel[index - 1].EnergyClass;
+                worksheet.Cell(index + 1, 17).Value = datamodel[index - 1].Dimension;
+                worksheet.Cell(index + 1, 18).Value = datamodel[index - 1].OutterDisplay;
+                worksheet.Cell(index + 1, 19).Value = datamodel[index - 1].WaterDispenser;
 
             }
             return workbook;

@@ -111,7 +111,7 @@ namespace CAP.Controllers
                 return _context.Outletss.ToList()
                         .Select(x => new SelectListItem
                         {
-                            Text = x.Account,
+                            Text = x.POSName,
                             Value = x.IdOutlet.ToString(),
                             Selected = false
                         })
@@ -121,7 +121,7 @@ namespace CAP.Controllers
                         .Where(x => x.UserId == user.Id)
                         .Select(x => new SelectListItem
                         {
-                            Text = x.Account,
+                            Text = x.POSName,
                             Value = x.IdOutlet.ToString(),
                             Selected = false
                         })
@@ -178,11 +178,11 @@ namespace CAP.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-       
 
 
 
-       
+
+
 
         // import  and exprt data  visits daily 
         [HttpPost]
@@ -196,6 +196,9 @@ namespace CAP.Controllers
             {
                 var datavisit = await _context.Visits
                     .Include(x => x.User)
+                    .Include(x => x.Outlets)
+                    .Include(x => x.Models)
+                    .Include(x => x.Brand)
                     .ToListAsync();
                 var xls = dataFlowService.Exportvisit(datavisit);
 
@@ -210,7 +213,7 @@ namespace CAP.Controllers
                 throw ex;
             }
         }
-    
+
         [HttpPost]
         [ActionName("ImportExcelDocumentvisit")]
         public IActionResult ImportExcelDocumentvisit([FromForm(Name = "file")] IFormFile input)
@@ -232,28 +235,19 @@ namespace CAP.Controllers
                     }
                     else
                     {
-                        //Add rows to DataTable.
-                        // {firstname} {lastname}
-                        var names = row.Cell(2).Value.ToString().Split(" ");
-                        var user = _userManager.Users.ToList().FirstOrDefault(x =>
-                            String.Equals(x.FirstName, names[0], StringComparison.OrdinalIgnoreCase) ||
-                            String.Equals(x.LastName, names[1], StringComparison.OrdinalIgnoreCase)
-                        );
-                        newDatavisit.User = user;
-                        DateTime.TryParse(row.Cell(3).Value.ToString(), out DateTime date);
+
+                        DateTime.TryParse(row.Cell(2).Value.ToString(), out DateTime date);
                         if (date != null)
                         {
                             newDatavisit.Date = date;
-                            newDatavisit.Entrytime = date;
                         }
-                        newDatavisit.Outlets = _context.Outletss.ToList().FirstOrDefault(x =>
-                            String.Equals(x.Account, row.Cell(1).Value.ToString(), StringComparison.OrdinalIgnoreCase)
-                        );
-                        if (newDatavisit.Outlets == null)
-                        {
-                            newDatavisit.Outlets.IdOutlet = 0;
-                        }
-                        datavisit.Add(newDatavisit);
+                        newDatavisit.Outlets.POSName = row.Cell(3).Value.ToString();
+                        newDatavisit.Models.ModelName= row.Cell(4).Value.ToString();
+                        newDatavisit.Brand.Namebrand = row.Cell(5).Value.ToString();
+                        newDatavisit.Presence = row.Cell(6).Value.ToString();
+                        newDatavisit.SalesQ = row.Cell(7).Value.ToString();
+                        newDatavisit.SalesA = row.Cell(8).Value.ToString();
+
                     }
                 }
                 _context.Visits.AddRange(datavisit);
@@ -286,21 +280,21 @@ namespace CAP.Controllers
             return View("Index", datavisit);
         }
 
-       
+
         public async Task<IActionResult> DailyVisitsModel()
 
         {
-            
-            return View(await _context.Modelss
-             
 
-                .Include(x => x.Visits)
-                .Include(x=>x.Brand)
-                .Include(x=>x.Outlets)
+            return View(await _context.Modelss
+
+
+                .Include(x => x.Visitss)
+                .Include(x => x.Brand)
+                .Include(x => x.Outlets)
 
                 .ToListAsync()); ;
         }
-        
+
 
 
 

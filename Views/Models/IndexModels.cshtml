@@ -65,7 +65,7 @@
             </th>
             <th>
                 Actions
-               <a asp-action="AddOrEditModels" class="btn btn-block btn-primary">ADD</a>
+                <a asp-action="AddOrEditModels" class="btn btn-block btn-primary">ADD</a>
             </th>
         </tr>
     </thead>
@@ -84,7 +84,7 @@
                     @Html.DisplayFor(modelItem => item.ModelName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Disc)
+                    @Html.DisplayFor(modelItem => item.Type)
                 </td>
                 <td>
                     <a asp-action="AddOrEditModels" asp-route-id="@item.Code" class="btn btn-block btn-success">Edit</a>

@@ -26,7 +26,7 @@ namespace CAP.Controllers
         [HttpGet]
         public async Task<IActionResult> ImportAsync()
         {
-            var workbook = new XLWorkbook(@"C:\Users\syrine-khalfaoui\Desktop\Users.xlsx");
+            var workbook = new XLWorkbook(@"C:\Users\syrine-khalfaoui\Desktop\Trend\base de donnée trend\Users.xlsx");
             var ws1 = workbook.Worksheet(1);
 
             var adminRole = await roleManager.FindByNameAsync("Admin");

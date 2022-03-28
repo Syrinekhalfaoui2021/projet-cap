@@ -76,9 +76,12 @@
         <thead>
             <tr>
 
+                
                 <th>
-                    Outlets
+                    @Html.DisplayNameFor(model => model.Outlets.POSName)
                 </th>
+
+
                 <th>
                     @Html.DisplayNameFor(model => model.User)
                 </th>
@@ -89,9 +92,7 @@
                 <th>
                     Time
                 </th>
-                <th>
-
-                </th>
+               
 
                 <th>
                     <a asp-action="AddOrEdite" class="btn btn-custon-rounded-three btn-danger">ADD</a>
@@ -101,34 +102,35 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @item.Outlets.Account
-                    </td>
+            <tr>
+               
+                <td>
+                    @item.Outlets?.POSName
+                </td>
 
-                    <td>
-                        @item.User?.FirstName @item.User?.LastName
-                    </td>
-                    <td>
+                <td>
+                    @item.User?.FirstName @item.User?.LastName
+                </td>
+                <td>
 
-                        @Html.DisplayFor(modelItem => item.Date)
-                    </td>
-                    <td>
-                        @{
-                            var time = item.Date.ToString("H:mm");
-                        }
-                        @Html.DisplayFor(modelItem => time)
-                    </td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @{
+                        var time = item.Date.ToString("H:mm");
+                    }
+                    @Html.DisplayFor(modelItem => time)
+                </td>
 
-                    <td>
-                        <td>
-                        <a asp-action="AddOrEdite" asp-route-id="@item.IdVisit" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a>
-                        <a asp-action="Deletee" asp-route-id="@item.IdVisit" class="btn btn-danger" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash-o"></i>Delete</a>
-                        <a asp-action="DailyVisitsModel"class="btn btn-warning" ><i class="fa fa-file-text-o"></i>Models</a>
-                        </td>
-                    
-                    
-                </tr>
+                <td>
+                <td>
+                    <a asp-action="AddOrEdite" asp-route-id="@item.IdVisit" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a>
+                    <a asp-action="Deletee" asp-route-id="@item.IdVisit" class="btn btn-danger" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash-o"></i>Delete</a>
+                    <a asp-action="DailyVisitsModel" class="btn btn-warning"><i class="fa fa-file-text-o"></i>Models</a>
+                </td>
+
+
+            </tr>
             }
         </tbody>
     </table>

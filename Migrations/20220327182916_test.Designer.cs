@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Client.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220322134234_prod")]
-    partial class prod
+    [Migration("20220327182916_test")]
+    partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -326,64 +326,6 @@ namespace Client.Migrations
                     b.ToTable("AspNetRoleMenuPermission");
                 });
 
-            modelBuilder.Entity("CAP.Data.SammaryReport", b =>
-                {
-                    b.Property<int>("Idsammary")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ACCode")
-                        .HasColumnType("int");
-
-                    b.Property<double?>("Brandscodebrand")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ModelsCode")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OutletsIdOutlet")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("REFCode")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TvCode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("WmCode")
-                        .HasColumnType("int");
-
-                    b.HasKey("Idsammary");
-
-                    b.HasIndex("ACCode");
-
-                    b.HasIndex("Brandscodebrand");
-
-                    b.HasIndex("ModelsCode");
-
-                    b.HasIndex("OutletsIdOutlet");
-
-                    b.HasIndex("REFCode");
-
-                    b.HasIndex("TvCode");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("WmCode");
-
-                    b.ToTable("AspNetsammaryweekly");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("SammaryReport");
-                });
-
             modelBuilder.Entity("CAP.Data.Visits", b =>
                 {
                     b.Property<int>("IdVisit")
@@ -392,10 +334,16 @@ namespace Client.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Activity")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Article")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("Brandcodebrand")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Code")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -409,105 +357,35 @@ namespace Client.Migrations
                     b.Property<int?>("IdOutlet")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ModelsCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Presence")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(1000)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SalesA")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SalesQ")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("IdVisit");
 
-                    b.HasIndex("IdOutlet")
-                        .IsUnique()
-                        .HasFilter("[IdOutlet] IS NOT NULL");
+                    b.HasIndex("Brandcodebrand");
+
+                    b.HasIndex("IdOutlet");
+
+                    b.HasIndex("ModelsCode");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("AspNetVisit");
-                });
-
-            modelBuilder.Entity("CAP.Data.Visitsmonthly", b =>
-                {
-                    b.Property<int>("IdVisit")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Activity")
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<string>("Article")
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Entrytime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Exittime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("IdOutlet")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("IdVisit");
-
-                    b.HasIndex("IdOutlet")
-                        .IsUnique()
-                        .HasFilter("[IdOutlet] IS NOT NULL");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetVisitmonthly");
-                });
-
-            modelBuilder.Entity("CAP.Data.Visitsweekly", b =>
-                {
-                    b.Property<int>("IdVisit")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Activity")
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<string>("Article")
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Entrytime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTimeOffset>("Exittime")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<int?>("IdOutlet")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("IdVisit");
-
-                    b.HasIndex("IdOutlet")
-                        .IsUnique()
-                        .HasFilter("[IdOutlet] IS NOT NULL");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetVisitweekly");
                 });
 
             modelBuilder.Entity("CAP.Data.brands", b =>
@@ -524,24 +402,9 @@ namespace Client.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("VisitsIdVisit")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("VisitsmonthlyIdVisit")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("VisitsweeklyIdVisit")
-                        .HasColumnType("int");
-
                     b.HasKey("codebrand");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("VisitsIdVisit");
-
-                    b.HasIndex("VisitsmonthlyIdVisit");
-
-                    b.HasIndex("VisitsweeklyIdVisit");
 
                     b.ToTable("AspNetBrand");
                 });
@@ -556,20 +419,31 @@ namespace Client.Migrations
                     b.Property<string>("Availibility")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Brandcodebrand")
+                    b.Property<double?>("Brandcodebrand")
                         .HasColumnType("float");
 
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CodeBP")
-                        .HasColumnType("nvarchar(250)");
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Disc")
-                        .IsRequired()
+                    b.Property<string>("Dimension")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Display")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DryerCapa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EnergyClass")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Frosttype")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FrzCapa")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("IdOutlet")
@@ -581,26 +455,53 @@ namespace Client.Migrations
                     b.Property<string>("MarketShare")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("ModelName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<string>("OutterDisplay")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Programs")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("REFCapa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RPM")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Resolution")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SMART")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Segment")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShelfShare")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SizeCapacity")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Stock")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("VisitsmonthlyIdVisit")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("VisitsweeklyIdVisit")
-                        .HasColumnType("int");
+                    b.Property<string>("WaterDispenser")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Weeklysail")
                         .HasColumnType("nvarchar(max)");
@@ -611,17 +512,9 @@ namespace Client.Migrations
 
                     b.HasIndex("IdOutlet");
 
-                    b.HasIndex("IdVisit");
-
                     b.HasIndex("UserId");
 
-                    b.HasIndex("VisitsmonthlyIdVisit");
-
-                    b.HasIndex("VisitsweeklyIdVisit");
-
                     b.ToTable("AspNetModels");
-
-                    b.HasDiscriminator<string>("Disc").HasValue("models");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -732,214 +625,6 @@ namespace Client.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("CAP.Data.SammaryReportMonthly", b =>
-                {
-                    b.HasBaseType("CAP.Data.SammaryReport");
-
-                    b.Property<int>("IdSammaryReportMonthly")
-                        .HasColumnType("int");
-
-                    b.ToTable("AspNetsammaryweekly");
-
-                    b.HasDiscriminator().HasValue("SammaryReportMonthly");
-                });
-
-            modelBuilder.Entity("CAP.Data.SammaryReportWeekly", b =>
-                {
-                    b.HasBaseType("CAP.Data.SammaryReport");
-
-                    b.Property<int>("IdSammaryReportWeekly")
-                        .HasColumnType("int");
-
-                    b.ToTable("AspNetsammaryweekly");
-
-                    b.HasDiscriminator().HasValue("SammaryReportWeekly");
-                });
-
-            modelBuilder.Entity("CAP.Data.AC", b =>
-                {
-                    b.HasBaseType("CAP.Data.models");
-
-                    b.Property<int>("Classac")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Energeticclass")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Inverter")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Puissance")
-                        .HasColumnType("float");
-
-                    b.Property<string>("TypeAC")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("AspNetModels");
-
-                    b.HasDiscriminator().HasValue("AC");
-                });
-
-            modelBuilder.Entity("CAP.Data.DW", b =>
-                {
-                    b.HasBaseType("CAP.Data.models");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Encastrable")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Energeticefficiency")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Numberofcovers")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Promgramme")
-                        .HasColumnType("float");
-
-                    b.ToTable("AspNetModels");
-
-                    b.HasDiscriminator().HasValue("DW");
-                });
-
-            modelBuilder.Entity("CAP.Data.REF", b =>
-                {
-                    b.HasBaseType("CAP.Data.models");
-
-                    b.Property<double>("Capacity")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Class")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Color")
-                        .HasColumnName("REF_Color")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("EnergeticClassREf")
-                        .HasColumnType("float");
-
-                    b.Property<int>("Energy")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Frost")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Segment")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Segment2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Technology")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TypeREF2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Typeref")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Waterdispenser")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("AspNetModels");
-
-                    b.HasDiscriminator().HasValue("REF");
-                });
-
-            modelBuilder.Entity("CAP.Data.TV", b =>
-                {
-                    b.HasBaseType("CAP.Data.models");
-
-                    b.Property<int>("Class")
-                        .HasColumnName("TV_Class")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Form")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("HDMI")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Integrated_Receiver")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Resolution")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SegmentTV")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Size")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SizeCategory")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SmartTV")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TypeTV")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("USB")
-                        .HasColumnType("float");
-
-                    b.ToTable("AspNetModels");
-
-                    b.HasDiscriminator().HasValue("TV");
-                });
-
-            modelBuilder.Entity("CAP.Data.WM", b =>
-                {
-                    b.HasBaseType("CAP.Data.models");
-
-                    b.Property<double>("Capacity")
-                        .HasColumnName("WM_Capacity")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Class")
-                        .HasColumnName("WM_Class")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Color")
-                        .HasColumnName("WM_Color")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("DryerCapacity")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Drying")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Motor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SizeCategory")
-                        .HasColumnName("WM_SizeCategory")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Technology")
-                        .HasColumnName("WM_Technology")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TypeWM")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TypeWM2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("segementWM")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("AspNetModels");
-
-                    b.HasDiscriminator().HasValue("WM");
-                });
-
             modelBuilder.Entity("CAP.Data.NavigationMenu", b =>
                 {
                     b.HasOne("CAP.Data.NavigationMenu", "ParentNavigationMenu")
@@ -963,68 +648,19 @@ namespace Client.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CAP.Data.SammaryReport", b =>
-                {
-                    b.HasOne("CAP.Data.AC", "AC")
-                        .WithMany()
-                        .HasForeignKey("ACCode");
-
-                    b.HasOne("CAP.Data.brands", "Brands")
-                        .WithMany("SammaryReports")
-                        .HasForeignKey("Brandscodebrand");
-
-                    b.HasOne("CAP.Data.models", "Models")
-                        .WithMany()
-                        .HasForeignKey("ModelsCode");
-
-                    b.HasOne("CAP.Data.Outlets", "Outlets")
-                        .WithMany()
-                        .HasForeignKey("OutletsIdOutlet");
-
-                    b.HasOne("CAP.Data.REF", "REF")
-                        .WithMany()
-                        .HasForeignKey("REFCode");
-
-                    b.HasOne("CAP.Data.TV", "Tv")
-                        .WithMany()
-                        .HasForeignKey("TvCode");
-
-                    b.HasOne("CAP.Data.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.HasOne("CAP.Data.WM", "Wm")
-                        .WithMany()
-                        .HasForeignKey("WmCode");
-                });
-
             modelBuilder.Entity("CAP.Data.Visits", b =>
                 {
+                    b.HasOne("CAP.Data.brands", "Brand")
+                        .WithMany("Visitss")
+                        .HasForeignKey("Brandcodebrand");
+
                     b.HasOne("CAP.Data.Outlets", "Outlets")
-                        .WithOne("Visitss")
-                        .HasForeignKey("CAP.Data.Visits", "IdOutlet");
+                        .WithMany("Visitss")
+                        .HasForeignKey("IdOutlet");
 
-                    b.HasOne("CAP.Data.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("CAP.Data.Visitsmonthly", b =>
-                {
-                    b.HasOne("CAP.Data.Outlets", "Outlet")
-                        .WithOne("Visitssmonthly")
-                        .HasForeignKey("CAP.Data.Visitsmonthly", "IdOutlet");
-
-                    b.HasOne("CAP.Data.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("CAP.Data.Visitsweekly", b =>
-                {
-                    b.HasOne("CAP.Data.Outlets", "Outlets")
-                        .WithOne("Visitssweekly")
-                        .HasForeignKey("CAP.Data.Visitsweekly", "IdOutlet");
+                    b.HasOne("CAP.Data.models", "Models")
+                        .WithMany("Visitss")
+                        .HasForeignKey("ModelsCode");
 
                     b.HasOne("CAP.Data.ApplicationUser", "User")
                         .WithMany()
@@ -1036,47 +672,21 @@ namespace Client.Migrations
                     b.HasOne("CAP.Data.ApplicationUser", "User")
                         .WithMany("Brands")
                         .HasForeignKey("UserId");
-
-                    b.HasOne("CAP.Data.Visits", "Visits")
-                        .WithMany("Brand")
-                        .HasForeignKey("VisitsIdVisit");
-
-                    b.HasOne("CAP.Data.Visitsmonthly", "Visitsmonthly")
-                        .WithMany("Brand")
-                        .HasForeignKey("VisitsmonthlyIdVisit");
-
-                    b.HasOne("CAP.Data.Visitsweekly", "Visitsweekly")
-                        .WithMany("Brand")
-                        .HasForeignKey("VisitsweeklyIdVisit");
                 });
 
             modelBuilder.Entity("CAP.Data.models", b =>
                 {
                     b.HasOne("CAP.Data.brands", "Brand")
                         .WithMany("Models")
-                        .HasForeignKey("Brandcodebrand")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Brandcodebrand");
 
                     b.HasOne("CAP.Data.Outlets", "Outlets")
                         .WithMany()
                         .HasForeignKey("IdOutlet");
 
-                    b.HasOne("CAP.Data.Visits", "Visits")
-                        .WithMany("Models")
-                        .HasForeignKey("IdVisit");
-
                     b.HasOne("CAP.Data.ApplicationUser", "User")
                         .WithMany("Models")
                         .HasForeignKey("UserId");
-
-                    b.HasOne("CAP.Data.Visitsmonthly", "Visitsmonthly")
-                        .WithMany("Models")
-                        .HasForeignKey("VisitsmonthlyIdVisit");
-
-                    b.HasOne("CAP.Data.Visitsweekly", "Visitsweekly")
-                        .WithMany("Models")
-                        .HasForeignKey("VisitsweeklyIdVisit");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

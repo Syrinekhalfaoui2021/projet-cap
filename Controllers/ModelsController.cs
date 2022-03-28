@@ -61,7 +61,7 @@ namespace CAP.Controllers
 
 
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> AddOrEditModelsAsync(int id=0)
+        public async Task<IActionResult> AddOrEditModelsAsync(int id = 0)
         {
             ViewBag.Brands = await GetBrandsSelectList();
 
@@ -76,8 +76,8 @@ namespace CAP.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-       
-        public async Task<IActionResult> AddOrEditModelsAsync(int id, [Bind("Code,ModelName,Availibility,Price,MarketShare,ShelfShare,Stock,Weeklysail,Category,ProductType,SizeCapacity,REFCapa,DryerCapa,RPM,Segment,Resolution,SMART,Programs,Frosttype,Type,EnergyClass,Dimension,OutterDisplay,WaterDispenser")] models models)
+
+        public async Task<IActionResult> AddOrEditModels(int id, [Bind("Code,ModelName,Availibility,Price,MarketShare,ShelfShare,Stock,Weeklysail,Category,ProductType,SizeCapacity,REFCapa,DryerCapa,RPM,Segment,Resolution,SMART,Programs,Frosttype,Type,EnergyClass,Dimension,OutterDisplay,WaterDispenser")] models models)
         {
             ViewBag.Brands = await GetBrandsSelectList();
 
@@ -236,9 +236,7 @@ namespace CAP.Controllers
 
         }
 
-        [Authorize(Roles = "Admin")]
-        // GET: sammary reports 
-       
+    
 
         [Authorize(Roles = "Admin")]
 
@@ -358,10 +356,7 @@ namespace CAP.Controllers
 
         }
 
-        public IActionResult AddOrEditModels()
-        {
-            throw new NotImplementedException();
-        }
+      
         private async Task<List<SelectListItem>> GetBrandsSelectList()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);

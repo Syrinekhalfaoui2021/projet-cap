@@ -324,38 +324,6 @@ namespace Client.Migrations
                     b.ToTable("AspNetRoleMenuPermission");
                 });
 
-            modelBuilder.Entity("CAP.Data.SammaryReport", b =>
-                {
-                    b.Property<int>("Idsammary")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double?>("Brandscodebrand")
-                        .HasColumnType("float");
-
-                    b.Property<int?>("ModelsCode")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OutletsIdOutlet")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Idsammary");
-
-                    b.HasIndex("Brandscodebrand");
-
-                    b.HasIndex("ModelsCode");
-
-                    b.HasIndex("OutletsIdOutlet");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetsammaryweekly");
-                });
-
             modelBuilder.Entity("CAP.Data.Visits", b =>
                 {
                     b.Property<int>("IdVisit")
@@ -367,18 +335,15 @@ namespace Client.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Article")
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("Brandcodebrand")
                         .HasColumnType("float");
 
+                    b.Property<int?>("Code")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Entrytime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Exittime")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("IdOutlet")
@@ -387,11 +352,11 @@ namespace Client.Migrations
                     b.Property<int?>("ModelsCode")
                         .HasColumnType("int");
 
-                    b.Property<int>("Presence")
-                        .HasColumnType("int");
+                    b.Property<string>("Presence")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Remark")
-                        .HasColumnType("nvarchar(1000)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SalesA")
                         .HasColumnType("nvarchar(max)");
@@ -458,9 +423,6 @@ namespace Client.Migrations
                     b.Property<string>("Dimension")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Disc")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Display")
                         .HasColumnType("nvarchar(max)");
 
@@ -476,14 +438,17 @@ namespace Client.Migrations
                     b.Property<string>("FrzCapa")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("IdOutlet")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdVisit")
+                        .HasColumnType("int");
+
                     b.Property<string>("MarketShare")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ModelName")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("OutletsIdOutlet")
-                        .HasColumnType("int");
 
                     b.Property<string>("OutterDisplay")
                         .HasColumnType("nvarchar(max)");
@@ -537,7 +502,7 @@ namespace Client.Migrations
 
                     b.HasIndex("Brandcodebrand");
 
-                    b.HasIndex("OutletsIdOutlet");
+                    b.HasIndex("IdOutlet");
 
                     b.HasIndex("UserId");
 
@@ -675,29 +640,10 @@ namespace Client.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CAP.Data.SammaryReport", b =>
-                {
-                    b.HasOne("CAP.Data.brands", "Brands")
-                        .WithMany("SammaryReports")
-                        .HasForeignKey("Brandscodebrand");
-
-                    b.HasOne("CAP.Data.models", "Models")
-                        .WithMany()
-                        .HasForeignKey("ModelsCode");
-
-                    b.HasOne("CAP.Data.Outlets", "Outlets")
-                        .WithMany()
-                        .HasForeignKey("OutletsIdOutlet");
-
-                    b.HasOne("CAP.Data.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
             modelBuilder.Entity("CAP.Data.Visits", b =>
                 {
                     b.HasOne("CAP.Data.brands", "Brand")
-                        .WithMany("Visits")
+                        .WithMany("Visitss")
                         .HasForeignKey("Brandcodebrand");
 
                     b.HasOne("CAP.Data.Outlets", "Outlets")
@@ -705,7 +651,7 @@ namespace Client.Migrations
                         .HasForeignKey("IdOutlet");
 
                     b.HasOne("CAP.Data.models", "Models")
-                        .WithMany("Visits")
+                        .WithMany("Visitss")
                         .HasForeignKey("ModelsCode");
 
                     b.HasOne("CAP.Data.ApplicationUser", "User")
@@ -728,7 +674,7 @@ namespace Client.Migrations
 
                     b.HasOne("CAP.Data.Outlets", "Outlets")
                         .WithMany()
-                        .HasForeignKey("OutletsIdOutlet");
+                        .HasForeignKey("IdOutlet");
 
                     b.HasOne("CAP.Data.ApplicationUser", "User")
                         .WithMany("Models")

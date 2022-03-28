@@ -60,23 +60,32 @@ namespace CAP.Data
         public string OutterDisplay { get; set; }
         [DisplayName("Outter Display")]
         public string WaterDispenser { get; set; }
-        
-      
 
+
+        [ForeignKey("brands")]
+        public double? Brandcodebrand { get; set; }
+
+        [ForeignKey("Visits")]
+        public int? IdVisit { get; set; }
+
+        [ForeignKey("Outlets")]
+        public int? IdOutlet { get; set; }
 
 
 
         public string Display { get; set; }
-        [DisplayName("type")]
-        public string Disc { get; set; }
 
-        public virtual  Outlets Outlets { get; set; }
+
+        public virtual Outlets Outlets { get; set; }
         public virtual brands Brand { get; set; }
-        public virtual  Visits Visits { get; set; }
+        public ICollection<Visits> Visitss { get; set; }
 
 
 
         public virtual ApplicationUser User { get; set; }
+
+
+      
 
 
     }

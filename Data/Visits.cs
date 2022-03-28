@@ -5,76 +5,64 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
 
-
 namespace CAP.Data
 {
     [Table(name: "AspNetVisit")]
 
-    public class Visits 
+    public class Visits
     {
-     
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [DisplayName("Code")]
 
         public int IdVisit { get; set; }
         [DisplayName("Date")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
 
         public DateTime Date { get; set; }
 
-       
-     
-
-        [DisplayName("Entry time")]
 
 
-        public DateTime Entrytime { get; set; }
+
         public Visits()
         {
-            Entrytime = DateTime.Now;
+          
             Date = DateTime.Now;
-            Exittime = DateTime.Now;
+          
 
         }
-        [DisplayName("Exit time")]
 
-        public DateTime Exittime { get; set; }
-        [DisplayName("Remark")]
 
-        [Column(TypeName = "nvarchar(1000)")]
         public string Remark { get; set; }
-        [Column(TypeName = "nvarchar(250)")]
+        public string Presence { get; set; }
+        [DisplayName("Sales(Q)")]
+        public string SalesQ { get; set; }
+        [DisplayName("Sales(Q)")]
+
+        public string SalesA { get; set; }
+
         [DisplayName("Article")]
 
         public string Article { get; set; }
-      
         [DisplayName("Activity")]
 
         public string Activity { get; set; }
-       
-        public int Presence { get; set; }
-        [DisplayName("Sales(Q)")]
-        public string SalesQ { get; set; }
-        [DisplayName("Sales(A)")]
 
-        public string SalesA { get; set; }
-    [ForeignKey("Outlets")]
+        [ForeignKey("Outlets")]
         public int? IdOutlet { get; set; }
-        [ForeignKey("models")]
-        public int? Code { get; set; }
-        public  Outlets Outlets { get; set; }
-        public brands Brand { get; set; }
-        public models Models { get; set; }
+        public virtual Outlets Outlets { get; set; }
+        public virtual brands Brand { get; set; }
+        public  virtual models Models { get; set; }
         public virtual ApplicationUser User { get; set; }
-
-            public int GetWeekNumber()
+        public int GetWeekNumber()
         {
             CultureInfo ciCurr = CultureInfo.CurrentCulture;
             int weekNum = ciCurr.Calendar.GetWeekOfYear(this.Date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
             return weekNum;
         }
-      
+
+        [ForeignKey("brands")]
+        public double? Brandcodebrand { get; set; }
+        [ForeignKey("models")]
+        public int? Code { get; set; }
     }
 }

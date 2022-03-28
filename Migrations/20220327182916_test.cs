@@ -114,6 +114,26 @@ namespace Client.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AspNetBrand",
+                columns: table => new
+                {
+                    codebrand = table.Column<double>(nullable: false),
+                    Namebrand = table.Column<string>(nullable: true),
+                    Color = table.Column<string>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetBrand", x => x.codebrand);
+                    table.ForeignKey(
+                        name: "FK_AspNetBrand_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetOutlet",
                 columns: table => new
                 {
@@ -263,209 +283,41 @@ namespace Client.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetVisit",
-                columns: table => new
-                {
-                    IdVisit = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Date = table.Column<DateTime>(nullable: false),
-                    Entrytime = table.Column<DateTime>(nullable: false),
-                    Exittime = table.Column<DateTime>(nullable: false),
-                    Remark = table.Column<string>(type: "nvarchar(1000)", nullable: true),
-                    Article = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    Activity = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    IdOutlet = table.Column<int>(nullable: true),
-                    UserId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetVisit", x => x.IdVisit);
-                    table.ForeignKey(
-                        name: "FK_AspNetVisit_AspNetOutlet_IdOutlet",
-                        column: x => x.IdOutlet,
-                        principalTable: "AspNetOutlet",
-                        principalColumn: "IdOutlet",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetVisit_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetVisitmonthly",
-                columns: table => new
-                {
-                    IdVisit = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Date = table.Column<DateTime>(nullable: false),
-                    Entrytime = table.Column<DateTime>(nullable: false),
-                    Exittime = table.Column<DateTime>(nullable: false),
-                    Remark = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    Article = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    Activity = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    IdOutlet = table.Column<int>(nullable: true),
-                    UserId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetVisitmonthly", x => x.IdVisit);
-                    table.ForeignKey(
-                        name: "FK_AspNetVisitmonthly_AspNetOutlet_IdOutlet",
-                        column: x => x.IdOutlet,
-                        principalTable: "AspNetOutlet",
-                        principalColumn: "IdOutlet",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetVisitmonthly_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetVisitweekly",
-                columns: table => new
-                {
-                    IdVisit = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Date = table.Column<DateTime>(nullable: false),
-                    Entrytime = table.Column<DateTime>(nullable: false),
-                    Exittime = table.Column<DateTimeOffset>(nullable: false),
-                    Remark = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    Article = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    Activity = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    IdOutlet = table.Column<int>(nullable: true),
-                    UserId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetVisitweekly", x => x.IdVisit);
-                    table.ForeignKey(
-                        name: "FK_AspNetVisitweekly_AspNetOutlet_IdOutlet",
-                        column: x => x.IdOutlet,
-                        principalTable: "AspNetOutlet",
-                        principalColumn: "IdOutlet",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetVisitweekly_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetBrand",
-                columns: table => new
-                {
-                    codebrand = table.Column<double>(nullable: false),
-                    Namebrand = table.Column<string>(nullable: true),
-                    Color = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: true),
-                    VisitsIdVisit = table.Column<int>(nullable: true),
-                    VisitsmonthlyIdVisit = table.Column<int>(nullable: true),
-                    VisitsweeklyIdVisit = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetBrand", x => x.codebrand);
-                    table.ForeignKey(
-                        name: "FK_AspNetBrand_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetBrand_AspNetVisit_VisitsIdVisit",
-                        column: x => x.VisitsIdVisit,
-                        principalTable: "AspNetVisit",
-                        principalColumn: "IdVisit",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetBrand_AspNetVisitmonthly_VisitsmonthlyIdVisit",
-                        column: x => x.VisitsmonthlyIdVisit,
-                        principalTable: "AspNetVisitmonthly",
-                        principalColumn: "IdVisit",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetBrand_AspNetVisitweekly_VisitsweeklyIdVisit",
-                        column: x => x.VisitsweeklyIdVisit,
-                        principalTable: "AspNetVisitweekly",
-                        principalColumn: "IdVisit",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetModels",
                 columns: table => new
                 {
                     Code = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CodeBP = table.Column<string>(type: "nvarchar(250)", nullable: true),
-                    Name = table.Column<string>(nullable: true),
+                    ModelName = table.Column<string>(nullable: true),
                     Availibility = table.Column<string>(nullable: true),
-                    Price = table.Column<double>(nullable: false),
+                    Price = table.Column<string>(nullable: true),
                     MarketShare = table.Column<string>(nullable: true),
                     ShelfShare = table.Column<string>(nullable: true),
                     Stock = table.Column<string>(nullable: true),
                     Weeklysail = table.Column<string>(nullable: true),
                     Category = table.Column<string>(nullable: true),
-                    Brandcodebrand = table.Column<double>(nullable: false),
+                    ProductType = table.Column<string>(nullable: true),
+                    SizeCapacity = table.Column<string>(nullable: true),
+                    REFCapa = table.Column<string>(nullable: true),
+                    FrzCapa = table.Column<string>(nullable: true),
+                    DryerCapa = table.Column<string>(nullable: true),
+                    RPM = table.Column<string>(nullable: true),
+                    Segment = table.Column<string>(nullable: true),
+                    Resolution = table.Column<string>(nullable: true),
+                    Color = table.Column<string>(nullable: true),
+                    SMART = table.Column<string>(nullable: true),
+                    Programs = table.Column<string>(nullable: true),
+                    Frosttype = table.Column<string>(nullable: true),
+                    Type = table.Column<string>(nullable: true),
+                    EnergyClass = table.Column<string>(nullable: true),
+                    Dimension = table.Column<string>(nullable: true),
+                    OutterDisplay = table.Column<string>(nullable: true),
+                    WaterDispenser = table.Column<string>(nullable: true),
+                    Brandcodebrand = table.Column<double>(nullable: true),
                     IdVisit = table.Column<int>(nullable: true),
                     IdOutlet = table.Column<int>(nullable: true),
                     Display = table.Column<string>(nullable: true),
-                    Disc = table.Column<string>(nullable: false),
-                    VisitsweeklyIdVisit = table.Column<int>(nullable: true),
-                    VisitsmonthlyIdVisit = table.Column<int>(nullable: true),
-                    UserId = table.Column<string>(nullable: true),
-                    TypeAC = table.Column<string>(nullable: true),
-                    Inverter = table.Column<string>(nullable: true),
-                    Puissance = table.Column<double>(nullable: true),
-                    Classac = table.Column<int>(nullable: true),
-                    Energeticclass = table.Column<string>(nullable: true),
-                    Encastrable = table.Column<string>(nullable: true),
-                    Color = table.Column<string>(nullable: true),
-                    Promgramme = table.Column<double>(nullable: true),
-                    Numberofcovers = table.Column<double>(nullable: true),
-                    Energeticefficiency = table.Column<double>(nullable: true),
-                    Typeref = table.Column<string>(nullable: true),
-                    REF_Color = table.Column<string>(nullable: true),
-                    Segment = table.Column<string>(nullable: true),
-                    Capacity = table.Column<double>(nullable: true),
-                    Energy = table.Column<int>(nullable: true),
-                    Class = table.Column<string>(nullable: true),
-                    Technology = table.Column<string>(nullable: true),
-                    Frost = table.Column<string>(nullable: true),
-                    Waterdispenser = table.Column<string>(nullable: true),
-                    TypeREF2 = table.Column<string>(nullable: true),
-                    Segment2 = table.Column<string>(nullable: true),
-                    EnergeticClassREf = table.Column<double>(nullable: true),
-                    TV_Class = table.Column<int>(nullable: true),
-                    TypeTV = table.Column<string>(nullable: true),
-                    Size = table.Column<string>(nullable: true),
-                    SizeCategory = table.Column<int>(nullable: true),
-                    Resolution = table.Column<string>(nullable: true),
-                    Form = table.Column<string>(nullable: true),
-                    SmartTV = table.Column<string>(nullable: true),
-                    SegmentTV = table.Column<string>(nullable: true),
-                    Integrated_Receiver = table.Column<string>(nullable: true),
-                    HDMI = table.Column<double>(nullable: true),
-                    USB = table.Column<double>(nullable: true),
-                    TypeWM = table.Column<string>(nullable: true),
-                    TypeWM2 = table.Column<string>(nullable: true),
-                    WM_Color = table.Column<string>(nullable: true),
-                    WM_SizeCategory = table.Column<int>(nullable: true),
-                    segementWM = table.Column<string>(nullable: true),
-                    WM_Capacity = table.Column<double>(nullable: true),
-                    Drying = table.Column<string>(nullable: true),
-                    DryerCapacity = table.Column<double>(nullable: true),
-                    WM_Technology = table.Column<string>(nullable: true),
-                    WM_Class = table.Column<string>(nullable: true),
-                    Motor = table.Column<string>(nullable: true)
+                    UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -475,7 +327,7 @@ namespace Client.Migrations
                         column: x => x.Brandcodebrand,
                         principalTable: "AspNetBrand",
                         principalColumn: "codebrand",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AspNetModels_AspNetOutlet_IdOutlet",
                         column: x => x.IdOutlet,
@@ -483,99 +335,60 @@ namespace Client.Migrations
                         principalColumn: "IdOutlet",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_AspNetModels_AspNetVisit_IdVisit",
-                        column: x => x.IdVisit,
-                        principalTable: "AspNetVisit",
-                        principalColumn: "IdVisit",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_AspNetModels_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetModels_AspNetVisitmonthly_VisitsmonthlyIdVisit",
-                        column: x => x.VisitsmonthlyIdVisit,
-                        principalTable: "AspNetVisitmonthly",
-                        principalColumn: "IdVisit",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetModels_AspNetVisitweekly_VisitsweeklyIdVisit",
-                        column: x => x.VisitsweeklyIdVisit,
-                        principalTable: "AspNetVisitweekly",
-                        principalColumn: "IdVisit",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetsammaryweekly",
+                name: "AspNetVisit",
                 columns: table => new
                 {
-                    Idsammary = table.Column<int>(nullable: false)
+                    IdVisit = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(nullable: true),
+                    Date = table.Column<DateTime>(nullable: false),
+                    Entrytime = table.Column<DateTime>(nullable: false),
+                    Exittime = table.Column<DateTime>(nullable: false),
+                    Remark = table.Column<string>(nullable: true),
+                    Presence = table.Column<string>(nullable: true),
+                    SalesQ = table.Column<string>(nullable: true),
+                    SalesA = table.Column<string>(nullable: true),
+                    Article = table.Column<string>(nullable: true),
+                    Activity = table.Column<string>(nullable: true),
+                    IdOutlet = table.Column<int>(nullable: true),
                     ModelsCode = table.Column<int>(nullable: true),
-                    OutletsIdOutlet = table.Column<int>(nullable: true),
-                    Brandscodebrand = table.Column<double>(nullable: true),
-                    TvCode = table.Column<int>(nullable: true),
-                    WmCode = table.Column<int>(nullable: true),
-                    REFCode = table.Column<int>(nullable: true),
-                    ACCode = table.Column<int>(nullable: true),
-                    Discriminator = table.Column<string>(nullable: false),
-                    IdSammaryReportMonthly = table.Column<int>(nullable: true),
-                    IdSammaryReportWeekly = table.Column<int>(nullable: true)
+                    UserId = table.Column<string>(nullable: true),
+                    Brandcodebrand = table.Column<double>(nullable: true),
+                    Code = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetsammaryweekly", x => x.Idsammary);
+                    table.PrimaryKey("PK_AspNetVisit", x => x.IdVisit);
                     table.ForeignKey(
-                        name: "FK_AspNetsammaryweekly_AspNetModels_ACCode",
-                        column: x => x.ACCode,
-                        principalTable: "AspNetModels",
-                        principalColumn: "Code",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetsammaryweekly_AspNetBrand_Brandscodebrand",
-                        column: x => x.Brandscodebrand,
+                        name: "FK_AspNetVisit_AspNetBrand_Brandcodebrand",
+                        column: x => x.Brandcodebrand,
                         principalTable: "AspNetBrand",
                         principalColumn: "codebrand",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_AspNetsammaryweekly_AspNetModels_ModelsCode",
+                        name: "FK_AspNetVisit_AspNetOutlet_IdOutlet",
+                        column: x => x.IdOutlet,
+                        principalTable: "AspNetOutlet",
+                        principalColumn: "IdOutlet",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AspNetVisit_AspNetModels_ModelsCode",
                         column: x => x.ModelsCode,
                         principalTable: "AspNetModels",
                         principalColumn: "Code",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_AspNetsammaryweekly_AspNetOutlet_OutletsIdOutlet",
-                        column: x => x.OutletsIdOutlet,
-                        principalTable: "AspNetOutlet",
-                        principalColumn: "IdOutlet",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetsammaryweekly_AspNetModels_REFCode",
-                        column: x => x.REFCode,
-                        principalTable: "AspNetModels",
-                        principalColumn: "Code",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetsammaryweekly_AspNetModels_TvCode",
-                        column: x => x.TvCode,
-                        principalTable: "AspNetModels",
-                        principalColumn: "Code",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetsammaryweekly_AspNetUsers_UserId",
+                        name: "FK_AspNetVisit_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetsammaryweekly_AspNetModels_WmCode",
-                        column: x => x.WmCode,
-                        principalTable: "AspNetModels",
-                        principalColumn: "Code",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -583,21 +396,6 @@ namespace Client.Migrations
                 name: "IX_AspNetBrand_UserId",
                 table: "AspNetBrand",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetBrand_VisitsIdVisit",
-                table: "AspNetBrand",
-                column: "VisitsIdVisit");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetBrand_VisitsmonthlyIdVisit",
-                table: "AspNetBrand",
-                column: "VisitsmonthlyIdVisit");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetBrand_VisitsweeklyIdVisit",
-                table: "AspNetBrand",
-                column: "VisitsweeklyIdVisit");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetModels_Brandcodebrand",
@@ -610,24 +408,9 @@ namespace Client.Migrations
                 column: "IdOutlet");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetModels_IdVisit",
-                table: "AspNetModels",
-                column: "IdVisit");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_AspNetModels_UserId",
                 table: "AspNetModels",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetModels_VisitsmonthlyIdVisit",
-                table: "AspNetModels",
-                column: "VisitsmonthlyIdVisit");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetModels_VisitsweeklyIdVisit",
-                table: "AspNetModels",
-                column: "VisitsweeklyIdVisit");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetNavigationMenu_ParentMenuId",
@@ -657,46 +440,6 @@ namespace Client.Migrations
                 filter: "[NormalizedName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetsammaryweekly_ACCode",
-                table: "AspNetsammaryweekly",
-                column: "ACCode");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetsammaryweekly_Brandscodebrand",
-                table: "AspNetsammaryweekly",
-                column: "Brandscodebrand");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetsammaryweekly_ModelsCode",
-                table: "AspNetsammaryweekly",
-                column: "ModelsCode");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetsammaryweekly_OutletsIdOutlet",
-                table: "AspNetsammaryweekly",
-                column: "OutletsIdOutlet");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetsammaryweekly_REFCode",
-                table: "AspNetsammaryweekly",
-                column: "REFCode");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetsammaryweekly_TvCode",
-                table: "AspNetsammaryweekly",
-                column: "TvCode");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetsammaryweekly_UserId",
-                table: "AspNetsammaryweekly",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetsammaryweekly_WmCode",
-                table: "AspNetsammaryweekly",
-                column: "WmCode");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
                 table: "AspNetUserClaims",
                 column: "UserId");
@@ -724,39 +467,23 @@ namespace Client.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AspNetVisit_Brandcodebrand",
+                table: "AspNetVisit",
+                column: "Brandcodebrand");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AspNetVisit_IdOutlet",
                 table: "AspNetVisit",
-                column: "IdOutlet",
-                unique: true,
-                filter: "[IdOutlet] IS NOT NULL");
+                column: "IdOutlet");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetVisit_ModelsCode",
+                table: "AspNetVisit",
+                column: "ModelsCode");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetVisit_UserId",
                 table: "AspNetVisit",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetVisitmonthly_IdOutlet",
-                table: "AspNetVisitmonthly",
-                column: "IdOutlet",
-                unique: true,
-                filter: "[IdOutlet] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetVisitmonthly_UserId",
-                table: "AspNetVisitmonthly",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetVisitweekly_IdOutlet",
-                table: "AspNetVisitweekly",
-                column: "IdOutlet",
-                unique: true,
-                filter: "[IdOutlet] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetVisitweekly_UserId",
-                table: "AspNetVisitweekly",
                 column: "UserId");
         }
 
@@ -767,9 +494,6 @@ namespace Client.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleMenuPermission");
-
-            migrationBuilder.DropTable(
-                name: "AspNetsammaryweekly");
 
             migrationBuilder.DropTable(
                 name: "AspNetUserClaims");
@@ -784,25 +508,19 @@ namespace Client.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "AspNetNavigationMenu");
+                name: "AspNetVisit");
 
             migrationBuilder.DropTable(
-                name: "AspNetModels");
+                name: "AspNetNavigationMenu");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "AspNetModels");
+
+            migrationBuilder.DropTable(
                 name: "AspNetBrand");
-
-            migrationBuilder.DropTable(
-                name: "AspNetVisit");
-
-            migrationBuilder.DropTable(
-                name: "AspNetVisitmonthly");
-
-            migrationBuilder.DropTable(
-                name: "AspNetVisitweekly");
 
             migrationBuilder.DropTable(
                 name: "AspNetOutlet");
