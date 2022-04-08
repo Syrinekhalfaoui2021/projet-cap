@@ -71,6 +71,8 @@ namespace CAP.Data
         [ForeignKey("Outlets")]
         public int? IdOutlet { get; set; }
 
+        [ForeignKey("User")]
+        public string UserId { get; set; }
 
 
         public string Display { get; set; }

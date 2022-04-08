@@ -44,6 +44,11 @@
 
                     @Html.DropDownList("Users", ViewBag.Users as IEnumerable<SelectListItem>, htmlAttributes: new { @class = "form-control", @placeholder = "Field Officer" })
                 </div>
+                <div class="col-md-6">
+                   
+
+                    @Html.DropDownList("Models", ViewBag.Models as IEnumerable<SelectListItem>, htmlAttributes: new { @class = "form-control" })
+                </div>
             </div>
             <div class="col-md-push-4">
                 <button type="submit" name="searchvisit" id="search-btn" class="btn btn-custon-rounded-three btn-danger">

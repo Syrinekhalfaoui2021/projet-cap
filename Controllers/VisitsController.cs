@@ -127,6 +127,30 @@ namespace CAP.Controllers
                         })
                         .ToList();
         }
+        private async Task<List<SelectListItem>> GetModelsSelectList()
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            if (await _userManager.IsInRoleAsync(user, "Admin"))
+            {
+                return _context.Modelss.ToList()
+                        .Select(x => new SelectListItem
+                        {
+                            Text = x.ProductType,
+                            Value = x.Code.ToString(),
+                            Selected = false
+                        })
+                        .ToList();
+            }
+            return _context.Modelss.ToList()
+                        .Where(x => x.UserId == user.Id)
+                        .Select(x => new SelectListItem
+                        {
+                            Text = x.ProductType,
+                            Value = x.Code.ToString(),
+                            Selected = false
+                        })
+                        .ToList();
+        }
 
         public async Task<IActionResult> AddOrEdite(int id = 0)
         {
@@ -268,9 +292,19 @@ namespace CAP.Controllers
                 datavisit = _context.Visits
                     .ToList()
                     .Where(x =>
+                      x.Outlets.Account.Contains(searchvisit) ||
+                      x.User.FirstName.Contains(searchvisit) ||
+                      x.User.LastName.Contains(searchvisit) ||
+                        x.Outlets.City.Contains(searchvisit) ||
+                        x.Models.ModelName.Contains(searchvisit) ||
+                        x.Brand.Namebrand.Contains(searchvisit) ||
+                        (x.Models != null && x.Models.ProductType == searchvisit) ||
+
                         (x.User != null && x.User.UserName == searchvisit) ||
 
                         (x.Date >= startDate && x.Date <= endDate) ||
+
+
                         (x.User != null && names.Length > 2 &&
                             String.Equals(x.User.FirstName, names[0], StringComparison.OrdinalIgnoreCase) &&
                             String.Equals(x.User.FirstName, names[1], StringComparison.OrdinalIgnoreCase))

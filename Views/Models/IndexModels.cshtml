@@ -52,13 +52,17 @@
     <thead>
         <tr>
             <th>
+                Code
+                
+            </th>
+            <th>
                 Brand
             </th>
             <th>
-                Code
-            </th>
-            <th>
                 Name
+            </th>
+                          
+            <th> Product Type
             </th>
             <th>
                 Type
@@ -73,24 +77,29 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Brand.Namebrand)
-                </td>
+                <td>                   
+                @Html.DisplayFor(modelItem => item.Code)
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Code)
                 </td>
+                <td>
+               @Html.DisplayFor(modelItem => item.Brand.Namebrand)
+               </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ModelName)
                 </td>
                 <td>
+                @Html.DisplayFor(modelItem => item.ProductType)
+
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Type)
                 </td>
+
                 <td>
                     <a asp-action="AddOrEditModels" asp-route-id="@item.Code" class="btn btn-block btn-success">Edit</a>
                     <a asp-action="DeleteModels" asp-route-id="@item.Code" class="btn btn-block btn-danger" onclick="return confirm('Are you sure to delete this record?')">Delete</a>
                 </td>
-            </tr>
+          </tr>
         }
     </tbody>
 </table>

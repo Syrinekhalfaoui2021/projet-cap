@@ -215,9 +215,27 @@ namespace CAP.Controllers
                     .Where(x =>
                         x.Account.Contains(search) ||
                         (x.User != null && x.User.UserName == search) ||
-                        x.Zone.Contains(search) ||
-                        x.Delegation.Contains(search) ||
-                        x.City.Contains(search)
+                        x.Estann.Contains(search) ||
+                        x.AVMonthly.Contains(search) ||
+                        x.TVDisplay.Contains(search)||
+                         x.REFDisplay.Contains(search) ||
+                          x.RACDisplay.Contains(search) || 
+                          x.WMDisplay.Contains(search) || 
+                          x.Displaystatus.Contains(search) || 
+                          x.DisplayPriority.Contains(search) ||
+                          x.SIS.Contains(search) ||
+                          x.SODIG.Contains(search) ||
+                          x.CONDOR.Contains(search) || 
+                          x.A2C.Contains(search) ||
+                          x.PromoterRemarks.Contains(search) ||
+                          x.POSName.Contains(search) ||
+                           x.Compte.Contains(search) ||
+                          x.Type.Contains(search) ||
+                          x.Class.Contains(search) ||
+                          x.Activity.Contains(search) ||
+                          x.Zone.Contains(search) ||
+                          x.StoreClass.Contains(search) 
+
                     ).ToListAsync()
                     .ConfigureAwait(false);
             }
